@@ -1,0 +1,11 @@
+.container {
+  margin: auto 0;
+}
+.body {
+  width: 70%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.content {
+  margin-top: 100px;
+}
