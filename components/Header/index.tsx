@@ -22,7 +22,7 @@ function Header() {
         <span>
           <Link href="/">Zhuxb&apos;s Blog</Link>
           <Image
-            src={mode == "light" ? SunIcon : MoonIcon}
+            src={mode != "dark" ? SunIcon : MoonIcon}
             alt=""
             width={50}
             height={50}
@@ -30,7 +30,6 @@ function Header() {
             onClick={switchMode}
           ></Image>
         </span>
-        {/* <img src="" alt=""> */}
       </div>
       <div className={styles.menu}>
         <span>

@@ -1,0 +1,14 @@
+.home {
+  display: flex;
+}
+.intro {
+  flex: 1;
+}
+.posts {
+  flex: 3;
+}
+.post {
+  margin: 20px;
+  padding: 10px;
+  border: solid 3px var(--color);
+}
