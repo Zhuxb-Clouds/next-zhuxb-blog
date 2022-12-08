@@ -1,4 +1,3 @@
-import Layout from "../components/layout";
 import Head from "next/head";
 
 export default function homePage() {
@@ -7,9 +6,7 @@ export default function homePage() {
       <Head>
         <title>Zhuxb&apos;s blog</title>
       </Head>
-      <Layout>
-        <div></div>
-      </Layout>
+      <div></div>
     </div>
   );
 }

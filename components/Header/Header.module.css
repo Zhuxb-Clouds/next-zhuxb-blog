@@ -54,3 +54,20 @@
   font-size: 24px;
   text-align: center;
 }
+
+.svg {
+  padding: 10px;
+  position: relative;
+  margin: 0 10px;
+  bottom: -10px;
+  fill: #000;
+}
+
+@media (prefers-color-scheme: dark) {
+  .header {
+    background-color: #1d1d1d;
+  }
+  .svg {
+    fill: #fff;
+  }
+}
