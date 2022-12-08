@@ -5,12 +5,28 @@
   src: url(./SmileySans-Oblique.ttf.woff2);
 }
 
+:root[mode="dark"] {
+  --bg-color: #1d1d1d;
+  --color: #fff;
+  --selection-bg: #d3d3d3;
+  --selection-color: #242424;
+}
+:root,
+:root[mode="light"] {
+  --bg-color: #fff;
+  --color: #1d1d1d;
+  --selection-bg: #242424;
+  --selection-color: #d3d3d3;
+}
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: Lora, Smiley sans;
   font-size: 20px;
+  background-color: var(--bg-color);
+  color: var(--color);
+  transition: all 0.2s;
 }
 
 a {
@@ -22,15 +38,6 @@ a {
   box-sizing: border-box;
 }
 ::selection {
-  background: #3e3e3e;
-  color: #d3d3d3;
+  background: var(--selection-bg);
+  color: var(--selection-color);
 }
-/* @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
-} */

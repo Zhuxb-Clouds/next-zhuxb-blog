@@ -11,7 +11,9 @@
   left: 0;
   right: 0;
   font-size: 30px;
-  background-color: #fff;
+  background-color: var(--bg-color);
+  color: var(--color);
+  transition: all 0.2s;
 }
 .title {
   cursor: pointer;
@@ -61,13 +63,4 @@
   margin: 0 10px;
   bottom: -10px;
   fill: #000;
-}
-
-@media (prefers-color-scheme: dark) {
-  .header {
-    background-color: #1d1d1d;
-  }
-  .svg {
-    fill: #fff;
-  }
 }

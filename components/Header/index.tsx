@@ -6,14 +6,15 @@ import React, { useState } from "react";
 import SunIcon from "../../public/sun.svg";
 import MoonIcon from "../../public/moon.svg";
 
+import { useSelector, useDispatch } from "react-redux";
+import { setDark, setLight } from "../../store/darkSlice";
+
 function Header() {
-  const [dark, setDark] = useState(false);
+  const { value: mode } = useSelector((store: any) => store.dark);
+  const dispatch = useDispatch();
   const switchMode = () => {
-    if (!dark) {
-      setDark(true);
-    } else {
-      setDark(false);
-    }
+    console.log("dark", mode);
+    mode == "dark" ? dispatch(setLight()) : dispatch(setDark());
   };
   return (
     <div className={styles.header}>
@@ -21,7 +22,7 @@ function Header() {
         <span>
           <Link href="/">Zhuxb&apos;s Blog</Link>
           <Image
-            src={dark ? SunIcon : MoonIcon}
+            src={mode == "light" ? SunIcon : MoonIcon}
             alt=""
             width={50}
             height={50}
