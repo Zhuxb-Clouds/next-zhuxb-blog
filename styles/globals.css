@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css?family=Lora");
 @import url("https://fonts.googleapis.com/css?family=Noto+Serif+SC:wght@300;400;500;600;700");
+@import url("https://fonts.googleapis.com/css?family=Lora");
 @font-face {
   font-family: Smiley sans;
   src: url(./SmileySans-Oblique.ttf.woff2);
@@ -22,7 +22,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: Lora, Smiley sans;
+  font-family: Smiley sans;
   font-size: 20px;
   background-color: var(--bg-color);
   color: var(--color);
@@ -40,4 +40,7 @@ a {
 ::selection {
   background: var(--selection-bg);
   color: var(--selection-color);
+}
+code {
+  font-family: monospace;
 }

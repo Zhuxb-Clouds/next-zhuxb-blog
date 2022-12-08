@@ -6,7 +6,7 @@ import Layout from "../../components/layout";
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote";
 // 引入代码高亮css
 import "prismjs/themes/prism-okaidia.min.css";
-
+import style from "./post.module.css";
 interface Props {
   postData: {
     title: string;
@@ -21,11 +21,11 @@ export default function Post({ postData }: Props) {
       <Head>
         <title>{postData.title}</title>
       </Head>
-      <h1 className="post-title">{postData.title}</h1>
+      <h1 className={style.title}>{postData.title}</h1>
 
       <Date dateString={postData.date} />
 
-      <article className="post-content">
+      <article className={style.content}>
         <MDXRemote {...postData.content} />
       </article>
     </Layout>

@@ -1,0 +1,6 @@
+.post {
+  margin: 20px;
+  padding: 10px;
+  border: solid 3px var(--color);
+  background-color: var(--bg-color);
+}

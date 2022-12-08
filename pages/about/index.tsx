@@ -1,3 +1,4 @@
+import Head from "next/head";
 function about() {
   return (
     <div>

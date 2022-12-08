@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import store from "../store/index";
 
 import "../styles/globals.css";
+import "../styles/post.css";
 import { setEnv } from "../store/darkSlice";
 import { useEffect } from "react";
 
