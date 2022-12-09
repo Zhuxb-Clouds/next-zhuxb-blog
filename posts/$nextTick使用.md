@@ -1,6 +1,7 @@
 ---
 title: "Vue：$nextTick使用"
 date: "2022-08-08"
+tag: "Vue"
 ---
 
 # 官方文档

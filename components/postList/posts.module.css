@@ -4,3 +4,11 @@
   border: solid 3px var(--color);
   background-color: var(--bg-color);
 }
+.span {
+  display: flex;
+  justify-content: space-between;
+}
+.tags {
+  display: flex;
+  justify-content: flex-start;
+}
