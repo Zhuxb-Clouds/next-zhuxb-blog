@@ -27,9 +27,7 @@ const posts = ({ postsData }: postsData) => {
                 <Tag tagName={tag} key={key} />
               ))}
             </div>
-            <small className={style.time}>
-              <Date dateString={date} />
-            </small>
+            <Date dateString={date} />
           </span>
         </div>
       ))}

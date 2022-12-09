@@ -7,8 +7,10 @@
 .span {
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
 }
 .tags {
   display: flex;
   justify-content: flex-start;
+  margin: 10px 0 0 0;
 }
