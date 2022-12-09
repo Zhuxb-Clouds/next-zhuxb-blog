@@ -2,6 +2,9 @@ import Head from "next/head";
 function about() {
   return (
     <div>
+      <Head>
+        <title>About - Zhuxb&apos; Blog</title>
+      </Head>
       <h2 className="title">About</h2>
       <p>
         Hi, 我是 <strong>朱仙变</strong> 。

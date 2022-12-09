@@ -7,6 +7,9 @@ import PostList, { postsData } from "../../components/postList";
 const posts: NextPage<postsData> = ({ postsData }) => {
   return (
     <div>
+      <Head>
+        <title>Post - Zhuxb&apos; Blog</title>
+      </Head>
       <p>所有文章</p>
       <PostList postsData={postsData} />
     </div>

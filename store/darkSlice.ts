@@ -11,10 +11,6 @@ const darkSlice = createSlice({
     sysMode: false
   },
   reducers: {
-    setAuto: state => {
-      state.html.setAttribute("mode", state.sysMode ? "dark" : "light");
-      state.value = 'auto'
-    },
     setLight: state => {
       state.html.setAttribute("mode", "light");
       state.value = 'light'
@@ -27,10 +23,12 @@ const darkSlice = createSlice({
     setEnv: (state, { payload }) => {
       state.html = payload.document.documentElement
       state.sysMode = payload.window.matchMedia("(prefers-color-scheme: dark)").matches
+      state.html.setAttribute("mode", state.sysMode ? "dark" : "light");
+      state.value = state.sysMode ? 'dark' : 'light'
     }
   }
 })
-export const { setAuto, setLight, setDark, setEnv } = darkSlice.actions
+export const { setLight, setDark, setEnv } = darkSlice.actions
 
 export default darkSlice.reducer
 
