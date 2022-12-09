@@ -15,7 +15,7 @@ const homePage: NextPage<postsData> = ({ postsData }) => {
       <div className={style.home}>
         <div className={style.intro}>
           <div className={style.me}>
-            <Image src={me} alt="" width={100} height={100}></Image>
+            <Image src={me} alt="" width={100} height={100} className={style.img}></Image>
           </div>
           <p>你好, 我是朱仙变。</p>
           <p>很高兴认识您。</p>

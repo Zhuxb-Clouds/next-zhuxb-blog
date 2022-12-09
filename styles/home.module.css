@@ -9,6 +9,7 @@
 }
 .me {
   height: 100px;
+  -webkit-user-drag: none;
   width: 80px;
   border-radius: 20px;
   overflow: hidden;
@@ -20,4 +21,7 @@
     10.1px 7.4px 18px rgba(0, 0, 0, 0.018), 14.1px 10.4px 30.4px rgba(0, 0, 0, 0.021),
     20.5px 15px 50.7px rgba(0, 0, 0, 0.023), 33.5px 24.5px 87.4px rgba(0, 0, 0, 0.026),
     71px 52px 171px rgba(0, 0, 0, 0.03);
+}
+.img {
+  -webkit-user-drag: none;
 }
