@@ -13,8 +13,8 @@ function Header() {
   const { value: mode } = useSelector((store: any) => store.dark);
   const dispatch = useDispatch();
   const switchMode = () => {
-    console.log("dark", mode);
-    mode == "dark" ? dispatch(setLight()) : dispatch(setDark());
+    dispatch(mode == "dark" ? setLight() : setDark());
+    // mode == "dark" ? dispatch(setLight()) : dispatch(setDark());
   };
   return (
     <div className={styles.header}>

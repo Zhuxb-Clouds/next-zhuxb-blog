@@ -12,12 +12,14 @@ import { useEffect } from "react";
 
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
-    store.dispatch(
-      setEnv({
-        document: document,
-        window: window,
-      })
-    );
+    const setTheme = async () => {
+      await store.dispatch(
+        setEnv({
+          window: window,
+        })
+      );
+    };
+    setTheme();
   });
   return (
     <Provider store={store}>

@@ -7,6 +7,7 @@ import { parseISO } from "date-fns";
 import { serialize } from "next-mdx-remote/serialize";
 // remark-prism：markdown代码高亮
 import prism from "remark-prism";
+import gfm from "remark-gfm";
 // externalLinks：使markdown的链接是在新页面打开链接
 import externalLinks from "remark-external-links";
 
@@ -90,7 +91,7 @@ export async function getPostData(id: string) {
 
   return {
     content: await serialize(matterResult.content, {
-      mdxOptions: { remarkPlugins: [prism, externalLinks] },
+      mdxOptions: { remarkPlugins: [gfm, prism, externalLinks] },
     }),
     ...(matterResult.data as MatterMark["data"]),
   };
