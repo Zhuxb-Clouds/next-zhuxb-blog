@@ -1,6 +1,6 @@
 ---
-title: "假山问题-浅探transform参数与warper函数"
-date: "2022-06-10"
+title: "浅探transform参数与warper函数"
+date: "2021-07-11"
 tag: "Renpy"
 ---
 

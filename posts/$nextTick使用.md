@@ -1,19 +1,20 @@
 ---
-title: "Vue：$nextTick使用"
+title: "$nextTick使用"
 date: "2022-08-08"
 tag: "Vue"
 ---
 
-# 官方文档
+# 定义
 
-`Vue.nextTick( [callback, context] )`
-参数：
+$nextTick 是Vue提供的工具方法，会在下一个`Tick`中执行回调，在修改数据之后立即使用这个方法，可以获取更新后的 DOM。
 
-`{Function} [callback]`
-`{Object} [context]`
-用法：
+Tick是Vue缓存的任务队列，其中内容则是对响应式状态的修改，这样是为了确保每个组件无论发生多少状态改变，都仅执行一次更新。
 
-在下次 DOM 更新循环结束之后执行延迟回调。在修改数据之后立即使用这个方法，获取更新后的 DOM。
+nextTick() 可以在状态改变后立即使用，以等待 DOM 更新完成。你可以传递一个回调函数作为参数，或者 await 返回的 Promise。
+
+>（在2.10版本后，如果没有提供回调且在支持 Promise 的环境中，则返回一个 Promise。请注意 Vue 不自带 Promise 的 polyfill，所以如果你的目标浏览器不原生支持 Promise，你得自己提供 polyfill）
+
+
 
 ```vue
 // 修改数据
@@ -23,72 +24,149 @@ Vue.nextTick(function () {
   // DOM 更新了
 })
 
-// 作为一个 Promise 使用 (2.1.0 起新增，详见接下来的提示)
-Vue.nextTick()
-  .then(function () {
-    // DOM 更新了
+```
+
+# 实现原理
+
+`vue/src/core/util/next-tick.ts`
+
+```typescript
+/* globals MutationObserver
+* 全局观察者
+*/
+
+import { noop } from 'shared/util'
+import { handleError } from './error'
+import { isIE, isIOS, isNative } from './env'
+
+//  noop 表示一个无操作空函数，用作函数默认值，防止传入 undefined 导致报错
+
+export let isUsingMicroTask = false
+
+const callbacks: Array<Function> = []
+let pending = false
+
+function flushCallbacks() {
+  pending = false
+  const copies = callbacks.slice(0)
+  callbacks.length = 0
+  for (let i = 0; i < copies.length; i++) {
+    copies[i]()
+  }
+}
+
+// Here we have async deferring wrappers using microtasks.
+// 此处我们拥有异步延迟包装器在使用微任务列表
+// In 2.5 we used (macro) tasks (in combination with microtasks).
+// 在2.5版本，我们使用宏任务列（结合微任务）
+// However, it has subtle problems when state is changed right before repaint
+//然而，就在重绘之前的状态改变的时候，它有些微妙的问题。
+// (e.g. #6813, out-in transitions).
+
+
+
+// Also, using (macro) tasks in event handler would cause some weird behaviors
+// that cannot be circumvented (e.g. #7109, #7153, #7546, #7834, #8109).
+// So we now use microtasks everywhere, again.
+// A major drawback of this tradeoff is that there are some scenarios
+// where microtasks have too high a priority and fire in between supposedly
+// sequential events (e.g. #4521, #6690, which have workarounds)
+// or even between bubbling of the same event (#6566).
+
+// issue 6813 是一个关于v-show的延迟问题，由于next Tick使用micotask实现，而 micotask 执行优先级非常高，在某些场景下它甚至要比事件冒泡还要快，就会导致一些诡异的问题。在6813的版本中，nextTick变成了macro task，导致重绘和动画的场景出现问题。
+
+let timerFunc
+
+// The nextTick behavior leverages the microtask queue, which can be accessed
+// next Tick 行为利用了可访问的微任务队列
+// via either native Promise.then or MutationObserver.
+// MutationObserver has wider support, however it is seriously bugged in
+// UIWebView in iOS >= 9.3.3 when triggered in touch event handlers. It
+// completely stops working after triggering a few times... so, if native
+// Promise is available, we will use it:
+//如果支持Promise，我们将使用:
+/* istanbul ignore next, $flow-disable-line */
+if (typeof Promise !== 'undefined' && isNative(Promise)) {
+  const p = Promise.resolve()
+  //生成一个已resolve的Promise
+  timerFunc = () => {
+    p.then(flushCallbacks)
+    //将回调在Promise.then中执行
+      
+    // In problematic UIWebViews, Promise.then doesn't completely break, but
+    // it can get stuck in a weird state where callbacks are pushed into the
+    // microtask queue but the queue isn't being flushed, until the browser
+    // needs to do some other work, e.g. handle a timer. Therefore we can
+    // "force" the microtask queue to be flushed by adding an empty timer.
+    if (isIOS) setTimeout(noop)
+  }
+  isUsingMicroTask = true
+} else if (
+  !isIE &&
+  typeof MutationObserver !== 'undefined' &&
+  (isNative(MutationObserver) ||
+    // PhantomJS and iOS 7.x
+    MutationObserver.toString() === '[object MutationObserverConstructor]')
+) {
+  // Use MutationObserver where native Promise is not available,
+  // 如果不支持原生Promise 就使用MutationObserver
+  // MutationObserver 接口提供了监视对 DOM 树所做更改的能力。它被设计为旧的 Mutation Events 功能的替代品，该功能是 DOM3 Events 规范的一部分。
+  // e.g. PhantomJS, iOS7, Android 4.4
+  // (#6466 MutationObserver is unreliable in IE11)
+  let counter = 1
+  const observer = new MutationObserver(flushCallbacks)
+  const textNode = document.createTextNode(String(counter))
+  observer.observe(textNode, {
+    characterData: true
   })
-```
-
-2.1.0 起新增：如果没有提供回调且在支持 Promise 的环境中，则返回一个 Promise。请注意 Vue 不自带 Promise 的 polyfill，所以如果你的目标浏览器不原生支持 Promise (IE：你们都看我干嘛)，你得自己提供 polyfill。
-
-## 异步更新队列
-
-可能你还没有注意到，Vue 在更新 DOM 时是**异步**执行的。只要侦听到数据变化，Vue 将开启一个队列，并缓冲在同一事件循环中发生的所有数据变更。如果同一个 watcher 被多次触发，只会被推入到队列中一次。这种在缓冲时去除重复数据对于避免不必要的计算和 DOM 操作是非常重要的。然后，在下一个的事件循环“tick”中，Vue 刷新队列并执行实际 (已去重的) 工作。Vue 在内部对异步队列尝试使用原生的 `Promise.then`、`MutationObserver` 和 `setImmediate`，如果执行环境不支持，则会采用 `setTimeout(fn, 0)` 代替。
-
-例如，当你设置 `vm.someData = 'new value'`，该组件不会立即重新渲染。当刷新队列时，组件会在下一个事件循环“tick”中更新。多数情况我们不需要关心这个过程，但是如果你想基于更新后的 DOM 状态来做点什么，这就可能会有些棘手。虽然 Vue.js 通常鼓励开发人员使用“数据驱动”的方式思考，避免直接接触 DOM，但是有时我们必须要这么做。为了在数据变化之后等待 Vue 完成更新 DOM，可以在数据变化之后立即使用 `Vue.nextTick(callback)`。这样回调函数将在 DOM 更新完成后被调用。例如：
-
-```vue
-<div id="example">{{message}}</div>
-var vm = new Vue({
-  el: '#example',
-  data: {
-    message: '123'
+  timerFunc = () => {
+    counter = (counter + 1) % 2
+    textNode.data = String(counter)
   }
-})
-vm.message = 'new message' // 更改数据
-vm.$el.textContent === 'new message' // false
-Vue.nextTick(function () {
-  vm.$el.textContent === 'new message' // true
-})
-```
-
-在组件内使用 `vm.$nextTick()` 实例方法特别方便，因为它不需要全局 `Vue`，并且回调函数中的 `this` 将自动绑定到当前的 Vue 实例上：
-
-```vue
-Vue.component('example', {
-  template: '<span>{{ message }}</span>',
-  data: function () {
-    return {
-      message: '未更新'
-    }
-  },
-  methods: {
-    updateMessage: function () {
-      this.message = '已更新'
-      console.log(this.$el.textContent) // => '未更新'
-      this.$nextTick(function () {
-        console.log(this.$el.textContent) // => '已更新'
-      })
-    }
+  isUsingMicroTask = true
+} else if (typeof setImmediate !== 'undefined' && isNative(setImmediate)) {
+  // Fallback to setImmediate.
+  // Technically it leverages the (macro) task queue,
+  // but it is still a better choice than setTimeout.
+  // 使用setImmediate，虽然它也是宏任务队列，但仍比setTimeout好些
+  timerFunc = () => {
+    setImmediate(flushCallbacks)
   }
-})
-```
-
-因为 `$nextTick()` 返回一个 `Promise` 对象，所以你可以使用新的 [ES2017 async/await](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/async_function) 语法完成相同的事情：
-
-```vue
-methods: {
-  updateMessage: async function () {
-    this.message = '已更新'
-    console.log(this.$el.textContent) // => '未更新'
-    await this.$nextTick()
-    console.log(this.$el.textContent) // => '已更新'
+} else {
+  // Fallback to setTimeout.
+  timerFunc = () => {
+    setTimeout(flushCallbacks, 0)
+  }
+}
+// 声明合并？
+export function nextTick(): Promise<void>
+export function nextTick<T>(this: T, cb: (this: T, ...args: any[]) => any): void
+export function nextTick<T>(cb: (this: T, ...args: any[]) => any, ctx: T): void
+/**
+ * @internal
+ */
+export function nextTick(cb?: (...args: any[]) => any, ctx?: object) {
+  let _resolve
+  callbacks.push(() => {
+    if (cb) {
+      try {
+        cb.call(ctx)
+      } catch (e: any) {
+        handleError(e, ctx, 'nextTick')
+      }
+    } else if (_resolve) {
+      _resolve(ctx)
+    }
+  })
+  if (!pending) {
+    pending = true
+    timerFunc()
+  }
+  // $flow-disable-line
+  if (!cb && typeof Promise !== 'undefined') {
+    return new Promise(resolve => {
+      _resolve = resolve
+    })
   }
 }
 ```
-
-# 关于nextTick
-
-在Vue2.4-2.6版本中中，nextTick反复变动，其原因最终是因为浏览器对于微任务的不兼容，并且宏任务与微任务各有优劣，Vue也是在不断取舍。nextTick主要是处理我们再变更完数据以后，无法立刻拿到最新的DOM节点对象的问题。
-

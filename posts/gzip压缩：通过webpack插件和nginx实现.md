@@ -1,7 +1,7 @@
 ---
 title: "gzip压缩：通过webpack插件和nginx实现"
 date: "2022-11-30"
-tag: "Vue,Engineered"
+tag: "Webpack,Nginx,前端工程化"
 ---
 
 

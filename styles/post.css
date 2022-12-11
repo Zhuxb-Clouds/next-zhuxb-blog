@@ -5,3 +5,24 @@ code {
   font-family: Lora;
   padding: 0 5px;
 }
+p > img {
+  width: 100%;
+}
+
+p {
+  font-size: 20px;
+}
+blockquote {
+  position: relative;
+}
+blockquote > p {
+  opacity: 0.8;
+}
+blockquote::before {
+  content: "";
+  position: absolute;
+  width: 5px;
+  background: rgb(144, 144, 144);
+  height: 100%;
+  left: -40px;
+}

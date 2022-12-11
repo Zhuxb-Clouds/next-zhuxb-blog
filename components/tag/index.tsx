@@ -1,15 +1,7 @@
+import colorList from "./tagColorList.json";
 interface Props {
   tagName: string;
 }
-
-const colorList = {
-  Vue: "#82b565",
-  Vue2: "#42b883",
-  Css: "#2e49d4",
-  Engineered: "#b50b6e",
-  KrKr: "#c4d620",
-  Renpy: "#f5df59",
-};
 
 export default function Tag({ tagName }: Props) {
   return (

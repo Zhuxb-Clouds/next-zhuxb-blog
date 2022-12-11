@@ -1,10 +1,10 @@
 ---
 title: "回到标题与BookMark"
-date: "2022-06-10"
+date: "2021-06-27"
 tag: "KrKr"
 ---
 
-## 1.回到标题机制
+## 回到标题机制
 
 于macro_ui.ks的回到标题按钮（sysbutton）会调用kag.goToStartWithAsk()以存读档的方式完美回到标题。
 
@@ -41,7 +41,7 @@ loadBookMark会读取标记点的内容。
 
 **未加（|）的标签无法存储标记点。**
 
-## 2.保存标记点[startAnchor]机制
+## 保存标记点[startAnchor]机制
 
 在MainWindows.tjs内，制作被【】识别的function：
 
@@ -74,7 +74,7 @@ loadBookMark会读取标记点的内容。
 
 
 
-## 3.saveBookMark和loadBookMark
+## saveBookMark和loadBookMark
 
 同样在MainWindows.tjs内，
 

@@ -26,7 +26,7 @@ export default function Post({ postData }: Props) {
       <Date dateString={postData.date} />
 
       <article className={style.content}>
-        <MDXRemote {...postData.content} />
+        <MDXRemote {...postData.content}></MDXRemote>
       </article>
     </Layout>
   );
