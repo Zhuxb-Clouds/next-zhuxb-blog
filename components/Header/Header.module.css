@@ -59,6 +59,7 @@
 }
 
 .svg {
+  -webkit-user-drag: none;
   padding: 10px;
   position: relative;
   margin: 0 10px;
