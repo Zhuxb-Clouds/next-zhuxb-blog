@@ -73,7 +73,9 @@ function flushCallbacks() {
 // sequential events (e.g. #4521, #6690, which have workarounds)
 // or even between bubbling of the same event (#6566).
 
-// issue 6813 是一个关于v-show的延迟问题，由于next Tick使用micotask实现，而 micotask 执行优先级非常高，在某些场景下它甚至要比事件冒泡还要快，就会导致一些诡异的问题。在6813的版本中，nextTick变成了macro task，导致重绘和动画的场景出现问题。
+// issue 6813 是一个关于v-show的延迟问题，由于next Tick使用micotask实现，而 micotask 执行优先级非常高，
+// 在某些场景下它甚至要比事件冒泡还要快，就会导致一些诡异的问题。
+// 在6813的版本中，nextTick变成了macro task，导致重绘和动画的场景出现问题。
 
 let timerFunc
 
@@ -110,7 +112,8 @@ if (typeof Promise !== 'undefined' && isNative(Promise)) {
 ) {
   // Use MutationObserver where native Promise is not available,
   // 如果不支持原生Promise 就使用MutationObserver
-  // MutationObserver 接口提供了监视对 DOM 树所做更改的能力。它被设计为旧的 Mutation Events 功能的替代品，该功能是 DOM3 Events 规范的一部分。
+  // MutationObserver 接口提供了监视对 DOM 树所做更改的能力。
+  // 它被设计为旧的 Mutation Events 功能的替代品，该功能是 DOM3 Events 规范的一部分。
   // e.g. PhantomJS, iOS7, Android 4.4
   // (#6466 MutationObserver is unreliable in IE11)
   let counter = 1

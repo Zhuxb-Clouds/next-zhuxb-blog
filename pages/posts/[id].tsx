@@ -2,7 +2,6 @@ import type { GetStaticProps, GetStaticPaths } from "next";
 import { getAllPostIds, getPostData } from "../../utils/posts";
 import Head from "next/head";
 import Date from "../../components/date";
-import Layout from "../../components/layout";
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote";
 // 引入代码高亮css
 import "prismjs/themes/prism-okaidia.min.css";
@@ -17,18 +16,17 @@ interface Props {
 
 export default function Post({ postData }: Props) {
   return (
-    <Layout>
+    <div>
+      {" "}
       <Head>
         <title>{postData.title}</title>
       </Head>
       <h1 className={style.title}>{postData.title}</h1>
-
       <Date dateString={postData.date} />
-
       <article className={style.content}>
         <MDXRemote {...postData.content}></MDXRemote>
       </article>
-    </Layout>
+    </div>
   );
 }
 
