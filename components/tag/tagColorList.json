@@ -6,5 +6,9 @@
   "KrKr": "#c4d620",
   "Renpy": "#f5df59",
   "Webpack": "#5299c8",
-  "Nginx": "#419b45"
+  "Nginx": "#419b45",
+  "JavaScript": "#efd81d",
+  "BaiduMap": "#2223d8",
+  "AntDesign": "#1da8ff",
+  "pdf-lib": "#d50000"
 }
