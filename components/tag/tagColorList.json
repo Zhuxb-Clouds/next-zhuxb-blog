@@ -10,5 +10,8 @@
   "JavaScript": "#efd81d",
   "BaiduMap": "#2223d8",
   "AntDesign": "#1da8ff",
-  "pdf-lib": "#d50000"
+  "pdf-lib": "#d50000",
+  "Nodejs": "#5aab46",
+  "Express": "#fd9827",
+  "密码学": "#aaaaaa"
 }
