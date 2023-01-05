@@ -41,3 +41,27 @@ th,
 td {
   padding: 10px;
 }
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: #232323;
+}
+
+.token.keyword {
+  color: #ff4b4b;
+}
+.token.attr-name,
+.token.builtin,
+.token.char,
+.token.inserted,
+.token.selector,
+.token.string {
+  color: #8a9dff;
+}
+
+.token.constant,
+.token.deleted,
+.token.property,
+.token.symbol,
+.token.tag {
+  color: #26f94e;
+}

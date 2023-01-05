@@ -18,7 +18,7 @@ tag: "Vue2, AntDesign, pdf-lib"
 
 ## 表单部分
 
-```Vue
+```html
 <template>
       <keep-alive>
         <component :is="formList[step]" ref="form"></component>
@@ -130,6 +130,7 @@ this.pdf = new Pdf(require("@/assets/pdf/health-naire.pdf").default);
 ### pdf类实现
 
 ```javascript
+
 import { PDFDocument } from "pdf-lib";
 import option from "./pdfOption.js";
 export default class pdf {
