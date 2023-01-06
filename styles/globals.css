@@ -1,7 +1,7 @@
-@font-face {
+/* @font-face {
   font-family: Smiley sans;
-  src: url(./SmileySans-Oblique.ttf.woff2);
-}
+  src: url("");
+} */
 
 :root[mode="dark"] {
   --bg-color: #1d1d1d;
@@ -20,7 +20,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Lato", Smiley sans;
+  font-family: "Lato", "Smiley Sans Oblique";
   font-size: 20px;
   background-color: var(--bg-color);
   color: var(--color);
