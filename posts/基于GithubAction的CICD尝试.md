@@ -1,7 +1,7 @@
 ---
 title: "基于GithubAction的CI/CD尝试"
 date: "2023-02-17"
-tag: "Vue"
+tag: "前端工程化"
 ---
 
 # CI/CD 的定义
