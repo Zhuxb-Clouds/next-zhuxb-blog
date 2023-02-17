@@ -4,7 +4,6 @@ module.exports = {
   swcMinify: true,
   distDir: "build",
   images: {
-    loader: "akamai",
-    path: "",
+    unoptimized: true,
   },
 };

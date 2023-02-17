@@ -6,7 +6,8 @@ import style from "../styles/home.module.css";
 import PostList, { postsData } from "../components/postList";
 import { getSortedPostsData } from "../utils/posts";
 
-import me from "../public/me.jpg";
+import me from "../public/me.webp";
+
 const homePage: NextPage<postsData> = ({ postsData }) => {
   return (
     <div>
