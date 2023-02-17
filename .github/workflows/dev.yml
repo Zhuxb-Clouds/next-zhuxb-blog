@@ -25,7 +25,7 @@ jobs:
           user: ${{ secrets.MY_USER }} # 服务器用户名
           pass: ${{ secrets.MY_PASS }} # 服务器密码
           connect_timeout: 10s
-          local: "./*" # 源路径（工作流）
+          local: "." # 源路径（工作流）
           remote: /var/www/zhuxb-blog # 目标路径（服务器）
 
 
