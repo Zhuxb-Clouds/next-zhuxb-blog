@@ -31,15 +31,14 @@ jobs:
           local: "./build/*" # 源路径（工作流）
           remote: /var/www/zhuxb-blog # 目标路径（服务器）
 
-
-      # - name: Executing remote ssh commands
-      #   uses: cross-the-world/ssh-scp-ssh-pipelines@latest
-      #   with:
-      #     host: ${{ secrets.MY_HOST }} # 服务器IP（需要在GitHub上自行配置对应的secret
-      #     user: ${{ secrets.MY_USER }} # 服务器用户名
-      #     pass: ${{ secrets.MY_PASS }} # 服务器密码
-      #     connect_timeout: 10s
-      #     first_ssh: |
-      #       cd /var/www/zhuxb-blog
-      #       pm2 delete blog
-      #       pm2 start yarn --name "blog" --interpreter bash -- start
+      - name: Executing remote ssh commands
+        uses: cross-the-world/ssh-scp-ssh-pipelines@latest
+        with:
+          host: ${{ secrets.MY_HOST }} # 服务器IP（需要在GitHub上自行配置对应的secret
+          user: ${{ secrets.MY_USER }} # 服务器用户名
+          pass: ${{ secrets.MY_PASS }} # 服务器密码
+          connect_timeout: 10s
+          first_ssh: |
+            cd /var/www/zhuxb-blog
+            pm2 delete blog
+            pm2 start yarn --name "blog" --interpreter bash -- start
