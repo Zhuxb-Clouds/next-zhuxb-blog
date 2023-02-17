@@ -18,7 +18,8 @@ jobs:
           yarn
           yarn build
           ls
-          cd .next
+          cd build
+          ls
 
       - name: deploy
         uses: cross-the-world/scp-pipeline@master
@@ -27,7 +28,7 @@ jobs:
           user: ${{ secrets.MY_USER }} # 服务器用户名
           pass: ${{ secrets.MY_PASS }} # 服务器密码
           connect_timeout: 10s
-          local: "./.next/*" # 源路径（工作流）
+          local: "./build/*" # 源路径（工作流）
           remote: /var/www/zhuxb-blog # 目标路径（服务器）
 
 
