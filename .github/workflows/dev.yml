@@ -17,6 +17,8 @@ jobs:
         run: |
           yarn
           yarn build
+          ls
+          cd .next
 
       - name: deploy
         uses: cross-the-world/scp-pipeline@master
@@ -25,7 +27,7 @@ jobs:
           user: ${{ secrets.MY_USER }} # 服务器用户名
           pass: ${{ secrets.MY_PASS }} # 服务器密码
           connect_timeout: 10s
-          local: "." # 源路径（工作流）
+          local: "./.next/*" # 源路径（工作流）
           remote: /var/www/zhuxb-blog # 目标路径（服务器）
 
 
@@ -35,6 +37,7 @@ jobs:
       #     host: ${{ secrets.MY_HOST }} # 服务器IP（需要在GitHub上自行配置对应的secret
       #     user: ${{ secrets.MY_USER }} # 服务器用户名
       #     pass: ${{ secrets.MY_PASS }} # 服务器密码
+      #     connect_timeout: 10s
       #     first_ssh: |
       #       cd /var/www/zhuxb-blog
       #       pm2 delete blog
