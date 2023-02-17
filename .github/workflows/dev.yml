@@ -12,6 +12,7 @@ jobs:
         with:
           node-version: 18.12.0
       - run: npm install -g yarn
+
       - name: yarn install and build
         run: |
           yarn
@@ -28,5 +29,6 @@ jobs:
           remote: /var/www/zhuxb-blog # 目标路径（服务器）
           script: |
             cd /var/www/zhuxb-blog
+            ls
             pm2 delete blog
             pm2 start yarn --name "blog" --interpreter bash -- start
