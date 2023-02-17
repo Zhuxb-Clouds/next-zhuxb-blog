@@ -28,15 +28,14 @@ jobs:
           local: "." # 源路径（工作流）
           remote: /var/www/zhuxb-blog # 目标路径（服务器）
 
-
-      # - name: Executing remote ssh commands
-      #   uses: appleboy/ssh-action@v0.1.4
-      #   with:
-      #     host: ${{ secrets.MY_HOST }} # 服务器IP（需要在GitHub上自行配置对应的secret）
-      #     port: ${{ secrets.SSH_PORT }} # 服务器用户名
-      #     username: ${{ secrets.MY_USER }} # 服务器用户名
-      #     password: ${{ secrets.MY_PASS }} # 服务器密码
-      #     script: |
-      #       cd /var/www/zhuxb-blog
-      #       pm2 delete blog
-      #       pm2 start yarn --name "blog" --interpreter bash -- start
+      - name: Executing remote ssh commands
+        uses: cross-the-world/ssh-scp-ssh-pipelines@latest
+        with:
+          host: ${{ secrets.MY_HOST }} # 服务器IP（需要在GitHub上自行配置对应的secret）
+          port: ${{ secrets.SSH_PORT }} # 服务器用户名
+          user: ${{ secrets.MY_USER }} # 服务器用户名
+          pass: ${{ secrets.MY_PASS }} # 服务器密码
+          first_ssh: |
+            cd /var/www/zhuxb-blog
+            pm2 delete blog
+            pm2 start yarn --name "blog" --interpreter bash -- start
