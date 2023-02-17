@@ -11,9 +11,9 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 18.12.0
-      - name: build static page
+      - run: npm install -g yarn
+      - name: yarn install and build
         run: |
-          npm i -g yarn@3.3.0
           yarn
           yarn build
 
