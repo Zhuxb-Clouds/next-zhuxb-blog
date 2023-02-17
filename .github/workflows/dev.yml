@@ -29,9 +29,10 @@ jobs:
           remote: /var/www/zhuxb-blog # 目标路径（服务器）
 
       - name: Executing remote ssh commands
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@v0.1.4
         with:
           host: ${{ secrets.MY_HOST }} # 服务器IP（需要在GitHub上自行配置对应的secret）
+          port: ${{ secrets.SSH_PORT }} # 服务器用户名
           username: ${{ secrets.MY_USER }} # 服务器用户名
           password: ${{ secrets.MY_PASS }} # 服务器密码
           script: |
