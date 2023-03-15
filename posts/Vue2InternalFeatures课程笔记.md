@@ -1,7 +1,7 @@
 ---
 title: "《Vue 2 Internal Features from the Ground Up》课程笔记"
 date: "2023-03-15"
-tag: "Vue
+tag: "Vue"
 ---
 
 > 本文来自于FrontMaster上的视频课程《Vue 2 Internal Features from the Ground Up》
