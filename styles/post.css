@@ -23,10 +23,11 @@ p {
 /* 引用 */
 blockquote {
   position: relative;
-  font-family: "ZCOOL XiaoWei";
+  font-family: "Noto Serif SC";
 }
 blockquote > p {
   opacity: 0.8;
+  text-align: center;
 }
 blockquote::before {
   content: "";
