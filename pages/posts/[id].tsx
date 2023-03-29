@@ -16,7 +16,7 @@ interface Props {
 
 export default function Post({ postData }: Props) {
   return (
-    <div>
+    <div className="post">
       {" "}
       <Head>
         <title>{postData.title}</title>

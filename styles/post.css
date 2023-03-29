@@ -1,4 +1,10 @@
-/* `` */
+.post {
+  font-family: "Noto Sans SC";
+  font-size: 20px;
+}
+h1 {
+  font-family: "Noto Serif SC";
+}
 code {
   background-color: rgba(143, 43, 237, 0.597);
   color: #fff;
@@ -17,6 +23,7 @@ p {
 /* 引用 */
 blockquote {
   position: relative;
+  font-family: "ZCOOL XiaoWei";
 }
 blockquote > p {
   opacity: 0.8;
