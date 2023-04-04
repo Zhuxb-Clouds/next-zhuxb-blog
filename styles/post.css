@@ -11,6 +11,7 @@ code {
   border-radius: 5px;
   font-family: "Lora";
   padding: 0 5px;
+  user-select: #1d1d1d;
 }
 /* 图片 */
 p > img {
