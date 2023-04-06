@@ -15,6 +15,8 @@ export default function Tag({ tagName }: Props) {
           padding: 0px 5px;
           color: #fff;
           margin: 0 10px 0 0;
+          user-select: none;
+          cursor: pointer;
         }
       `}</style>
     </div>
