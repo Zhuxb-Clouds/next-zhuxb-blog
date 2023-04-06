@@ -8,6 +8,7 @@
   --color: rgb(220, 220, 220);
   --selection-bg: #d3d3d3;
   --selection-color: #242424;
+  --code-after-color: #1717ef;
 }
 :root,
 :root[mode="light"] {
@@ -15,6 +16,7 @@
   --color: #1d1d1d;
   --selection-bg: #242424;
   --selection-color: #d3d3d3;
+  --code-after-color: #efef17;
 }
 html,
 body {
