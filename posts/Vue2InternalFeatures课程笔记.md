@@ -112,7 +112,7 @@ function autorun (update) {
 
 
 
-```JavaScript
+```javascript
 class Dep {
   constructor () {
     this.subscribers = new Set()
