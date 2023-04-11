@@ -1,8 +1,3 @@
-<!--
- * @Date: 2023-04-11 23:57:15
- * @FileName: 
- * @FileDescription: 
--->
 ---
 title: "Renpy生成翻译文件报错'expected ':' not found.'的问题解决方案"
 date: "2023-04-11"
