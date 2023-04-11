@@ -1,8 +1,22 @@
 .home {
   display: flex;
+  flex-direction: column;
 }
 .intro {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.intro > span {
+  width: 100%;
+  text-align: left;
+  font-size: 40px;
+  font-family: "Smiley Sans Oblique";
+}
+.intro > span > code {
+  font-family: "Noto Sans SC";
+  font-size: 35px;
+  margin: 0 5px;
 }
 .posts {
   flex: 4 4;

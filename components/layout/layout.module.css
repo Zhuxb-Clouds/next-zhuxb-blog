@@ -3,7 +3,7 @@
 }
 .body {
   width: 70%;
-  max-width: 1280px;
+  max-width: 74ch;
   margin: 0 auto;
   position: relative;
 }
@@ -11,7 +11,7 @@
   margin-top: 100px;
 }
 .footer {
-  height: 70px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;

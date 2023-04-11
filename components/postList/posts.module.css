@@ -1,9 +1,19 @@
 .post {
   margin: 20px;
-  padding: 10px;
-  border: solid 3px var(--color);
+  padding: 15px;
+  border-radius: 15px;
   background-color: var(--bg-color);
+  color: var(--color);
+  box-shadow: 10px 5px 20px #dadada, -10px -5px 20px #ffffff;
 }
+/* 深色模式 */
+@media (prefers-color-scheme: dark) {
+  .post {
+    box-shadow: none;
+    border: 2px solid #dadada;
+  }
+}
+
 .span {
   display: flex;
   justify-content: space-between;

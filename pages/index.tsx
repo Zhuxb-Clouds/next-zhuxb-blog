@@ -1,4 +1,9 @@
-import Head from "next/head";
+/*
+ * @Date: 2023-03-29 16:49:57
+ * @FileName:
+ * @FileDescription:
+ */
+// import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import type { NextPage } from "next";
@@ -6,24 +11,18 @@ import style from "../styles/home.module.css";
 import PostList, { postsData } from "../components/postList";
 import { getSortedPostsData } from "../utils/posts";
 
-import me from "../public/me.webp";
-
 const homePage: NextPage<postsData> = ({ postsData }) => {
   return (
     <div>
-      <Head>
-        <title>Zhuxb&apos;s blog</title>
-      </Head>
       <div className={style.home}>
         <div className={style.intro}>
-          <div className={style.me}>
-            <Image src={me} alt="" width={100} height={100} className={style.img}></Image>
-          </div>
-          <p>你好, 我是朱仙变。</p>
-          <p>很高兴认识您。</p>
+          <span>你好。</span>
+          <span>
+            我是<code>朱仙变</code>
+          </span>
         </div>
         <div className={style.posts}>
-          <p>- 历史博文</p>
+          <p>历史博文</p>
           <PostList postsData={postsData} />
           <Link href={"/posts"}>查看更多 {"->"} </Link>
         </div>
