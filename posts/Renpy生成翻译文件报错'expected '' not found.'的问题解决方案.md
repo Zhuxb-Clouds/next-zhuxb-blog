@@ -1,5 +1,10 @@
+<!--
+ * @Date: 2023-04-11 23:57:15
+ * @FileName: 
+ * @FileDescription: 
+-->
 ---
-title: "Keep-alive标签与它的生命周期钩子"
+title: "Renpy生成翻译文件报错'expected ':' not found.'的问题解决方案"
 date: "2023-04-11"
 tag: "Renpy"
 ---
