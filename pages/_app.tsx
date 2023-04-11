@@ -1,31 +1,26 @@
+/*
+ * @Date: 2022-12-11 19:32:26
+ * @FileName:
+ * @FileDescription:
+ */
 import type { AppProps } from "next/app";
 import Layout from "../components/layout";
 
-// redux toolkit
-import { Provider } from "react-redux";
-import store from "../store/index";
-
 import "../styles/globals.css";
 import "../styles/post.css";
-import { setEnv } from "../store/darkSlice";
-import { useEffect } from "react";
+
+import { useState, useEffect } from "react";
 
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
-    const setTheme = async () => {
-      await store.dispatch(
-        setEnv({
-          window: window,
-        })
-      );
-    };
-    setTheme();
+    window.document.documentElement.setAttribute(
+      "mode",
+      window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+    );
   });
   return (
-    <Provider store={store}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </Provider>
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
   );
 }
