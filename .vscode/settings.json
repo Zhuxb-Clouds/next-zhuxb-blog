@@ -1,0 +1,64 @@
+{
+  "gitCommitLintVscode.customType": [
+    {
+      "emoji": "✨",
+      "type": "feat",
+      "name": "引入新功能",
+      "description": "新功能"
+    },
+    {
+      "emoji": "🐛",
+      "type": "fix",
+      "name": "修复bug",
+      "description": "bug"
+    },
+    {
+      "emoji": "💄",
+      "type": "style",
+      "name": "更新UI样式文件",
+      "description": "样式"
+    },
+    {
+      "emoji": "📦",
+      "type": "post",
+      "name": "添加或修改博文",
+      "description": "博文"
+    },
+    {
+      "emoji": "🥚",
+      "type": "format",
+      "name": "格式化代码",
+      "description": "格式化"
+    },
+    {
+      "emoji": "📝",
+      "type": "docs",
+      "name": "添加/更新文档",
+      "description": "文档"
+    },
+    {
+      "emoji": "👌",
+      "type": "perf",
+      "name": "提高性能/优化",
+      "description": "优化"
+    },
+    {
+      "emoji": "🎨",
+      "type": "refactor",
+      "name": "改进代码结构/代码格式",
+      "description": "优化"
+    },
+    {
+      "emoji": "🔧",
+      "type": "config",
+      "name": "修改配置文件",
+      "description": "配置"
+    },
+    {
+      "emoji": "🙈",
+      "type": "git",
+      "name": "添加或修改.gitignore文件",
+      "description": "不可见"
+    }
+  ]
+}
