@@ -7,6 +7,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { NextPage } from "next";
+import Head from "next/head";
 import style from "../styles/home.module.css";
 import PostList, { postsData } from "../components/postList";
 import { getSortedPostsData } from "../utils/posts";
@@ -14,6 +15,9 @@ import { getSortedPostsData } from "../utils/posts";
 const homePage: NextPage<postsData> = ({ postsData }) => {
   return (
     <div>
+      <Head>
+        <title>Zhuxb&apos;s blog</title>
+      </Head>
       <div className={style.home}>
         <div className={style.intro}>
           <span>你好。</span>
