@@ -4,6 +4,7 @@
   padding: 20px 0;
   position: fixed;
   width: 70%;
+  max-width: 65ch;
   margin: auto;
   top: 0;
   left: 0;
