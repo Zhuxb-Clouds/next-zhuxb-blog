@@ -3,7 +3,6 @@ title: "Renpy生成翻译文件报错'expected ':' not found.'的问题解决方
 date: "2023-04-11"
 tag: "Renpy"
 ---
-# Renpy生成翻译文件报错'expected ':' not found.'的问题解决方案
 
 **版本**:Ren'py 7.5.3 python2
 
