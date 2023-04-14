@@ -11,6 +11,7 @@ code {
   position: relative;
   font-weight: 700;
   z-index: 1;
+  margin: 0 0.25rem;
 }
 code::after {
   display: block;

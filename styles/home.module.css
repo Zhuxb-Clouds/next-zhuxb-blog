@@ -16,7 +16,6 @@
 .intro > span > code {
   font-family: "Noto Sans SC";
   font-size: 35px;
-  margin: 0 5px;
 }
 .posts {
   flex: 4 4;
