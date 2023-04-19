@@ -13,11 +13,25 @@
 
 基于Next的SSG个人博客网站。
 
+
+
+## Version
+
+### V1.1
+
+feat: 深色模式
+
+style: 博文页面优化
+
+
+
 ## 约定式提交
 
 docs: 文档相关
 
 posts: 博文相关
+
+style: 更新UI样式文件
 
 feat: 新增程序特性
 

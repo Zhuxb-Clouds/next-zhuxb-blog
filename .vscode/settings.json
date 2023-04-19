@@ -25,39 +25,21 @@
       "description": "博文"
     },
     {
-      "emoji": "🥚",
-      "type": "format",
-      "name": "格式化代码",
-      "description": "格式化"
-    },
-    {
       "emoji": "📝",
       "type": "docs",
       "name": "添加/更新文档",
       "description": "文档"
     },
     {
-      "emoji": "👌",
-      "type": "perf",
-      "name": "提高性能/优化",
-      "description": "优化"
-    },
-    {
-      "emoji": "🎨",
-      "type": "refactor",
-      "name": "改进代码结构/代码格式",
-      "description": "优化"
-    },
-    {
-      "emoji": "🔧",
-      "type": "config",
-      "name": "修改配置文件",
-      "description": "配置"
+      "emoji": "🤖",
+      "type": "ci",
+      "name": "集成提交",
+      "description": "持续集成/持续部署"
     },
     {
       "emoji": "🙈",
-      "type": "git",
-      "name": "添加或修改.gitignore文件",
+      "type": "chore",
+      "name": "杂项，如依赖修改",
       "description": "不可见"
     }
   ]
