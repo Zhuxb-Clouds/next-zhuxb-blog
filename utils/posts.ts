@@ -11,25 +11,24 @@ import gfm from "remark-gfm";
 // externalLinks：使markdown的链接是在新页面打开链接
 import externalLinks from "remark-external-links";
 
-
 interface MatterMark {
   data: { date: string; title: string };
   content: string;
   [key: string]: unknown;
 }
 
-
 // posts目录的路径
 const postsDirectory = path.join(process.cwd(), "posts");
 // 获取posts目录下的所有文件名（带后缀）
 const fileNames = fs.readdirSync(postsDirectory);
+const postsMap = new Map();
 
 // 获取所有文章用于展示首页列表的数据
 export function getSortedPostsData() {
   // 获取所有md文件用于展示首页列表的数据，包含id，元数据（标题，时间）
   const allPostsData = fileNames.map((fileName) => {
     // 去除文件名的md后缀，使其作为文章id使用
-    const id = fileName.replace(/\.md$/, "");
+    const id = getUuid(fileName);
 
     // 获取md文件路径
     const fullPath = path.join(postsDirectory, fileName);
@@ -53,6 +52,20 @@ export function getSortedPostsData() {
   );
 }
 
+export function getUuid(fileName: string): string {
+  const fileNameStr = fileName.replace(/\.md$/, "");
+  let hash = 0,
+    i,
+    chr;
+  if (fileNameStr.length === 0) return "0";
+  for (i = 0; i < fileNameStr.length; i++) {
+    chr = fileNameStr.charCodeAt(i);
+    hash = (hash << 5) - hash + chr;
+    hash |= 0; // Convert to 32bit integer
+  }
+  postsMap.set(Math.abs(hash).toString(), fileNameStr);
+  return Math.abs(hash).toString();
+}
 // 获取格式化后的所有文章id（文件名）
 export function getAllPostIds() {
   // 这是返回的格式:
@@ -72,7 +85,8 @@ export function getAllPostIds() {
   return fileNames.map((fileName) => {
     return {
       params: {
-        id: fileName.replace(/\.md$/, ""),
+        // 将文件名hash生成数字作为id
+        id: getUuid(fileName),
       },
     };
   });
@@ -80,8 +94,10 @@ export function getAllPostIds() {
 
 // 获取指定文章内容
 export async function getPostData(id: string) {
+  const fileName = postsMap.get(id);
+  console.log("fileName", fileName, postsMap);
   // 文章路径
-  const fullPath = path.join(postsDirectory, `${id}.md`);
+  const fullPath = path.join(postsDirectory, `${fileName}.md`);
 
   // 读取文章内容
   const fileContents = fs.readFileSync(fullPath, "utf8");

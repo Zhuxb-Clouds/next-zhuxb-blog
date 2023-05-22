@@ -1,6 +1,6 @@
 ---
-title: "uniapp如何调用蓝牙连接设备：以benecheck为例"
-date: "2022-05-22"
+title: "UniApp如何调用蓝牙连接设备：以beneCheck为例"
+date: "2023-05-22"
 tag: "UniApp,蓝牙"
 ---
 
@@ -14,7 +14,7 @@ tag: "UniApp,蓝牙"
 
 ### `uni.getBluetoothAdapterState`获取本机蓝牙适配器状态
 
-- res:{available:boolen} 蓝牙是否可用
+- `res:{available:boolen}` 蓝牙是否可用
 
 ### `uni.startBluetoothDevicesDiscovery`搜寻附近的蓝牙外围设备
 
