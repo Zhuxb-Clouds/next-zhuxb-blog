@@ -1,11 +1,11 @@
 .header {
   display: flex;
   justify-content: space-between;
-  padding: 20px 0;
   position: fixed;
-  width: 70%;
-  max-width: 65ch;
-  margin: auto;
+  width: 100%;
+  padding: 20px 15%;
+  /* max-width: 65ch; */
+  /* margin: auto; */
   top: 0;
   left: 0;
   right: 0;
