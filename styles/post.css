@@ -37,9 +37,13 @@ span.token::selection {
 p > img {
   width: 100%;
 }
-
 p {
-  font-size: 20px;
+  font-size: 1rem;
+  letter-spacing: 0.05rem;
+  text-indent: 2em;
+}
+p:has(img) {
+  text-indent: 0;
 }
 /* 引用 */
 blockquote {

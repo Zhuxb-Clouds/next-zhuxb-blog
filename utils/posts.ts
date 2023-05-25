@@ -22,6 +22,7 @@ const postsDirectory = path.join(process.cwd(), "posts");
 // 获取posts目录下的所有文件名（带后缀）
 const fileNames = fs.readdirSync(postsDirectory);
 const postsMap = new Map();
+getAllPostIds();
 
 // 获取所有文章用于展示首页列表的数据
 export function getSortedPostsData() {
@@ -87,6 +88,7 @@ export function getAllPostIds() {
       params: {
         // 将文件名hash生成数字作为id
         id: getUuid(fileName),
+        name: fileName.replace(/\.md$/, ""),
       },
     };
   });
@@ -95,6 +97,7 @@ export function getAllPostIds() {
 // 获取指定文章内容
 export async function getPostData(id: string) {
   const fileName = postsMap.get(id);
+  // const fileName = getAllPostIds().find((item) => item.params.id === id).params.name;
   console.log("fileName", fileName, postsMap);
   // 文章路径
   const fullPath = path.join(postsDirectory, `${fileName}.md`);
