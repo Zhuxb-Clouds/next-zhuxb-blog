@@ -98,3 +98,7 @@ pre[class*="language-"] {
 .token.tag {
   color: #26f94e;
 }
+
+.post a:hover {
+  color: #2045ff;
+}
