@@ -8,6 +8,10 @@ import { serialize } from "next-mdx-remote/serialize";
 // remark-prism：markdown代码高亮
 import prism from "remark-prism";
 import gfm from "remark-gfm";
+
+// remarkMath：markdown数学公式
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
 // externalLinks：使markdown的链接是在新页面打开链接
 import externalLinks from "remark-external-links";
 
@@ -110,7 +114,10 @@ export async function getPostData(id: string) {
 
   return {
     content: await serialize(matterResult.content, {
-      mdxOptions: { remarkPlugins: [gfm, prism, externalLinks] },
+      mdxOptions: {
+        remarkPlugins: [[remarkMath, {}], gfm, prism, externalLinks],
+        rehypePlugins: [[rehypeKatex, { output: "html", colorIsTextColor: true }]],
+      },
     }),
     ...(matterResult.data as MatterMark["data"]),
   };
