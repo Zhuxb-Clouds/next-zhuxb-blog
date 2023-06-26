@@ -4,7 +4,7 @@ interface Props {
 }
 
 export default function Tag({ tagName }: Props) {
-  const color = colorList[tagName.trim() as keyof typeof colorList];
+  const color = colorList[tagName.trim() as keyof typeof colorList] || "#545454";
   return (
     <div>
       {tagName}
