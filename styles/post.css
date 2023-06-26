@@ -78,25 +78,27 @@ td {
 pre[class*="language-"] {
   background: #232323;
 }
+.post {
+  .token.string,
+  .token.keyword {
+    color: #ff4bc0;
+  }
+  .token.function,
+  .token.attr-name,
+  .token.builtin,
+  .token.char,
+  .token.inserted,
+  .token.selector {
+    color: #f38aff;
+  }
 
-.token.keyword {
-  color: #ff4b4b;
-}
-.token.attr-name,
-.token.builtin,
-.token.char,
-.token.inserted,
-.token.selector,
-.token.string {
-  color: #8a9dff;
-}
-
-.token.constant,
-.token.deleted,
-.token.property,
-.token.symbol,
-.token.tag {
-  color: #26f94e;
+  .token.constant,
+  .token.deleted,
+  .token.property,
+  .token.symbol,
+  .token.tag {
+    color: #915eff;
+  }
 }
 
 .post a:hover {
