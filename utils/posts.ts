@@ -122,3 +122,19 @@ export async function getPostData(id: string) {
     ...(matterResult.data as MatterMark["data"]),
   };
 }
+
+// 按条件查询文章
+export function getPostsByCondition(condition: { tags?: string[]; keyWord?: string }) {
+  const { tags, keyWord } = condition;
+  const allPostsData = getSortedPostsData();
+  const filterPostsData = allPostsData.filter((item) => {
+    if (tags.length > 0) {
+      return tags.some((tag) => item.tag.includes(tag));
+    }
+    if (keyWord) {
+      return item.title.includes(keyWord);
+    }
+    return true;
+  });
+  return filterPostsData;
+}

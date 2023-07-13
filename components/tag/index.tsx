@@ -1,4 +1,5 @@
 import colorList from "./tagColorList.json";
+import Link from "next/link";
 interface Props {
   tagName: string;
 }
@@ -7,7 +8,10 @@ export default function Tag({ tagName }: Props) {
   const color = colorList[tagName.trim() as keyof typeof colorList] || "#545454";
   return (
     <div>
-      {tagName}
+      <Link href={`/posts/tags/${tagName.trim()}`}>
+        <span>{tagName}</span>
+      </Link>
+
       <style jsx>{`
         div {
           background: ${color};
