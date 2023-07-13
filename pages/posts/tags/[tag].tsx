@@ -1,7 +1,9 @@
 import type { GetStaticProps, GetStaticPaths } from "next";
 import { getPostsByCondition } from "../../../utils/posts";
 import Head from "next/head";
+import style from "./tag.module.css";
 import PostList from "../../../components/postList";
+import Tag from "../../../components/tag";
 
 import tags from "../../../components/tag/tagColorList.json";
 interface Props {
@@ -11,12 +13,15 @@ interface Props {
 
 export default function Post({ postsData, tag }: Props) {
   return (
-    <div className="post">
+    <div>
       {" "}
       <Head>
         <title>{tag}</title>
       </Head>
-      <p>所有文章</p>
+      <div className={style.title}>
+        All Posts about
+        <Tag tagName={tag} />
+      </div>
       <PostList postsData={postsData} />
     </div>
   );

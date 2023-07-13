@@ -16,7 +16,7 @@ import rehypeKatex from "rehype-katex";
 import externalLinks from "remark-external-links";
 
 interface MatterMark {
-  data: { date: string; title: string };
+  data: { date: string; title: string; tag: string[] };
   content: string;
   [key: string]: unknown;
 }
@@ -29,7 +29,12 @@ const postsMap = new Map();
 getAllPostIds();
 
 // 获取所有文章用于展示首页列表的数据
-export function getSortedPostsData() {
+export function getSortedPostsData(): Array<{
+  id: string;
+  date: string;
+  title: string;
+  tag: string[];
+}> {
   // 获取所有md文件用于展示首页列表的数据，包含id，元数据（标题，时间）
   const allPostsData = fileNames.map((fileName) => {
     // 去除文件名的md后缀，使其作为文章id使用
@@ -128,7 +133,7 @@ export function getPostsByCondition(condition: { tags?: string[]; keyWord?: stri
   const { tags, keyWord } = condition;
   const allPostsData = getSortedPostsData();
   const filterPostsData = allPostsData.filter((item) => {
-    if (tags.length > 0) {
+    if (tags && tags.length > 0) {
       return tags.some((tag) => item.tag.includes(tag));
     }
     if (keyWord) {

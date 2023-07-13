@@ -1,0 +1,7 @@
+.title {
+  display: flex;
+  text-indent: 0;
+  margin: 10px;
+  gap: 10px;
+  align-items: center;
+}
