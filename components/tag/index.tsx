@@ -14,6 +14,7 @@ export default function Tag({ tagName }: Props) {
 
       <style jsx>{`
         div {
+          width: fit-content;
           background: ${color};
           border-radius: 10px;
           padding: 3px 5px;
