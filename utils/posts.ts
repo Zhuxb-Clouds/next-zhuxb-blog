@@ -107,7 +107,7 @@ export function getAllPostIds() {
 export async function getPostData(id: string) {
   const fileName = postsMap.get(id);
   // const fileName = getAllPostIds().find((item) => item.params.id === id).params.name;
-  console.log("fileName", fileName, postsMap);
+  // console.log("fileName", fileName, postsMap);
   // 文章路径
   const fullPath = path.join(postsDirectory, `${fileName}.md`);
 

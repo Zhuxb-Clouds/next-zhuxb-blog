@@ -19,7 +19,7 @@ jobs:
           yarn build
 
       - name: deploy
-        uses: cross-the-world/scp-pipeline@master
+        uses: cross-the-world/scp-pipeline@latest
         with:
           host: ${{ secrets.MY_HOST }} # 服务器IP（需要在GitHub上自行配置对应的secret）
           user: ${{ secrets.MY_USER }} # 服务器用户名
