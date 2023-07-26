@@ -7,27 +7,32 @@ interface Props {
 export default function Tag({ tagName }: Props) {
   const color = colorList[tagName.trim() as keyof typeof colorList] ?? "#545454";
   return (
-    <div>
+    <div className="tag">
       <Link href={`/posts/tags/${tagName.trim()}`}>
         <span>{tagName}</span>
       </Link>
 
-      <style jsx>{`
-        div {
-          width: fit-content;
-          background: ${color};
-          border-radius: 10px;
-          padding: 3px 5px;
-          color: #fff;
-          margin: 0 10px 0 0;
-          user-select: none;
-          cursor: pointer;
-          // transform: translateY(-50%);
-        }
-        span {
-          padding: 2px;
-        }
-      `}</style>
+      <style jsx>
+        {`
+          .tag {
+            width: fit-content;
+            background: ${color};
+            border-radius: 10px;
+            padding: 3px 5px;
+            color: #fff;
+            margin: 0 10px 0 0;
+            user-select: none;
+            cursor: pointer;
+            // transform: translateY(-50%);
+          }
+          .tag span:hover {
+            color: #fff;
+          }
+          span {
+            padding: 2px;
+          }
+        `}
+      </style>
     </div>
   );
 }
