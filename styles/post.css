@@ -13,18 +13,18 @@ code {
   font-weight: 700;
   z-index: 1;
   margin: 0 0.25rem;
-}
-code::after {
-  display: block;
-  content: "";
-  width: 100%;
-  height: 5px;
-  background-color: var(--code-after-color);
-  border-radius: 5px;
-  position: absolute;
-  top: 85%;
-  left: 0%;
-  z-index: -1;
+  &::after {
+    display: block;
+    content: "";
+    width: 100%;
+    height: 5px;
+    background-color: var(--code-after-color);
+    border-radius: 5px;
+    position: absolute;
+    top: 85%;
+    left: 0%;
+    z-index: -1;
+  }
 }
 /* 代码块 */
 pre > code::after {
@@ -40,9 +40,9 @@ p {
   font-size: 1rem;
   letter-spacing: 0.05rem;
   text-indent: 2em;
-}
-p > img {
-  width: 100%;
+  & > img {
+    width: 100%;
+  }
 }
 /* 消除文字段落首行缩进副作用 */
 p:has(img),
@@ -65,18 +65,18 @@ ol {
 blockquote {
   position: relative;
   font-family: "Noto Serif SC";
-}
-blockquote > p:has(strong) {
-  opacity: 0.8;
-  text-align: center;
-}
-blockquote::before {
-  content: "";
-  position: absolute;
-  width: 5px;
-  background: rgb(144, 144, 144);
-  height: 100%;
-  left: -40px;
+  & > p:has(strong) {
+    opacity: 0.8;
+    text-align: center;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    width: 5px;
+    background: rgb(144, 144, 144);
+    height: 100%;
+    left: -40px;
+  }
 }
 /* 表格 */
 table {
