@@ -12,20 +12,18 @@ tag: "JavaScript,译文"
 一份开放的标准，为了能在不同JavaScript promises实现之间稳定地交互——从实现者中来，到实现者里去。
 
 > A *promise* represents the eventual result of an asynchronous operation. The primary way of interacting with a promise is through its `then` method, which registers callbacks to receive either a promise’s eventual value or the reason why the promise cannot be fulfilled.
+> 
+> This specification details the behavior of the `then` method, providing an interoperable base which all Promises/A+ conformant promise implementations can be depended on to provide. As such, the specification should be considered very stable. Although the Promises/A+ organization may occasionally revise this specification with minor backward-compatible changes to address newly-discovered corner cases, we will integrate large or backward-incompatible changes only after careful consideration, discussion, and testing.
+> 
+> Historically, Promises/A+ clarifies the behavioral clauses of the earlier [Promises/A proposal](http://wiki.commonjs.org/wiki/Promises/A), extending it to cover *de facto* behaviors and omitting parts that are underspecified or problematic.
+> 
+> Finally, the core Promises/A+ specification does not deal with how to create, fulfill, or reject promises, choosing instead to focus on providing an interoperable `then` method. Future work in companion specifications may touch on these subjects.
 
 *promise*表现为异步操作的最后结果。其主要的交互方式便是通过*promise*的`then`方法注册回调函数去接收promise的最终值或是promise为何无法“fulfilled”的原因。
 
-
-> This specification details the behavior of the `then` method, providing an interoperable base which all Promises/A+ conformant promise implementations can be depended on to provide. As such, the specification should be considered very stable. Although the Promises/A+ organization may occasionally revise this specification with minor backward-compatible changes to address newly-discovered corner cases, we will integrate large or backward-incompatible changes only after careful consideration, discussion, and testing.
-
 这份规范详细描述了`then`方法的行为，并提供了一个交互的基础：所有基于Promises/A+规范实现的promise都可以依赖这个基础来提供。 *（以确保它们在使用then方法时都表现一致）* 尽管Promises/A+组织偶尔会修正这份规范，去兼容那些新发现的边缘情况（角落案例），但我们只会在经过仔细考虑、讨论和测试之后才会发布那些大的或者向后不兼容的改变。
 
-
-> Historically, Promises/A+ clarifies the behavioral clauses of the earlier [Promises/A proposal](http://wiki.commonjs.org/wiki/Promises/A), extending it to cover *de facto* behaviors and omitting parts that are underspecified or problematic.
-
 从历史上来说，Promises/A+比起早期的Promises/A规范明确了行为条款，将其扩展并覆盖了实际行为，省略了一些未说明和存在问题的部分。
-
-> Finally, the core Promises/A+ specification does not deal with how to create, fulfill, or reject promises, choosing instead to focus on providing an interoperable `then` method. Future work in companion specifications may touch on these subjects.
 
 最后，Promises/A+规范的核心并非处理**如何创建、完成或拒绝promises**，而是聚焦于如何提供一个具有交互性的 `then` 方法。可能未来会在相关规范中涉及这些主题。
 
@@ -48,9 +46,7 @@ tag: "JavaScript,译文"
 ### Promise States - Promise 状态
 
 > A promise must be in one of three states: pending, fulfilled, or rejected.
-
-一个promise必须具有以下三种状态之一：等待（pending）, 完成（fulfilled）, 拒绝（rejected）.
-
+> 
 > - When pending, a promise:
 >
 >    1. may transition to either the fulfilled or rejected state.
@@ -64,6 +60,10 @@ tag: "JavaScript,译文"
 >
 >    1. must not transition to any other state.
 >    2. must have a reason, which must not change.
+> 
+> Here, “must not change” means immutable identity (i.e. `===`), but does not imply deep immutability.
+
+一个promise必须具有以下三种状态之一：等待（pending）, 完成（fulfilled）, 拒绝（rejected）.
 
 - **等待**状态时
 
@@ -79,37 +79,46 @@ tag: "JavaScript,译文"
     1. 不可以变换为其他状态
     2. 必须有一个不会改变的原因
 
-
-> Here, “must not change” means immutable identity (i.e. `===`), but does not imply deep immutability.
-
 在这里的"不会改变"指的是不可变性（严格相等）,不过并不意味着深层不可变性（嵌套）。
 
 
 ### The `then` Method - `then`方法
 
 > A promise must provide a `then` method to access its current or eventual value or reason.
-
-一个Promise对象必须提供一个then方法，用于访问它的当前值或最终的值（fulfillment）或拒绝的原因（rejection）。
-
-> A promise’s `then` method accepts two arguments:
-
-一个promise的`then`方法需要接受两个参数：`promise.then(onFulfilled, onRejected)`
-
+> Here, “must not change” means immutable identity (i.e. `===`), but does not imply deep immutability.
+> 
 > 1. Both`onFulfilled`and`onRejected`are optional arguments:
 > 
 >    1. If `onFulfilled` is not a function, it must be ignored.
 >    2. If `onRejected` is not a function, it must be ignored.
+> 2. If`onFulfilled`is a function:
+>    1. it must be called after `promise` is fulfilled, with `promise`’s value as its first argument.
+>    2. it must not be called before `promise` is fulfilled.
+>    3. it must not be called more than once.
+> 3. If`onRejected`is a function,
+> 
+>    1. it must be called after `promise` is rejected, with `promise`’s reason as its first argument.
+>    2. it must not be called before `promise` is rejected.
+>    3. it must not be called more than once.
+> 4. `onFulfilled` or `onRejected` must not be called until the [execution context](https://es5.github.io/#x10.3) stack contains only platform code. [[3.1](https://promisesaplus.com/#notes)].
+> 5. `onFulfilled` and `onRejected` must be called as functions (i.e. with no `this` value). [[3.2](https://promisesaplus.com/#notes)]
+> 6. `then`may be called multiple times on the same promise.
+>    1. If/when `promise` is fulfilled, all respective `onFulfilled` callbacks must execute in the order of their originating calls to `then`.
+>   2. If/when `promise` is rejected, all respective `onRejected` callbacks must execute in the order of their originating calls to `then`.
+> 7. `then` must return a promise`promise2 = promise1.then(onFulfilled, onRejected);`
+>    1. If either `onFulfilled` or `onRejected` returns a value `x`, run the Promise Resolution Procedure `[[Resolve]](promise2, x)`.
+>    2. If either `onFulfilled` or `onRejected` throws an exception `e`, `promise2` must be rejected with `e` as the reason.
+>    3. If `onFulfilled` is not a function and `promise1` is fulfilled, `promise2` must be fulfilled with the same value as `promise1`.
+>    4. If `onRejected` is not a function and `promise1` is rejected, `promise2` must be rejected with the same reason as `promise1`.
+
+一个Promise对象必须提供一个then方法，用于访问它的当前值或最终的值（fulfillment）或拒绝的原因（rejection）。
+
+一个promise的`then`方法需要接受两个参数：`promise.then(onFulfilled, onRejected)`
 
 1. `onFulfilled`和`onRejected`都是可选参数
 
 	1. 如果`onFulfilled`不是函数，必须被忽略
 	2. 如果`onRejected`不是函数，必须被忽略
-
-> 2. If`onFulfilled`is a function:
->    1. it must be called after `promise` is fulfilled, with `promise`’s value as its first argument.
->    2. it must not be called before `promise` is fulfilled.
->    3. it must not be called more than once.
->    
 
 2. 如果`onFulfilled`是函数:
 
@@ -117,44 +126,21 @@ tag: "JavaScript,译文"
 	2. 它不能在`promise`完成之前被调用。
 	3. 它不能被调用超过一次。
 
-> 3. If`onRejected`is a function,
-> 
->    1. it must be called after `promise` is rejected, with `promise`’s reason as its first argument.
->    2. it must not be called before `promise` is rejected.
->    3. it must not be called more than once.
-
 3. 如果`onRejected`是函数:
 
 	1. 它必须在`promise`拒绝之后被调用,`promise`的reason将成为它的第一个参数。
 	2. 它不能在`promise`拒绝之前被调用。
 	3. 它不能被调用超过一次。
 
-
-> 4. `onFulfilled` or `onRejected` must not be called until the [execution context](https://es5.github.io/#x10.3) stack contains only platform code. [[3.1](https://promisesaplus.com/#notes)].
-
 4. `onFulfilled` or `onRejected` 回调函数必须在执行上下文栈（execution context stack）中只包含平台代码（platform code）时才能被调用。
 
 *(在JavaScript中，执行上下文栈是一个用于管理函数调用和代码执行的机制。当一个函数被调用时，它的执行上下文会被推入栈中，当函数执行完成后，执行上下文会从栈中弹出。平台代码指的是JavaScript运行环境（如浏览器或Node.js）提供的内置函数、方法或事件处理程序等，而不是由开发者编写的自定义代码。这意味着在执行Promise的回调函数之前，所有正在进行的自定义代码执行已经完成，避免了回调函数执行过程中可能出现的意外行为或状态混乱。)*
 
-> 5. `onFulfilled` and `onRejected` must be called as functions (i.e. with no `this` value). [[3.2](https://promisesaplus.com/#notes)]
-
 `onFulfilled` 与 `onRejected` 必须被作为函数调用 (即没有 `this` 值). 
-
-> 6. `then`may be called multiple times on the same promise.
->    1. If/when `promise` is fulfilled, all respective `onFulfilled` callbacks must execute in the order of their originating calls to `then`.
->   2. If/when `promise` is rejected, all respective `onRejected` callbacks must execute in the order of their originating calls to `then`.
 
 6. `then`可以在同一个`promise`上被多次调用.
 	1. 如果`promise`完成，所有对应的onFulfilled回调函数必须按照它们调用then的顺序依次执行。
 	2. 如果`promise`拒绝，所有对应的onRejected回调函数必须按照它们调用then的顺序依次执行。
-
-
-
-> 7. `then` must return a promise`promise2 = promise1.then(onFulfilled, onRejected);`
->    1. If either `onFulfilled` or `onRejected` returns a value `x`, run the Promise Resolution Procedure `[[Resolve]](promise2, x)`.
->    2. If either `onFulfilled` or `onRejected` throws an exception `e`, `promise2` must be rejected with `e` as the reason.
->    3. If `onFulfilled` is not a function and `promise1` is fulfilled, `promise2` must be fulfilled with the same value as `promise1`.
->    4. If `onRejected` is not a function and `promise1` is rejected, `promise2` must be rejected with the same reason as `promise1`.
 
 7. `then`必须返回一个promise`promise2 = promise1.then(onFulfilled, onRejected);`
 	1. 如果 `onFulfilled` 或 `onRejected`返回一个值`x`,则需要运行Promise Resolution Procedure（Promise解决过程）
@@ -165,31 +151,13 @@ tag: "JavaScript,译文"
 ### The Promise Resolution Procedure - Promise解决过程
 
 > The **promise resolution procedure** is an abstract operation taking as input a promise and a value, which we denote as `[[Resolve]](promise, x)`. If `x` is a thenable, it attempts to make `promise` adopt the state of `x`, under the assumption that `x` behaves at least somewhat like a promise. Otherwise, it fulfills `promise` with the value `x`.
-
-**Promise解决过程**是一个抽象操作,它接受一个Promise和一个值作为输入，表示为`[[Resolve]](promise, x)`。如果`x`是一个"thenable"(具有then方法/可以被链式调用的),它试图让`promise`采用`x`的状态, 除非`x`的行为至少在某种程度上像是一个promise.否则,它将完成`promise`,并且让x成为这个`promise`的 value .
-
 > This treatment of thenables allows promise implementations to interoperate, as long as they expose a Promises/A+-compliant `then` method. It also allows Promises/A+ implementations to “assimilate” nonconformant implementations with reasonable `then` methods.
-
-"`thenables`"处理方案允许不同`promise`实现 相互操作,只要他们都暴露遵循Promises/A+的`then`方法, 它也允许 Promises/A+ 实现“吸收”不符合规范但具有合理then方法的实现。
-
 > To run `[[Resolve]](promise, x)`, perform the following steps:
-
-为了运行`[[Resolve]](promise, x)`, 进行以下步骤:
-
 > 1. If `promise` and `x` refer to the same object, reject `promise` with a `TypeError` as the reason.
-
-1. 如果`promise`与`x`提交了同一个对象, 以`TypeError` 为`reason`拒绝`promise`.
-
 > 2. If`x`is a promise, adopt its state [3.4]:
 >    1. If `x` is pending, `promise` must remain pending until `x` is fulfilled or rejected.
 >    2. If/when `x` is fulfilled, fulfill `promise` with the same value.
 >    3. If/when `x` is rejected, reject `promise` with the same reason.
-
-2. 如果`x`是一个`promise`, 则采用`x`的状态.
-	1. 如果`x`为等待态, `promise`必须等待到`x`完成或拒绝.
-	2. 如果/当`x`完成, 以相同的value完成`promise`.
-	3. 如果/当`x`拒绝, 以相同的reason拒绝`promise`
-
 > 3. Otherwise, if`x`is an object or function,
 >	1. Let `then` be `x.then`. [[3.5](https://promisesaplus.com/#notes)]
 >	2. If retrieving the property `x.then` results in a thrown exception `e`, reject `promise` with `e` as the reason.
@@ -202,6 +170,20 @@ tag: "JavaScript,译文"
 >			2. Otherwise, reject `promise` with `e` as the reason.
 >   4. If `then` is not a function, fulfill `promise` with `x`.
 >4. If `x` is not an object or function, fulfill `promise` with `x`.
+> If a promise is resolved with a thenable that participates in a circular thenable chain, such that the recursive nature of `[[Resolve]](promise, thenable)` eventually causes `[[Resolve]](promise, thenable)` to be called again, following the above algorithm will lead to infinite recursion. Implementations are encouraged, but not required, to detect such recursion and reject `promise` with an informative `TypeError` as the reason. [[3.6](https://promisesaplus.com/#notes)]
+
+**Promise解决过程**是一个抽象操作,它接受一个Promise和一个值作为输入，表示为`[[Resolve]](promise, x)`。如果`x`是一个"thenable"(具有then方法/可以被链式调用的),它试图让`promise`采用`x`的状态, 除非`x`的行为至少在某种程度上像是一个promise.否则,它将完成`promise`,并且让x成为这个`promise`的 value .
+
+"`thenables`"处理方案允许不同`promise`实现 相互操作,只要他们都暴露遵循Promises/A+的`then`方法, 它也允许 Promises/A+ 实现“吸收”不符合规范但具有合理then方法的实现。
+
+为了运行`[[Resolve]](promise, x)`, 进行以下步骤:
+
+1. 如果`promise`与`x`提交了同一个对象, 以`TypeError` 为`reason`拒绝`promise`.
+
+2. 如果`x`是一个`promise`, 则采用`x`的状态.
+	1. 如果`x`为等待态, `promise`必须等待到`x`完成或拒绝.
+	2. 如果/当`x`完成, 以相同的value完成`promise`.
+	3. 如果/当`x`拒绝, 以相同的reason拒绝`promise`
 
 3. 另一种可能, 如果`x`是对象或者函数,
 	1.  让 `then` 变为 `x.then`.
@@ -215,8 +197,6 @@ tag: "JavaScript,译文"
 			2. 否则, 以`e`为原因拒绝`promise`
 	4. 如果`then`不是函数, 以`x`完成`promise`.
 4. 如果`x`不是函数或者对象, 以`x`完成`promise`.
-
-> If a promise is resolved with a thenable that participates in a circular thenable chain, such that the recursive nature of `[[Resolve]](promise, thenable)` eventually causes `[[Resolve]](promise, thenable)` to be called again, following the above algorithm will lead to infinite recursion. Implementations are encouraged, but not required, to detect such recursion and reject `promise` with an informative `TypeError` as the reason. [[3.6](https://promisesaplus.com/#notes)]
 
 如果一个`promise` 被解决为一个`thenable`，并且这个`thenable`参与了一个循环`thenable`链，导致`[[Resolve]](promise, thenable)`在递归过程中再次被调用，按照上述算法可能会导致无限递归。为了避免这种情况，Promises/A+规范鼓励但不强制要求实现检测到这样的递归，并用一个带有信息的`TypeError`作为原因来拒绝`promise`。
 

@@ -5,6 +5,7 @@
 h1 {
   font-family: "Noto Serif SC";
 }
+/* code 下划线 */
 code {
   font-family: "Lora";
   font-style: italic;
@@ -25,6 +26,7 @@ code::after {
   left: 0%;
   z-index: -1;
 }
+/* 代码块 */
 pre > code::after {
   display: none;
 }
@@ -33,24 +35,38 @@ span.token::selection {
   background-color: #d3d3d3;
   color: #000;
 }
-/* 图片 */
-p > img {
-  width: 100%;
-}
+/* 文字段落首行缩进 */
 p {
   font-size: 1rem;
   letter-spacing: 0.05rem;
   text-indent: 2em;
 }
-p:has(img) {
+p > img {
+  width: 100%;
+}
+/* 消除文字段落首行缩进副作用 */
+p:has(img),
+li > p {
   text-indent: 0;
+}
+/* 有序/无序 列表 */
+article > ol > li,
+article > ul > li {
+  margin: 1em 0;
+}
+li > p {
+  margin: 0.25em;
+}
+ol {
+  padding-inline-start: 1em;
+  font-size: 1.05em;
 }
 /* 引用 */
 blockquote {
   position: relative;
   font-family: "Noto Serif SC";
 }
-blockquote > p {
+blockquote > p:has(strong) {
   opacity: 0.8;
   text-align: center;
 }
