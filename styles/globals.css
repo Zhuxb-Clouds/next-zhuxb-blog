@@ -3,9 +3,9 @@
   src: url("");
 } */
 :root {
-  --bg-color: #fff;
-  --color: #1d1d1d;
-  --selection-bg: #242424;
+  --bg-color: #fafdfe;
+  --color: #3b3935;
+  --selection-bg: #4e4e4e;
   --selection-color: #d3d3d3;
   --code-after-color: #efef17;
 }
@@ -13,7 +13,7 @@
 /* 深色模式 */
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg-color: #1d1d1d;
+    --bg-color: #1c1a16;
     --color: rgb(220, 220, 220);
     --selection-bg: #d3d3d3;
     --selection-color: #242424;
