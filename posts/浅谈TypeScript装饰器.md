@@ -1,5 +1,5 @@
 ---
-title: "浅谈Promise使用"
+title: "浅谈TypeScript装饰器"
 date: "2023-08-01"
 tag: "TypeScript"
 ---
