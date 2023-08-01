@@ -1,6 +1,6 @@
 ---
 title: "浅谈Promise使用"
-date: "2023-8-1"
+date: "2023-08-01"
 tag: "TypeScript"
 ---
 
