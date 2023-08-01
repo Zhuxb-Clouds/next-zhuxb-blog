@@ -95,17 +95,30 @@ pre[class*="language-"] {
   background: #232323;
 }
 .post {
-  .token.string,
-  .token.keyword {
-    color: #ff4bc0;
+  .token.string {
+    color: #9fffd2;
   }
-  .token.function,
-  .token.attr-name,
+  .token.keyword {
+    color: #6ffffd;
+  }
+  .token.function {
+    color: #76c6ff;
+  }
   .token.builtin,
-  .token.char,
-  .token.inserted,
   .token.selector {
-    color: #f38aff;
+    color: #8091ff;
+  }
+
+  .token.attr-name {
+    color: rgb(207, 219, 255);
+  }
+
+  .token.char,
+  .token.inserted {
+    color: #ea9fff;
+  }
+  .token.punctuation {
+    color: #fff;
   }
 
   .token.constant,
@@ -113,7 +126,7 @@ pre[class*="language-"] {
   .token.property,
   .token.symbol,
   .token.tag {
-    color: #915eff;
+    color: #12ffeb;
   }
 }
 
