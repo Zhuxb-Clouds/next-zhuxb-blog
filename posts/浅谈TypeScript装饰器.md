@@ -82,24 +82,7 @@ function loggedMethod(originalMethod: any, context: ClassMethodDecoratorContext)
 
 # 装饰器之于普通函数
 
-装饰器的目标往往都是类或者与类相关的实体，但实际上在装饰器规范中，装饰器的目标可以是类、方法、属性、方法参数，以及普通函数（即非类相关的函数）。
-
-```typescript
-// 普通函数装饰器
-function functionDecorator(target: any, propertyKey: string, descriptor: PropertyDescriptor) {
-  console.log("Function decorator called");
-}
-
-@functionDecorator
-function exampleFunction() {
-  console.log("Hello from the exampleFunction!");
-}
-
-exampleFunction();
-
-```
-
-
+装饰器目前只能在类以及类成员上使用，但实际上在装饰器规范中，装饰器的目标可以是类、方法、属性、方法参数，以及普通函数（即非类相关的函数）。
 
 ## 装饰器和单纯的调用函数的区别
 
