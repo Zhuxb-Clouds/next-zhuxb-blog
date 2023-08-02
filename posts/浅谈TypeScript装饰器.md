@@ -84,6 +84,10 @@ function loggedMethod(originalMethod: any, context: ClassMethodDecoratorContext)
 
 装饰器目前只能在类以及类成员上使用，但实际上在装饰器规范中，装饰器的目标可以是类、方法、属性、方法参数，以及普通函数（即非类相关的函数）。
 
+>Decorators
+>
+>A Decorator is a special kind of declaration that can be attached to a class declaration, method, accessor, property, or parameter. Decorators use the form @expression, where expression must evaluate to a function that will be called at runtime with information about the decorated declaration.
+
 ## 装饰器和单纯的调用函数的区别
 
 装饰器和单纯的调用函数之间有很大的区别，虽然装饰器的语法看起来类似于函数调用，但它们的目的和用法是不同的。
