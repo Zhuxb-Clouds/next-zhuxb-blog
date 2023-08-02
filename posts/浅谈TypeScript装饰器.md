@@ -60,7 +60,7 @@ exampleInstance.exampleMethod("Hello, decorators!");
 
 ```
 
-装饰器是一项实验性的特性，比如在v5.0以上版本中，方法装饰器仅接受originalMethod,  ClassMethodDecoratorContext两个参数，并且this将作为调用时的参数传入，如下：
+装饰器是一项实验性的特性，不同的版本可能会变化。比如在v5.0以上版本中，方法装饰器仅接受originalMethod,  ClassMethodDecoratorContext两个参数，并且this将作为调用时的参数传入，如下：
 
 ```typescript
 function loggedMethod(originalMethod: any, context: ClassMethodDecoratorContext) {
