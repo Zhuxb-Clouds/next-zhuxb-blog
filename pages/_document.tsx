@@ -16,10 +16,6 @@ class MyDocument extends Document {
           <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet" />
           <link href="https://fonts.googleapis.com/css?family=Lora&display=swap" rel="stylesheet" />
           <link
-            href="https://unpkg.com/@chinese-fonts/dyh@1.1.0/dist/SmileySans-Oblique/result.css"
-            rel="stylesheet"
-          />
-          <link
             rel="stylesheet"
             href="https://jsd.cdn.zzko.cn/npm/katex@0.16.0/dist/katex.min.css"
             integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC"

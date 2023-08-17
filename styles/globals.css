@@ -1,7 +1,5 @@
-/* @font-face {
-  font-family: Smiley sans;
-  src: url("");
-} */
+@import "./font.css";
+
 :root {
   --bg-color: #fafdfe;
   --color: #3b3935;
@@ -26,7 +24,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Lato", "Smiley Sans Oblique";
+  font-family: "Lato", "Smiley Sans";
   font-size: 20px;
   background-color: var(--bg-color);
   color: var(--color);

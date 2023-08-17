@@ -1,0 +1,9 @@
+/* 字体 */
+
+@font-face {
+  font-family: Smiley sans;
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://zhuxb-oss.oss-cn-hangzhou.aliyuncs.com/SmileySans-Oblique.ttf.woff2")
+    format("woff2");
+}
