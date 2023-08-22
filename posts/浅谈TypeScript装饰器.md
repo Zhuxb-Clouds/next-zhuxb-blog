@@ -139,7 +139,7 @@ exampleInstance.exampleMethod("Hello, decorators!");
 
 # NestJs里的装饰器
 
-NestJS的源码非常庞大，无法在这里完整展示。但是，我可以展示一个简化版的实现，以帮助您理解`@Get()`装饰器的基本工作原理。
+NestJS的源码非常庞大，无法在这里完整展示。
 
 假设我们有一个非常简单的版本的NestJS，包含一个简化的`Controller`类和`Get`装饰器。
 
@@ -191,5 +191,3 @@ console.log(exampleController.routes);
 ```
 
 从输出结果可以看到，装饰器将`findAll()`方法注册为了一个GET请求的路由处理函数，并将其存储在控制器的`routes`数组中。
-
-这只是一个非常简化的实现，真实的NestJS中有更多的细节和功能。但这个简化版的实现展示了`@Get()`装饰器的基本原理，即通过装饰器将方法与路由关联起来并存储在控制器中，从而实现路由的注册和处理。
