@@ -11,7 +11,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 18.16.0
-      - run: npm install -g yarn
+      - run: npm install -g yarn@1.22.19
 
       - name: yarn install and build
         run: |
