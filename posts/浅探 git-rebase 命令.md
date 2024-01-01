@@ -56,11 +56,11 @@ rebase中合并的失败可能会中止整个自动化过程，你需要解决�
 
 假设存在这样的历史记录，并且当前分支处于”topic“上。
 
-------------
+```
           A---B---C topic
          /
     D---E---F---G master
-------------
+```
 
 如果在这里执行以下某个指令：
 
@@ -69,11 +69,11 @@ rebase中合并的失败可能会中止整个自动化过程，你需要解决�
 
 则会变成。
 
-------------
+```
                   A'--B'--C' topic
                  /
     D---E---F---G master
-------------
+```
 
 > **NOTE:** The latter form is just a short-hand of `git checkout topic` followed by `git rebase master`. When rebase exits `topic` will remain the checked-out branch.
 
@@ -187,9 +187,9 @@ git rebase --onto topicA~5 topicA~3 topicA
 
 如果 F 和 G 存在问题，或者不应该成为 *topicA* 的一部分，则这种方法非常有用。请注意，`--onto` 参数和 `<upstream>` 参数可以是任何有效的类commit。
 
-> In case of conflict, `git rebase` will stop at the first problematic commit and leave conflict markers in the tree.  You can use `git diff` to locate the markers (<<<<<<) and make edits to resolve the conflict.  For each file you edit, you need to tell Git that the conflict has been resolved, typically this would be done with
+> In case of conflict, `git rebase` will stop at the first problematic commit and leave conflict markers in the tree.  You can use `git diff` to locate the markers `(<<<<<<)` and make edits to resolve the conflict.  For each file you edit, you need to tell Git that the conflict has been resolved, typically this would be done with
 
-在某些冲突的情况，`git rebase`将会停止在第一次造成问题的 commit 并且留下冲突标记在树上，你可以使用`git diff` 去定位这些标记(<<<<<<)并且做出变更去解决冲突。对于你编辑过的每一个文件，你需要告诉Git那些冲突已经被解决，使用：
+在某些冲突的情况，`git rebase`将会停止在第一次造成问题的 commit 并且留下冲突标记在树上，你可以使用`git diff` 去定位这些标记`(<<<<<<)`并且做出变更去解决冲突。对于你编辑过的每一个文件，你需要告诉Git那些冲突已经被解决，使用：
 
 ```
 git add <filename>
