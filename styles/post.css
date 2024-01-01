@@ -4,6 +4,7 @@
 }
 h1 {
   font-family: "Noto Serif SC";
+  text-align: center;
 }
 /* code 下划线 */
 code {
@@ -65,6 +66,10 @@ ol {
 blockquote {
   position: relative;
   font-family: "Noto Serif SC";
+  p{
+    text-indent: 0;
+    text-wrap: balance;
+  }
   & > p:has(strong) {
     opacity: 0.8;
     text-align: center;

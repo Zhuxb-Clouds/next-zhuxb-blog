@@ -3,6 +3,13 @@
 }
 .tags {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   margin: 0 0 10px 0;
+  justify-content: flex-end;
+}
+.time{
+  display: block;
+  width: 100%;
+  text-align: right;
+  font-style: italic;
 }

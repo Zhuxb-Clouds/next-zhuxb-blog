@@ -31,7 +31,7 @@ export default function Post({ postData }: Props) {
           <Tag tagName={item} key={item} />
         ))}
       </div>
-      <Date dateString={postData.date} />
+      <Date dateString={postData.date} className={style.time} />
       <article className={style.content}>
         <MDXRemote {...postData.content}></MDXRemote>
       </article>
