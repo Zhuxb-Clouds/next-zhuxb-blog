@@ -2,7 +2,7 @@ import { parseISO, format } from "date-fns";
 
 interface Props {
   dateString: string;
-  className: string;
+  className?: string;
 }
 
 export default function Date({ dateString,className }: Props) {
