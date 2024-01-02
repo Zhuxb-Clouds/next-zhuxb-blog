@@ -1,5 +1,5 @@
 .post {
-  font-family: "Noto Serif SC";
+  font-family: "Noto Sans SC";
   font-size: 20px;
   & > h1 {
     font-family: "Fontquan-XinYiJiXiangSong", sans-serif;
@@ -11,6 +11,7 @@
 }
 h1 {
   font-family: "Noto Serif SC";
+  font-size: 2em;
 }
 /* code 下划线 */
 code {
@@ -44,9 +45,11 @@ span.token::selection {
 }
 /* 文字段落首行缩进 */
 p {
-  font-size: 1rem;
+  font-size: 0.9rem;
   letter-spacing: 0.05rem;
+  margin: 1em 0;
   text-indent: 2em;
+  text-wrap: pretty;
   & > img {
     width: 100%;
   }
