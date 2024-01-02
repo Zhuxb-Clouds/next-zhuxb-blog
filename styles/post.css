@@ -1,10 +1,16 @@
 .post {
-  font-family: "Noto Sans SC";
+  font-family: "Noto Serif SC";
   font-size: 20px;
+  & > h1 {
+    font-family: "Fontquan-XinYiJiXiangSong", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 1rem 0;
+    text-align: center;
+  }
 }
 h1 {
   font-family: "Noto Serif SC";
-  text-align: center;
 }
 /* code 下划线 */
 code {
@@ -66,9 +72,14 @@ ol {
 blockquote {
   position: relative;
   font-family: "Noto Serif SC";
+  background-color: var(--blockquote-background-color);
+  border-radius: 8px;
+  padding: 2px 10px;
+  
   p{
     text-indent: 0;
     text-wrap: balance;
+    font-size: revert;
   }
   & > p:has(strong) {
     opacity: 0.8;
@@ -78,9 +89,12 @@ blockquote {
     content: "";
     position: absolute;
     width: 5px;
-    background: rgb(144, 144, 144);
+    background: var(--blockquote-bar-color);
     height: 100%;
-    left: -40px;
+    top: 0;
+    left: -16px;
+    border-radius: 
+    calc(infinity * 1px);
   }
 }
 /* 表格 */

@@ -6,17 +6,21 @@
   --selection-bg: #4e4e4e;
   --selection-color: #d3d3d3;
   --code-after-color: #efef17;
+  --blockquote-bar-color: #1e1e1e;
+  --blockquote-background-color: #f1f1f1;
 }
 
 /* 深色模式 */
 @media (prefers-color-scheme: dark) {
   :root {
+    color-scheme: dark;
     --bg-color: #1c1a16;
     --color: rgb(220, 220, 220);
     --selection-bg: #d3d3d3;
     --selection-color: #242424;
     --code-after-color: #1717ef;
-    color-scheme: dark;
+    --blockquote-bar-color: #ebebeb;
+    --blockquote-background-color: #313131;
   }
 }
 

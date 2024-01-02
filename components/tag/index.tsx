@@ -16,6 +16,7 @@ export default function Tag({ tagName }: Props) {
         {`
           .tag {
             width: fit-content;
+            height: auto;
             background: ${color};
             border-radius: 10px;
             padding: 3px 5px;
@@ -23,7 +24,11 @@ export default function Tag({ tagName }: Props) {
             margin: 0 10px 0 0;
             user-select: none;
             cursor: pointer;
-            // transform: translateY(-50%);
+            span{
+              display: flex;
+              align-items: center;
+            }
+            
           }
           .tag span:hover {
             color: #fff;
