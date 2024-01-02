@@ -27,6 +27,7 @@ export default function Tag({ tagName }: Props) {
             span{
               display: flex;
               align-items: center;
+              font-family: "Smiley Sans";
             }
             
           }
