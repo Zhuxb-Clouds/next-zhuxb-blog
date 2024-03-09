@@ -44,12 +44,5 @@
   },
   "volta": {
     "node": "18.16.0"
-  },
-  "nx": {
-    "targets": {
-      "build": {
-        "outputs": ["{projectRoot}/build", "{projectRoot}/public/build"]
-      }
-    }
   }
 }
