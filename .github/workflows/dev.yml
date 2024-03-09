@@ -16,7 +16,7 @@ jobs:
       - name: yarn install and build
         run: |
           yarn
-          yarn build
+          yarn export
 
       - name: deploy
         uses: cross-the-world/ssh-scp-ssh-pipelines@latest

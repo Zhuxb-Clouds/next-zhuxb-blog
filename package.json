@@ -1,10 +1,11 @@
 {
-  "name": "next-demo",
-  "version": "0.1.0",
+  "name": "next-zhuxb-blog",
+  "version": "0.1.2",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3001",
-    "build": "next build && next export",
+    "build": "next build",
+    "export":"next build && next export",
     "start": "next start -p 3001",
     "lint": "next lint"
   },
@@ -43,5 +44,12 @@
   },
   "volta": {
     "node": "18.16.0"
+  },
+  "nx": {
+    "targets": {
+      "build": {
+        "outputs": ["{projectRoot}/build", "{projectRoot}/public/build"]
+      }
+    }
   }
 }
