@@ -2,9 +2,9 @@
   font-family: "Noto Sans SC";
   font-size: 20px;
   & > h1 {
-    font-family: "Fontquan-XinYiJiXiangSong", sans-serif;
+    font-family: "Smiley Sans";
     font-size: 2.5rem;
-    font-weight: 700;
+    font-weight: 400;
     margin: 1rem 0;
     text-align: center;
   }
@@ -52,12 +52,13 @@ code {
   font-weight: 700;
   z-index: 1;
   margin: 0 0.25rem;
+  
   &::after {
     display: block;
     content: "";
-    width: 100%;
-    height: 5px;
-    background-color: var(--code-after-color);
+    width: calc(100% - 4px);
+    height: 0px;
+    border: 2px solid var(--code-after-color);
     border-radius: 5px;
     position: absolute;
     top: 85%;
@@ -74,21 +75,14 @@ span.token::selection {
   background-color: #d3d3d3;
   color: #000;
 }
-/* 文字段落首行缩进 */
 p {
-  font-size: 0.9rem;
-  letter-spacing: 0.05rem;
-  margin: 1em 0;
-  text-indent: 2em;
+  font-size: 0.8rem;
+  letter-spacing: 1.5;
+  margin: 1.5em 0;
   text-wrap: pretty;
   & > img {
     width: 100%;
   }
-}
-/* 消除文字段落首行缩进副作用 */
-p:has(img),
-li > p {
-  text-indent: 0;
 }
 /* 有序/无序 列表 */
 article > ol > li,
