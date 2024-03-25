@@ -6,6 +6,8 @@ tag: "JavaScript,译文"
 
 引用部分为原文, 括弧内为译者注
 
+> 原文：https://promisesaplus.com/
+
 ------
 >**An open standard for sound, interoperable JavaScript promises—by implementers, for implementers.**
 
