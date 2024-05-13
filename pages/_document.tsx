@@ -21,7 +21,7 @@ class MyDocument extends Document {
             integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC"
             crossOrigin="anonymous"
           ></link>
-          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@wc1font/fontquan-xin-yi-ji-xiang-song/font.css"></link>
+          <link rel="stylesheet" href="https://jsd.cdn.zzko.cn/npm/@wc1font/fontquan-xin-yi-ji-xiang-song/font.css"></link>
         </Head>
         <body>
           <Main />

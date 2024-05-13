@@ -7,11 +7,11 @@ tag: "Canvas,JavaScript"
 
 蒙版是一种图像化的选区，通常用于合成图像，经常在我们的图像相关需求中遇到。而今日我就遇到了一个半透明蒙版的需求，简化需求后，核心内容是这样的：提供两张图片，一是原始图片、二是蒙版图片，蒙版图片只有一种颜色。
 
-![image-20240221174457841](https://cdn.jsdelivr.net/gh/Zhuxb-Clouds/PicDepot/img/image-20240221174457841.png)
+![image-20240221174457841](https://jsd.cdn.zzko.cn/gh/Zhuxb-Clouds/PicDepot/img/image-20240221174457841.png)
 
 而我们的目的则是设置原始图片与蒙版重合的部分的透明度设置为50%。
 
-![无标题](https://cdn.jsdelivr.net/gh/Zhuxb-Clouds/PicDepot/img/%E6%97%A0%E6%A0%87%E9%A2%98.png)
+![无标题](https://jsd.cdn.zzko.cn/gh/Zhuxb-Clouds/PicDepot/img/%E6%97%A0%E6%A0%87%E9%A2%98.png)
 
 因为是web上执行的应用，可以直接使用CanvasApi去制作。通过`getImageData`获取到图片的`ImageData`即图片的像素数据。这些数据以数组的方式存储，一个像素点有四个通道（RGBA），取值范围在`[0,255]`，因此循环的Step至少为4。
 
