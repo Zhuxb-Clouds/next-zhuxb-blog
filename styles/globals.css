@@ -47,3 +47,14 @@ a {
   background: var(--selection-bg);
   color: var(--selection-color);
 }
+footer{
+  width: 100%;
+  height: 70px;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-family: 'Noto Serif SC', serif;
+}

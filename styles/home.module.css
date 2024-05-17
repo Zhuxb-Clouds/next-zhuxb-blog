@@ -6,6 +6,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  line-height: 1.5;
+  margin-block: 2rem;
 }
 .intro > span {
   width: 100%;

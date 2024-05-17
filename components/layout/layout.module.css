@@ -1,20 +1,12 @@
 .container {
   margin: auto 0;
+  position: relative;
+  top: 90px;
 }
 .body {
   width: 70%;
   max-width: 75ch;
+  min-height: calc(100vh - 160px);
   margin: 0 auto;
   position: relative;
-}
-.content {
-  margin-top: 100px;
-}
-.footer {
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  text-align: center;
 }

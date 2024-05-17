@@ -4,7 +4,7 @@ import React, { useState } from "react";
 
 function Header() {
   return (
-    <div className={styles.header}>
+    <header className={styles.header}>
       <div className={styles.title}>
         <span>
           <Link href="/">Zhuxb&apos;s Blog</Link>
@@ -23,7 +23,7 @@ function Header() {
           </a>
         </span>
       </div>
-    </div>
+    </header>
   );
 }
 

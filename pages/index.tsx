@@ -20,10 +20,19 @@ const homePage: NextPage<postsData> = ({ postsData }) => {
       </Head>
       <div className={style.home}>
         <div className={style.intro}>
-          <span>你好。</span>
           <span>
-            我是<code>朱仙变</code>
+            你好👋！我是
+            <code>
+              <ruby>
+                朱仙变
+                <rp>(</rp>
+                <rt>Zhuxb</rt>
+                <rp>)</rp>
+              </ruby>
+            </code>
+            。
           </span>
+
         </div>
         <div className={style.posts}>
           <p>历史博文</p>
