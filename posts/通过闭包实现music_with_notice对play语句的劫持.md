@@ -38,3 +38,20 @@ def closure():
 renpy.audio.music.play = closure()
 ```
 
+## 一种使用wraps实现的方法
+
+除开以上代码，还有一种实现**函数重定义**的方法，通过functools的wraps，更加简洁，具体代码如下：
+
+```python
+  from functools import wraps
+
+
+  def music_with_notice(filenames, channel=None, loop=None, **kwargs):
+    if channel == "music" and isinstance(filenames, str):
+      renpy.notify(filenames)
+    origin_play(filenames, channel=channel, loop=loop, **kwargs)
+    
+  origin_play = renpy.audio.music.play
+  renpy.audio.music.play = wraps(origin_play)(music_with_notice)
+
+```

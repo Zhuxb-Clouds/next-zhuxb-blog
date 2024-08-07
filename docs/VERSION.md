@@ -7,9 +7,13 @@ feat: 深色模式自由切换
 
 feat(page): 多重查询Tag页
 
-feat: 自动生成博文页元信息
+feat: 元信息规范化
 
 feat: 博文页路径语义化
+
+feat: 博文路径与posts页等价（SSG router）
+
+feat: 将其改为通用文档库
 
 ### V1.2
 
