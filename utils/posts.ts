@@ -126,7 +126,6 @@ export function getAllPostParams(): {
 // 获取指定文章内容
 export async function getPostData(slug: string[]) {
   const fullPath = path.join(postsDirectory, slug.join("/") + ".md");
-  console.log('fullPath', fullPath)
   // 读取文章内容
   const fileContents = fs.readFileSync(fullPath, "utf8");
 

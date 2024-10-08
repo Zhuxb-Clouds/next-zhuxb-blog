@@ -7,7 +7,13 @@ import Tag from "../../../components/tag";
 
 import tags from "../../../components/tag/tagColorList.json";
 interface Props {
-  postsData: { date: string; title: string; id: string; tag: string }[];
+  postsData: {
+    date: string;
+    title: string;
+    id: string;
+    tags: string[];
+    path: string;
+  }[];
   tag: string;
 }
 
