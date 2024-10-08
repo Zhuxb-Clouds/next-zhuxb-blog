@@ -33,7 +33,7 @@ export default function Post({ postData }: Props) {
       </div>
       <Date date={postData.date} className={style.time} />
       <article className={style.content}>
-        <MDXRemote {...postData.content}></MDXRemote>
+        <MDXRemote {...postData.content} ></MDXRemote>
       </article>
     </div>
   );

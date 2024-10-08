@@ -11,10 +11,12 @@ import gfm from "remark-gfm";
 
 // remarkMath：markdown数学公式
 import remarkMath from "remark-math";
+import rehypeSlug from 'rehype-slug'
 import rehypeKatex from "rehype-katex";
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 // externalLinks：使markdown的链接是在新页面打开链接
 import externalLinks from "remark-external-links";
-
+import Share from "../components/share";
 interface MatterMark {
   data: { date: string; tags: string[] };
   content: string;
@@ -131,12 +133,13 @@ export async function getPostData(slug: string[]) {
 
   // 使用matter解析markdown元数据和内容
   const matterResult = matter(fileContents);
-
   return {
     content: await serialize(matterResult.content, {
       mdxOptions: {
         remarkPlugins: [[remarkMath, {}], gfm, prism, externalLinks],
-        rehypePlugins: [[rehypeKatex, { output: "html", colorIsTextColor: true }]],
+        rehypePlugins: [[rehypeKatex, { output: "html", colorIsTextColor: true }], rehypeSlug, [rehypeAutolinkHeadings, {
+          behavior: 'wrap'
+        }]],
       },
     }),
     title: slug.at(-1),
