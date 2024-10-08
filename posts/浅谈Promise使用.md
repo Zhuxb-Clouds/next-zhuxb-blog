@@ -1,7 +1,7 @@
 ---
-title: "浅谈Promise使用"
-date: "2022-03-12"
-tag: "JavaScript"
+
+date: 2022-03-12
+tags: [JavaScript]
 ---
 
 

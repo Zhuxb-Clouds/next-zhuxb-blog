@@ -1,7 +1,7 @@
 ---
-title: "通过闭包实现music_with_notice对play语句的劫持"
-date: "2024-04-07"
-tag: "Renpy"
+
+date: 2024-04-07
+tags: [Renpy]
 ---
 
 

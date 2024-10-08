@@ -1,7 +1,7 @@
 ---
-title: "Keep-alive标签与它的生命周期钩子"
-date: "2022-08-08"
-tag: "Vue2"
+
+date: 2022-08-08
+tags: [Vue2]
 ---
 
 # Keep-alive释义

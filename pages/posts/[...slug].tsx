@@ -1,7 +1,7 @@
 import type { GetStaticProps, GetStaticPaths } from "next";
 import Head from "next/head";
 
-import { getAllPostIds, getPostData } from "../../utils/posts";
+import { getAllPostParams, getPostData } from "../../utils/posts";
 
 import Tag from "../../components/tag";
 import Date from "../../components/date";
@@ -14,7 +14,7 @@ interface Props {
     title: string;
     date: string;
     content: MDXRemoteProps;
-    tag: string;
+    tags: string[];
   };
 }
 
@@ -27,11 +27,11 @@ export default function Post({ postData }: Props) {
       </Head>
       <h1 className={style.title}>{postData.title}</h1>
       <div className={style.tags}>
-        {postData.tag.split(",").map((item) => (
+        {postData.tags.map((item) => (
           <Tag tagName={item} key={item} />
         ))}
       </div>
-      <Date dateString={postData.date} className={style.time} />
+      <Date date={postData.date} className={style.time} />
       <article className={style.content}>
         <MDXRemote {...postData.content}></MDXRemote>
       </article>
@@ -42,7 +42,7 @@ export default function Post({ postData }: Props) {
 // getStaticProps和getStaticPaths只在服务器端运行，永远不会在客户端运行
 export const getStaticPaths: GetStaticPaths = async () => {
   // 获取所有文章id，即所有路由
-  const paths = getAllPostIds();
+  const paths = getAllPostParams();
   return {
     paths,
     fallback: false,
@@ -51,7 +51,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   // 获取文章内容
-  const postData = await getPostData(params!.id as string);
+
+  const postData = await getPostData(params!.slug as string[]);
   return {
     props: {
       postData,

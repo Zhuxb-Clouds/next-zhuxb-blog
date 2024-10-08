@@ -1,7 +1,7 @@
 ---
-title: "$nextTick使用"
-date: "2022-08-08"
-tag: "Vue"
+
+date: 2022-08-08
+tags: [Vue]
 ---
 
 # 定义

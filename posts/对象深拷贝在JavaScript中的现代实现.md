@@ -1,7 +1,7 @@
 ---
-title: "对象深拷贝在JavaScript中的现代实现"
-date: "2024-07-07"
-tag: "JavaScript,译文"
+
+date: 2024-07-07
+tags: [JavaScript,译文]
 ---
 
 > 原文链接：https://www.builder.io/blog/structured-clone
@@ -12,7 +12,7 @@ tag: "JavaScript,译文"
 
 ```javascript
 const calendarEvent = {
-  title: "Builder.io Conf"，
+  
   date: new Date(123)，
   attendees: ["Steve"]
 }
@@ -60,7 +60,7 @@ const clonedSink = structuredClone(kitchenSink)
 
 ```javascript
 const simpleEvent = {
-  title: "Builder.io Conf"，
+  
 }
 // ✅ no problem， there are no nested objects or arrays
 const shallowCopy = {...calendarEvent}
@@ -77,7 +77,7 @@ const shallowCopy = Object.create(simpleEvent)
 
 ```jsx
 const calendarEvent = {
-  title: "Builder.io Conf"，
+  
   date: new Date(123)，
   attendees: ["Steve"]
 }
@@ -102,7 +102,7 @@ shallowCopy.date.setTime(456)
 
 ```javascript
 const calendarEvent = {
-  title: "Builder.io Conf"，
+  
   date: new Date(123)，
   attendees: ["Steve"]
 }
@@ -115,8 +115,8 @@ const problematicCopy = JSON.parse(JSON.stringify(calendarEvent))
 
 ```json
 {
-  title: "Builder.io Conf"，
-  date: "1970-01-01T00:00:00.123Z"
+  
+  date: 1970-01-01T00:00:00.123Z
   attendees: ["Steve"]
 }
 ```
@@ -173,7 +173,7 @@ const veryProblematicCopy = JSON.parse(JSON.stringify(kitchenSink))
 import cloneDeep from 'lodash/cloneDeep'
 
 const calendarEvent = {
-  title: "Builder.io Conf"，
+  
   date: new Date(123)，
   attendees: ["Steve"]
 }

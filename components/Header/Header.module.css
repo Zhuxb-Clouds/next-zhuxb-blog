@@ -19,6 +19,8 @@
 }
 .title {
   cursor: pointer;
+  font-family: "Afacad Flux";
+  font-weight: 500;
 }
 
 .header > div {

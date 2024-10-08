@@ -1,7 +1,7 @@
 ---
-title: "回到标题与BookMark"
-date: "2021-06-27"
-tag: "KrKr"
+
+date: 2021-06-27
+tags: [KrKr]
 ---
 
 ## 回到标题机制

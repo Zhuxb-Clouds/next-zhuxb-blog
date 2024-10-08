@@ -1,7 +1,7 @@
 ---
-title: "浅探transform参数与warper函数"
-date: "2021-07-11"
-tag: "Renpy"
+
+date: 2021-07-11
+tags: [Renpy]
 ---
 
 此文本是在研究完7号问题（假山遮片）之后，所衍生的对transform参数的查缺补漏，请配合代码块一起食用。

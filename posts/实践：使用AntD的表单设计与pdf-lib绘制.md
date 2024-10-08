@@ -1,7 +1,7 @@
 ---
-title: "实践：使用AntD的表单设计与pdf-lib绘制"
-date: "2023-01-04"
-tag: "Vue2, AntDesign, pdf-lib"
+
+date: 2023-01-04
+tags: [Vue2, AntDesign, pdf-lib]
 ---
 
 # 需求和设计思路

@@ -1,7 +1,7 @@
 ---
-title: "UniApp如何调用蓝牙连接设备：以beneCheck为例"
-date: "2023-05-22"
-tag: "UniApp,蓝牙"
+
+date: 2023-05-22
+tags: [UniApp,蓝牙]
 ---
 
 

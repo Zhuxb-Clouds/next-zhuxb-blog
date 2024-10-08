@@ -1,7 +1,7 @@
 ---
-title: "半透明蒙版：使用CanvasApi实现"
-date: "2024-02-21"
-tag: "Canvas,JavaScript"
+
+date: 2024-02-21
+tags: [Canvas,JavaScript]
 ---
 
 

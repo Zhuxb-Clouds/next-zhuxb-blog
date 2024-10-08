@@ -1,7 +1,7 @@
 ---
-title: "Promise A-plus standard"
-date: "2023-07-26"
-tag: "JavaScript,译文"
+
+date: 2023-07-26
+tags: [JavaScript,译文]
 ---
 
 引用部分为原文, 括弧内为译者注
