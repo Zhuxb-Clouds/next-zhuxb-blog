@@ -76,17 +76,17 @@ export function getSortedPostsData(): Array<{
     const matterResult = matter(fileContents);
     return {
       id,
-      date: format(matterResult.data.date, "yyyy年MM月dd日"),
+      date: format(matterResult.data.date, "yyyy-MM-dd"),
       title: fileName,
       tags: matterResult.data.tags,
       path: getPathById(id),
     };
   });
-  // 按照日期从进到远排序
+
+  // 按照日期从近到远排序
   return allPostsData.sort(({ date: a }, { date: b }) =>
-    // parseISO：字符串转日期
-    parseISO(a) < parseISO(b) ? 1 : -1
-  );
+    parseISO(a).getTime() - parseISO(b).getTime()
+  ).reverse();
 }
 
 export function getUuid(fileName: string): string {
@@ -140,7 +140,7 @@ export async function getPostData(slug: string[]) {
       },
     }),
     title: slug.at(-1),
-    date: format(matterResult.data.date, "yyyy年MM月dd日"),
+    date: format(matterResult.data.date, "yyyy-MM-dd"),
     tags: matterResult.data.tags,
   };
 }

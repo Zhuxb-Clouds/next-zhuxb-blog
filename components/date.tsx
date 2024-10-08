@@ -8,7 +8,7 @@ interface Props {
 export default function Date({ date, className }: Props) {
   return (
     <time dateTime={date} className={className}>
-      {date}
+      {format(parseISO(date), "yyyy年MM月dd日")}
     </time>
   );
 }
