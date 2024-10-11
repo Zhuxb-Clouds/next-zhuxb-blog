@@ -9,17 +9,14 @@ import { useEffect } from "react";
 function Header() {
   const [mode, setMode] = useState("dark");
   useEffect(() => {
-    const newMode =
-      localStorage.getItem("mode") || window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light";
-    setMode(newMode);
+    setMode(
+      document.documentElement.getAttribute("data-theme") || localStorage.getItem("mode") || "dark"
+    );
   }, []);
   const switchMode = () => {
     const newMode = mode == "dark" ? "light" : "dark";
     setMode(newMode);
-    localStorage.setItem("mode", newMode); // 保存到localStorage
-    // 在html上设置data-theme属性
+    localStorage.setItem("mode", newMode);
     document.documentElement.setAttribute("data-theme", newMode);
   };
   return (
