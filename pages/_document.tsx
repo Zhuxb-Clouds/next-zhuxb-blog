@@ -2,7 +2,12 @@ import Document, { Html, Head, Main, NextScript } from "next/document";
 
 class MyDocument extends Document {
   render() {
-    const mode = typeof window !== "undefined" ? localStorage.getItem("mode") || "dark" : "dark";
+    const mode =
+      typeof window !== "undefined"
+        ? localStorage.getItem("mode") || window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light"
+        : "dark";
     return (
       <Html data-theme={mode}>
         <Head>
