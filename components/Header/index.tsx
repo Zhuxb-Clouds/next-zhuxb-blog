@@ -1,13 +1,41 @@
 import styles from "./Header.module.css";
 import Link from "next/link";
 import React, { useState } from "react";
+import Image from "next/image";
+import SunIcon from "../../public/sun.svg";
+import MoonIcon from "../../public/moon.svg";
+import { useEffect } from "react";
 
 function Header() {
+  const [mode, setMode] = useState("dark");
+  useEffect(() => {
+    const newMode =
+      localStorage.getItem("mode") || window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+    setMode(newMode);
+  }, []);
+  const switchMode = () => {
+    const newMode = mode == "dark" ? "light" : "dark";
+    setMode(newMode);
+    localStorage.setItem("mode", newMode); // 保存到localStorage
+    // 在html上设置data-theme属性
+    document.documentElement.setAttribute("data-theme", newMode);
+  };
   return (
     <header className={styles.header}>
       <div className={styles.title}>
         <span>
           <Link href="/">Zhuxb&apos;s Blog</Link>
+          <Image
+            src={mode == "dark" ? SunIcon : MoonIcon}
+            alt=""
+            width={50}
+            height={50}
+            className={styles.svg}
+            onClick={switchMode}
+            style={{ fill: mode == "dark" ? "white" : "black" }}
+          ></Image>
         </span>
       </div>
       <div className={styles.menu}>

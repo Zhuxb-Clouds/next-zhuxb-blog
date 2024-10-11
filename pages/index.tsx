@@ -1,10 +1,4 @@
-/*
- * @Date: 2023-03-29 16:49:57
- * @FileName:
- * @FileDescription:
- */
-// import Head from "next/head";
-import Image from "next/image";
+
 import Link from "next/link";
 import type { NextPage } from "next";
 import Head from "next/head";

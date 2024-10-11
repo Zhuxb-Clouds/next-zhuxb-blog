@@ -16,22 +16,24 @@ export interface postsData {
 const posts = ({ postsData }: postsData) => {
   return (
     <div>
-      {postsData.map(({ id, date, title, tags, path }) => (
-        <div key={id} className={style.post}>
-          <Link href={`/posts/${path}`}>
-            <span>{title}</span>
-          </Link>
-          <br />
-          <span className={style.span}>
+      {postsData.map(({ id, date, title, tags, path }) => {
+        return (
+          <div className={style.post} key={id}>
+            <Link href={`/posts/${path}`}>
+              <span className={style.title}>{title}</span>
+              <br />
+              <span className={style.date}>
+                <Date date={date} />
+              </span>
+            </Link>
             <div className={style.tags}>
               {tags.map((tag, key) => (
                 <Tag tagName={tag} key={key} />
               ))}
             </div>
-            <Date date={date} />
-          </span>
-        </div>
-      ))}
+          </div>
+        );
+      })}
     </div>
   );
 };

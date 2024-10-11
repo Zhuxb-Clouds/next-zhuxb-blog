@@ -8,7 +8,7 @@ export default function Tag({ tagName }: Props) {
   const color = colorList[tagName.trim() as keyof typeof colorList] ?? "#545454";
   return (
     <div className="tag">
-      <Link href={`/posts/tags/${tagName.trim()}`}>
+      <Link href={`/posts/tags/${tagName}`} >
         <span>{tagName}</span>
       </Link>
 

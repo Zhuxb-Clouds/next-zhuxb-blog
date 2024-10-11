@@ -2,8 +2,9 @@ import Document, { Html, Head, Main, NextScript } from "next/document";
 
 class MyDocument extends Document {
   render() {
+    const mode = typeof window !== "undefined" ? localStorage.getItem("mode") || "dark" : "dark";
     return (
-      <Html>
+      <Html data-theme={mode}>
         <Head>
           <link
             href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap"
