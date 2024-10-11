@@ -16,7 +16,6 @@ import rehypeKatex from "rehype-katex";
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 // externalLinks：使markdown的链接是在新页面打开链接
 import externalLinks from "remark-external-links";
-import Share from "../components/share";
 interface MatterMark {
   data: { date: string; tags: string[] };
   content: string;
