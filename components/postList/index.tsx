@@ -18,13 +18,20 @@ const posts = ({ postsData }: postsData) => {
     <div>
       {postsData.map(({ id, date, title, tags, path }) => {
         return (
-          <div className={style.post} key={id}>
+          <div
+            key={id}
+            style={{
+              position: "relative",
+            }}
+          >
             <Link href={`/posts/${path}`}>
-              <span className={style.title}>{title}</span>
-              <br />
-              <span className={style.date}>
-                <Date date={date} />
-              </span>
+              <div className={style.post}>
+                <span className={style.title}>{title}</span>
+                <br />
+                <span className={style.date}>
+                  <Date date={date} />
+                </span>
+              </div>
             </Link>
             <div className={style.tags}>
               {tags.map((tag, key) => (
