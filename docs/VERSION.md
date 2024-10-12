@@ -9,8 +9,6 @@ feat: 元信息规范化
 
 feat: 博文页路径语义化
 
-~~feat: 博文路径与posts页等价（SSG router）~~
-
 feat: 支持遍历文件夹与自动分类
 
 
