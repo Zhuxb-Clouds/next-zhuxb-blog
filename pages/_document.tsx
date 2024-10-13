@@ -29,10 +29,6 @@ const MyDocument = () => {
           href="https://jsd.cdn.zzko.cn/npm/@wc1font/fontquan-xin-yi-ji-xiang-song/font.css"
         />
       </Head>
-      <body>
-        <Main />
-        <NextScript />
-      </body>
       <script
         dangerouslySetInnerHTML={{
           __html: `
@@ -44,6 +40,10 @@ const MyDocument = () => {
               `,
         }}
       />
+      <body>
+        <Main />
+        <NextScript />
+      </body>
     </Html>
   );
 };
