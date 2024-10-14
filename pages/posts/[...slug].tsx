@@ -26,14 +26,20 @@ export default function Post({ postData }: Props) {
         <title>{postData.title}</title>
       </Head>
       <h1 className={style.title}>{postData.title}</h1>
-      <div className={style.tags}>
-        {postData.tags.map((item) => (
-          <Tag tagName={item} key={item} />
-        ))}
-      </div>
-      <Date date={postData.date} className={style.time} />
+      <span style={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+      }}>
+        <div className={style.tags}>
+          {postData.tags.map((item) => (
+            <Tag tagName={item} key={item} />
+          ))}
+        </div>
+        <Date date={postData.date} className={style.time} />
+      </span>
       <article className={style.content}>
-        <MDXRemote {...postData.content} ></MDXRemote>
+        <MDXRemote {...postData.content}></MDXRemote>
       </article>
     </div>
   );

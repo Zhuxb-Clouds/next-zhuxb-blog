@@ -1,18 +1,16 @@
 .post {
   font-family: "Noto Sans SC";
   font-size: 20px;
-  padding-block: 5rem;
+
   & > h1 {
     font-family: "Smiley Sans";
-    font-size: 2.5rem;
+    font-size: 4.5rem;
     font-weight: 400;
-    margin: 1rem 0;
-    text-align: center;
-    white-space: nowrap;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 0;
+    margin: 0;
+    text-align: left;
+    padding: 2rem;
+    line-height: 1;
+    text-wrap: pretty;
   }
 }
 h1,
@@ -85,13 +83,22 @@ span.token::selection {
   color: #000;
 }
 p {
-  font-size: 0.8rem;
+  font-size: 1rem;
   letter-spacing: 1.5;
   margin: 1.5em 0;
   text-wrap: pretty;
+
+  /* 首行缩进 2 */
+  text-indent: 2em;
   & > img {
-    width: 100%;
+    width: 80%;
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
   }
+}
+p:has(img) {
+  text-indent: 0;
+  text-align: center;
 }
 /* 有序/无序 列表 */
 article > ol > li,
