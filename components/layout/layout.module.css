@@ -2,6 +2,7 @@
   margin: auto 0;
   position: relative;
   top: 90px;
+  /* padding-block-end: 100px; */
 }
 .body {
   width: 70%;
@@ -9,4 +10,5 @@
   min-height: calc(100vh - 160px);
   margin: 0 auto;
   position: relative;
+  padding-block-end: 100px;
 }

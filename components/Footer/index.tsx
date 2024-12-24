@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer style={{ marginTop: "100px" }}>
+    <footer>
       <div
         style={{
           display: "flex",

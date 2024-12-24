@@ -5,20 +5,12 @@
   & > h1 {
     font-family: "Smiley Sans";
     font-size: 2.5rem;
-    font-weight: 400;
+    font-weight: 600;
     margin: 0;
-    text-align: left;
+    text-align: center;
     padding-block: 2rem;
     text-wrap: pretty;
   }
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Noto Serif SC";
 }
 
 h1 {
@@ -27,12 +19,12 @@ h1 {
 }
 h2 {
   font-size: 1.75em;
-  margin-block: 0.75em;
+  margin-block: 0.5em;
 }
 
 h3 {
   font-size: 1.5em;
-  margin-block: 0.75em;
+  margin-block: 0.5em;
 }
 
 h4 {
@@ -82,9 +74,9 @@ span.token::selection {
   color: #000;
 }
 p {
-  font-size: 1rem;
-  letter-spacing: 1.5;
-  margin: 1.5em 0;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  margin: 1em 0;
   text-wrap: pretty;
 
   /* 首行缩进 2 */
