@@ -4,11 +4,11 @@
 
   & > h1 {
     font-family: "Smiley Sans";
-    font-size: 4.5rem;
+    font-size: 2.5rem;
     font-weight: 400;
     margin: 0;
     text-align: left;
-    padding: 2rem;
+    padding-block: 2rem;
     text-wrap: pretty;
   }
 }
