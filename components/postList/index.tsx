@@ -11,7 +11,6 @@ export interface postsData {
     id: string;
     tags: string[];
     path: string;
-    content: string;
   }[];
 }
 const ForwardedTag = React.forwardRef(Tag);
