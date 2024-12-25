@@ -5,6 +5,7 @@ export default function Footer() {
         style={{
           display: "flex",
           gap: "20px",
+          fontSize: "12px",
         }}
       >
         <p>© 2024 Zhuxb&apos;s blog</p>

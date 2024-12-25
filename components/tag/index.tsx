@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import colorList from "./tagColorList.json";
 import Link from "next/link";
@@ -10,7 +10,7 @@ export default function Tag({ tagName }: Props) {
   const color = colorList[tagName.trim() as keyof typeof colorList] ?? "#545454";
   return (
     <div className="tag">
-      <Link href={`/posts/tags/${tagName}`} >
+      <Link href={`/posts/tags/${tagName}`}>
         <span>{tagName}</span>
       </Link>
 
@@ -20,24 +20,24 @@ export default function Tag({ tagName }: Props) {
             width: fit-content;
             height: auto;
             background: ${color};
-            border-radius: 10px;
-            padding: 3px 5px;
-            color: #fff;
-            margin: 0 10px 0 0;
+            border-radius: 20px;
+            padding: 3px 10px;
+            color: var(--bg-color);
+            margin: 0 5px 0 0;
             user-select: none;
             cursor: pointer;
-            span{
+            opacity: 0.6;
+            transition: 0.3s;
+            span {
               display: flex;
               align-items: center;
               font-family: "Smiley Sans";
+              font-size: 16px;
+              transition: 0.1s;
             }
-            
           }
-          .tag span:hover {
-            color: #fff;
-          }
-          span {
-            padding: 2px;
+          .tag:hover {
+            opacity: 1;
           }
         `}
       </style>
