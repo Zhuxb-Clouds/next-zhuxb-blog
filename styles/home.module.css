@@ -5,22 +5,28 @@
 .intro {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
   line-height: 1.5;
   margin-block: 2rem;
 }
 .intro > span {
-  width: 100%;
   text-align: left;
   font-size: 40px;
-  font-family: "Smiley Sans";
+  font-family: "Afacad Flux";
+  /* font-family: "Noto Serif SC"; */
+  font-weight: 900;
 }
-.intro > span > code {
-  font-family: "Noto Sans SC";
+.intro > p {
+  width: 100%;
   font-size: 35px;
+  text-align: left;
+  font-size: 16px;
+  margin: 0;
+  font-family: "Lato";
 }
 .posts {
   flex: 4 4;
+  font-family: "Lato";
 }
 .me {
   transition: all 0.4s;

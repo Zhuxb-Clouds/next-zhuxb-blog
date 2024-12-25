@@ -68,4 +68,5 @@
   margin: 0 10px;
   bottom: -10px;
   transform: scale(0.75) translate(-10%, 5%);
+  cursor: pointer;
 }

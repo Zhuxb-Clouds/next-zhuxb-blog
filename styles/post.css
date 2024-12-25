@@ -50,8 +50,7 @@ code {
   font-weight: 700;
   z-index: 1;
   margin: 0 0.25rem;
-  text-decoration: 4px underline solid;
-  text-decoration-color: var(--code-after-color);
+  text-decoration: 4px underline solid var(--code-after-color);
   text-decoration-skip-ink: auto;
   text-decoration-skip: edges;
 
@@ -84,7 +83,7 @@ p {
   text-wrap: pretty;
 
   /* 首行缩进 2 */
-  text-indent: 2em;
+  /* text-indent: 2em; */
   & > img {
     width: 80%;
     border: 1px solid var(--border-color);

@@ -1,3 +1,5 @@
+'use client'
+
 import colorList from "./tagColorList.json";
 import Link from "next/link";
 interface Props {

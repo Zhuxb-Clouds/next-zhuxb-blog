@@ -1,37 +1,27 @@
-
-import Link from "next/link";
 import type { NextPage } from "next";
 import Head from "next/head";
 import style from "../styles/home.module.css";
 import PostList, { postsData } from "../components/postList";
 import { getSortedPostsData } from "../utils/posts";
 
+import DarkModeSwitch from "../components/Header/DarkModeSwitch";
+
 const homePage: NextPage<postsData> = ({ postsData }) => {
   return (
     <div>
       <Head>
-        <title>Zhuxb&apos;s blog</title>
+        <title>Zhuxb</title>
       </Head>
       <div className={style.home}>
         <div className={style.intro}>
-          <span>
-            你好👋！我是
-            <code>
-              <ruby>
-                朱仙变
-                <rp>(</rp>
-                <rt>Zhuxb</rt>
-                <rp>)</rp>
-              </ruby>
-            </code>
-            。
-          </span>
-
+          <span>Hi,I&apos;m Zhuxb. <DarkModeSwitch /></span>
+          
+          <p>Front-end developer / Writer / Galgame producer.</p>
+          <p>Share Everything I know.</p>
         </div>
         <div className={style.posts}>
-          <p>历史博文</p>
+          <p>History Post</p>
           <PostList postsData={postsData} />
-          <Link href={"/posts"}>查看更多 {"->"} </Link>
         </div>
       </div>
     </div>
@@ -43,7 +33,7 @@ export async function getStaticProps() {
   const postsData = getSortedPostsData();
   return {
     props: {
-      postsData: postsData.slice(0, 5),
+      postsData: postsData.slice(0, 12),
     },
   };
 }

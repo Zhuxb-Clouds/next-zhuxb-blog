@@ -61,6 +61,7 @@ export function getSortedPostsData(): Array<{
   title: string;
   tags: string[];
   path: string;
+  content: string;
 }> {
   // 获取所有md文件用于展示首页列表的数据，包含id，元数据（标题，时间）
   const allPostsData = fileNames.map(({ name: fileName }) => {
@@ -81,6 +82,7 @@ export function getSortedPostsData(): Array<{
       title: fileName,
       tags: matterResult.data.tags,
       path: getPathById(id),
+      content: matterResult.content,
     };
   });
 

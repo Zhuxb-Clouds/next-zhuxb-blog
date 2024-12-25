@@ -21,16 +21,17 @@ interface Props {
 export default function Post({ postData }: Props) {
   return (
     <div className="post">
-      {" "}
       <Head>
         <title>{postData.title}</title>
       </Head>
       <h1 className={style.title}>{postData.title}</h1>
-      <span style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-      }}>
+      <span
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
         <div className={style.tags}>
           {postData.tags.map((item) => (
             <Tag tagName={item} key={item} />
@@ -41,6 +42,13 @@ export default function Post({ postData }: Props) {
       <article className={style.content}>
         <MDXRemote {...postData.content}></MDXRemote>
       </article>
+      <style>
+        {`
+        .post p{
+        text-indent: 2em;
+        }
+        `}
+      </style>
     </div>
   );
 }

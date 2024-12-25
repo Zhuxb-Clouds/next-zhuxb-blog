@@ -6,7 +6,7 @@ import * as React from "react";
 function layout({ children }: any) {
   return (
     <div className={styles.container}>
-      <Header />
+      {/* <Header /> */}
       <div className={styles.body}>
         <div className={styles.content}>{children}</div>
       </div>
