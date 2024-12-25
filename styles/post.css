@@ -50,8 +50,12 @@ code {
   font-weight: 700;
   z-index: 1;
   margin: 0 0.25rem;
+  text-decoration: 4px underline solid;
+  text-decoration-color: var(--code-after-color);
+  text-decoration-skip-ink: auto;
+  text-decoration-skip: edges;
 
-  &::after {
+  /* &::after {
     display: block;
     content: "";
     width: calc(100% - 4px);
@@ -62,11 +66,11 @@ code {
     top: 85%;
     left: 0%;
     z-index: -1;
-  }
+  } */
 }
 /* 代码块 */
-pre > code::after {
-  display: none;
+pre > code {
+  text-decoration: none;
 }
 pre > code::selection,
 span.token::selection {
