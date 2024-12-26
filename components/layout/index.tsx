@@ -4,7 +4,7 @@ import styles from "./layout.module.css";
 import * as React from "react";
 import { useRouter } from 'next/router';
 
-function layout({ children }: any) {
+function Layout({ children }: any) {
   const router = useRouter();
   const currentUrl = `${router.asPath}`;
   return (
@@ -18,4 +18,4 @@ function layout({ children }: any) {
   );
 }
 
-export default layout;
+export default Layout;
