@@ -4,6 +4,7 @@
   top: 90px;
   /* padding-block-end: 100px; */
 }
+
 .body {
   width: 70%;
   max-width: 75ch;
@@ -11,4 +12,13 @@
   margin: 0 auto;
   position: relative;
   padding-block-end: 100px;
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    top: 40px;
+  }
+  .body{
+    width: 85%;
+  }
 }

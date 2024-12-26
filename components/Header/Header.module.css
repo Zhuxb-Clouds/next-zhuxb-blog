@@ -69,3 +69,8 @@
   transform: scale(0.75) translate(-10%, 5%);
   cursor: pointer;
 }
+@media screen and (max-width: 800px) {
+  .header{
+    padding-inline: 10%;
+  }
+}

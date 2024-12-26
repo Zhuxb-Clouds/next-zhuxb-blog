@@ -87,7 +87,7 @@ p {
   text-wrap: pretty;
   line-height: 1.5;
   &>img {
-    width: 80%;
+    width: 100%;
     border: 1px solid var(--border-color);
     border-radius: 14px;
   }
