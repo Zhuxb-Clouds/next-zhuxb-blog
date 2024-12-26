@@ -42,13 +42,6 @@ export default function Post({ postData }: Props) {
       <article className={style.content}>
         <MDXRemote {...postData.content}></MDXRemote>
       </article>
-      <style>
-        {`
-        .post p{
-        text-indent: 2em;
-        }
-        `}
-      </style>
     </div>
   );
 }

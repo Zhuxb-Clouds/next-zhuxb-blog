@@ -2,7 +2,7 @@
   font-family: "Noto Sans SC";
   font-size: 20px;
 
-  & > h1 {
+  &>h1 {
     font-family: "Smiley Sans";
     font-size: 2.5rem;
     font-weight: 600;
@@ -11,12 +11,17 @@
     padding-block: 2rem;
     text-wrap: pretty;
   }
+
+  p {
+    text-indent: 2em;
+  }
 }
 
 h1 {
   font-size: 2.25em;
   margin-block: 1em;
 }
+
 h2 {
   font-size: 1.75em;
   margin-block: 0.5em;
@@ -67,45 +72,50 @@ code {
     z-index: -1;
   } */
 }
+
 /* 代码块 */
-pre > code {
+pre>code {
   text-decoration: none;
 }
-pre > code::selection,
+
+pre>code::selection,
 span.token::selection {
   background-color: #d3d3d3;
   color: #000;
 }
+
 p {
-  font-size: 20px;
-  letter-spacing: 0.5px;
-  margin: 1em 0;
+  font-size: 16px;
+  margin: 0.5em 0;
   text-wrap: pretty;
 
-  /* 首行缩进 2 */
-  /* text-indent: 2em; */
-  & > img {
+  &>img {
     width: 80%;
     border: 1px solid var(--border-color);
     border-radius: 14px;
   }
 }
+
 p:has(img) {
   text-indent: 0;
   text-align: center;
 }
+
 /* 有序/无序 列表 */
-article > ol > li,
-article > ul > li {
+article>ol>li,
+article>ul>li {
   margin: 1em 0;
 }
-li > p {
+
+li>p {
   margin: 0.25em;
 }
+
 ol {
   padding-inline-start: 1em;
   font-size: 1.05em;
 }
+
 /* 引用 */
 blockquote {
   position: relative;
@@ -119,10 +129,12 @@ blockquote {
     text-wrap: balance;
     font-size: revert;
   }
-  & > p:has(strong) {
+
+  &>p:has(strong) {
     opacity: 0.8;
     text-align: center;
   }
+
   &::before {
     content: "";
     position: absolute;
@@ -134,6 +146,7 @@ blockquote {
     border-radius: calc(infinity * 1px);
   }
 }
+
 /* 表格 */
 table {
   width: 100%;
@@ -172,6 +185,7 @@ td {
 
 /* Responsive styling for smaller screens */
 @media screen and (max-width: 600px) {
+
   table,
   thead,
   tbody,
@@ -207,20 +221,24 @@ td {
   }
 }
 
-:not(pre) > code[class*="language-"],
+:not(pre)>code[class*="language-"],
 pre[class*="language-"] {
   background: #232323;
 }
+
 .post {
   .token.string {
     color: #9fffd2;
   }
+
   .token.keyword {
     color: #6ffffd;
   }
+
   .token.function {
     color: #76c6ff;
   }
+
   .token.builtin,
   .token.selector {
     color: #8091ff;
@@ -234,6 +252,7 @@ pre[class*="language-"] {
   .token.inserted {
     color: #ea9fff;
   }
+
   .token.punctuation {
     color: #fff;
   }
@@ -257,7 +276,8 @@ h3,
 h4,
 h5,
 h6 {
-  scroll-margin-top: 90px; /* 将80px替换为你的header高度 */
+  scroll-margin-top: 90px;
+  /* 将80px替换为你的header高度 */
 }
 
 .icon-link {

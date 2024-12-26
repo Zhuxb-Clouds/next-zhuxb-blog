@@ -5,11 +5,15 @@ export default function Footer() {
         style={{
           display: "flex",
           gap: "20px",
-          fontSize: "12px",
+
         }}
       >
-        <p>© 2024 Zhuxb&apos;s blog</p>
-        <p>
+        <p style={{
+          fontSize: "12px",
+        }}>© 2024 Zhuxb&apos;s blog</p>
+        <p style={{
+          fontSize: "12px",
+        }}>
           <a href="https://beian.miit.gov.cn" target="_blank" rel="noreferrer">
             鄂ICP备2022011304号-2
           </a>

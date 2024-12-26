@@ -12,19 +12,6 @@ function Header() {
           <DarkModeSwitch />
         </span>
       </div>
-      <div className={styles.menu}>
-        <span>
-          <Link href="/about">About</Link>
-        </span>
-        <span>
-          <Link href="/posts">Posts</Link>
-        </span>
-        <span>
-          <a target="view_window" href="https://github.com/Zhuxb-Clouds">
-            Github
-          </a>
-        </span>
-      </div>
     </header>
   );
 }
