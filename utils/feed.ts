@@ -7,7 +7,7 @@ export function generateFeedXML() {
     const postList = getSortedPostsData()
     const metaData = {
         title: "Zhuxb Blog",
-        description: "Share Everything I know.\nfeedId:99668989463861248+userId:94711388466895872",
+        description: "Share Everything I know.",
         link: "https://www.zhuxb.dev/",
         lastBuildDate: new Date(),
         pubDate: new Date(),
