@@ -1,31 +1,49 @@
-// 读取Posts 建立 feed.xml 提供 RSS
-
 import fs from "fs";
-import { getSortedPostsData, getPostData } from "./posts"
+import { getSortedPostsData, getPostData } from "./posts";
 
 export function generateFeedXML() {
-    const postList = getSortedPostsData()
+    const postList = getSortedPostsData();
+    const currentPostCount = postList.length;
+    const feedCountFile = "./public/feedCount.json";
+
+    // 检查是否存在 feedCount 文件
+    let previousPostCount = 0;
+    if (fs.existsSync(feedCountFile)) {
+        const feedCountData = JSON.parse(fs.readFileSync(feedCountFile, "utf-8"));
+        previousPostCount = feedCountData.postCount || 0;
+    }
+
+    // 如果 posts 数量没有变化，跳过生成
+    if (currentPostCount === previousPostCount) {
+        console.log("No new posts detected. Skipping feed generation.");
+        return;
+    }
+
     const metaData = {
         title: "Zhuxb Blog",
         description: "Share Everything I know.",
         link: "https://www.zhuxb.dev/",
         lastBuildDate: new Date(),
         pubDate: new Date(),
-    }
+    };
 
-    const promise = Promise.all(postList.map(p => getPostData([p.path])))
-    promise.then(res => {
+    const promise = Promise.all(postList.map((p) => getPostData([p.path])));
+    promise.then((res) => {
         const itemData = postList.map((post, index) => ({
             title: post.title,
             description: "",
             link: `https://www.zhuxb.dev/posts/${post.path}`,
             guid: post.id,
             pubDate: new Date(post.date),
-            content: res[index].rawCotent
-        }))
+            content: res[index].rawCotent,
+        }));
 
-        fs.writeFileSync("./public/feed.xml", convertToXml(metaData, itemData))
-    })
+        fs.writeFileSync("./public/feed.xml", convertToXml(metaData, itemData));
+
+        // 更新 feedCount 文件
+        fs.writeFileSync(feedCountFile, JSON.stringify({ postCount: currentPostCount }, null, 2));
+        console.log("Feed generated and feedCount updated.");
+    });
 }
 
 interface MetaData {
@@ -49,12 +67,18 @@ function convertToXml(metaData: MetaData, itemData: ItemData[]): string {
     function escapeXml(unsafe: string): string {
         return unsafe.replace(/[<>&'\"\\u0000-\\u001F]/g, (c) => {
             switch (c) {
-                case '<': return '&lt;';
-                case '>': return '&gt;';
-                case '&': return '&amp;';
-                case '\'': return '&apos;';
-                case '\"': return '&quot;';
-                default: return `&#${c.charCodeAt(0)};`;
+                case "<":
+                    return "&lt;";
+                case ">":
+                    return "&gt;";
+                case "&":
+                    return "&amp;";
+                case "'":
+                    return "&apos;";
+                case '"':
+                    return "&quot;";
+                default:
+                    return `&#${c.charCodeAt(0)};`;
             }
         });
     }
@@ -73,7 +97,7 @@ function convertToXml(metaData: MetaData, itemData: ItemData[]): string {
     });
 
     // Add itemData to the XML
-    itemData.forEach(item => {
+    itemData.forEach((item) => {
         xml += `    <item>\n`;
         Object.entries(item).forEach(([key, value]) => {
             if (value instanceof Date) {
