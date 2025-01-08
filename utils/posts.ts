@@ -144,6 +144,7 @@ export async function getPostData(slug: string[]) {
     title: slug.at(-1),
     date: format(matterResult.data.date, "yyyy-MM-dd"),
     tags: matterResult.data.tags,
+    rawCotent: matterResult.content
   };
 }
 

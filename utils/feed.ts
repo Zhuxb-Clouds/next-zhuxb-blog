@@ -7,20 +7,25 @@ export function generateFeedXML() {
     const postList = getSortedPostsData()
     const metaData = {
         title: "Zhuxb Blog",
-        description: "Share Everything I know.",
+        description: "Share Everything I know.\nfeedId:99668989463861248+userId:94711388466895872",
         link: "https://www.zhuxb.dev/",
         lastBuildDate: new Date(),
         pubDate: new Date(),
     }
-    const itemData = postList.map(post => ({
-        title: post.title,
-        description: "",
-        link: `https://www.zhuxb.dev/posts/${post.path}`,
-        guid: post.id,
-        pubDate: new Date(post.date)
-    }))
-    fs.writeFileSync("./public/feed.xml",convertToXml(metaData, itemData))
-    return [metaData, itemData]
+
+    const promise = Promise.all(postList.map(p => getPostData([p.path])))
+    promise.then(res => {
+        const itemData = postList.map((post, index) => ({
+            title: post.title,
+            description: "",
+            link: `https://www.zhuxb.dev/posts/${post.path}`,
+            guid: post.id,
+            pubDate: new Date(post.date),
+            content: res[index].rawCotent
+        }))
+
+        fs.writeFileSync("./public/feed.xml", convertToXml(metaData, itemData))
+    })
 }
 
 interface MetaData {
@@ -82,6 +87,5 @@ function convertToXml(metaData: MetaData, itemData: ItemData[]): string {
     // Close XML tags
     xml += `  </channel>\n`;
     xml += `</rss>`;
-
     return xml;
 }
