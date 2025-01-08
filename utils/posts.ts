@@ -166,3 +166,8 @@ export function getPostsByCondition(condition: { tags?: string[]; keyWord?: stri
 function getPathById(id: string) {
   return fileNames.find(({ name }) => getUuid(name) === id)?.path.replace(".md", "") || "";
 }
+
+export function getPostDataById(id: string) {
+  const path = getPathById(id)
+  return getPostData(path.split("/"))
+}

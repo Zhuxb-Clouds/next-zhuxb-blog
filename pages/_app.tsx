@@ -10,6 +10,7 @@ import "../styles/globals.css";
 import "../styles/post.css";
 
 
+
 export default function App({ Component, pageProps }: AppProps) {
 
   return (
