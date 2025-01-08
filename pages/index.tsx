@@ -8,6 +8,8 @@ import { getSortedPostsData } from "../utils/posts";
 import GithubSvg from "../public/github.svg";
 import RssSvg from "../public/rss.svg";
 import DarkModeSwitch from "../components/Header/DarkModeSwitch";
+// instrumentation.ts
+import { generateFeedXML } from "../utils/feed"
 
 
 const homePage: NextPage<postsData> = ({ postsData }) => {
@@ -46,6 +48,7 @@ export default homePage;
 
 export async function getStaticProps() {
   const postsData = getSortedPostsData();
+  generateFeedXML()
   return {
     props: {
       postsData: postsData.slice(0, 12),
