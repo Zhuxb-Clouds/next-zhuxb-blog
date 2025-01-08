@@ -15,7 +15,7 @@ export function generateFeedXML() {
     const itemData = postList.map(post => ({
         title: post.title,
         description: "",
-        link: `https://www.zhuxb.dev/${post.path}`,
+        link: `https://www.zhuxb.dev/posts/${post.path}`,
         guid: post.id,
         pubDate: new Date(post.date)
     }))
