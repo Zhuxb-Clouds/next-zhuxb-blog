@@ -39,7 +39,6 @@ const homePage: NextPage<postsData> = ({ postsData }) => {
           <p>History Post</p>
           <PostList postsData={postsData} />
         </div>
-        <div>{JSON.stringify(postsData)}</div>
       </div>
     </div>
   );
