@@ -53,7 +53,7 @@ code {
   z-index: 1;
   margin: 0 0.25rem;
   text-decoration: 4px underline solid var(--code-after-color);
-  text-decoration-skip-ink: auto;
+  text-decoration-skip-ink: none;
   text-decoration-skip: edges;
 
   /* &::after {
