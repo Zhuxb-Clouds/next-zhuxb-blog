@@ -5,6 +5,7 @@ export function generateFeedXML() {
     const postList = getSortedPostsData();
     const currentPostCount = postList.length;
     const feedCountFile = "./public/feedCount.json";
+    const feedFile = "./public/feed.xml"
 
     // 检查是否存在 feedCount 文件
     let previousPostCount = 0;
@@ -14,7 +15,7 @@ export function generateFeedXML() {
     }
 
     // 如果 posts 数量没有变化，跳过生成
-    if (currentPostCount === previousPostCount) {
+    if (currentPostCount === previousPostCount && fs.existsSync(feedFile)) {
         console.log("No new posts detected. Skipping feed generation.");
         return;
     }
@@ -38,7 +39,7 @@ export function generateFeedXML() {
             content: res[index].rawCotent,
         }));
 
-        fs.writeFileSync("./public/feed.xml", convertToXml(metaData, itemData));
+        fs.writeFileSync(feedFile, convertToXml(metaData, itemData));
 
         // 更新 feedCount 文件
         fs.writeFileSync(feedCountFile, JSON.stringify({ postCount: currentPostCount }, null, 2));
