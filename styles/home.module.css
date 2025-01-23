@@ -83,8 +83,9 @@
   filter: brightness(0.5) blur(1px);
   transition: all 0.25s;
 }
-.projectCard:hover{
-  background-color: var(--color);
+.projectCard:hover {
+  background-color: white;
+  width: 425px;
 }
 .projectCard:hover img {
   transform: scale(2) translate(-10%, 20%);
@@ -104,6 +105,8 @@
   left: 10px;
   font-family: Smiley sans;
   transition: all 0.25s;
+
+  color: white;
 }
 .projectCard:hover .projectInfo {
   opacity: 0;
@@ -124,6 +127,7 @@
 }
 
 .projectCard:hover .imageContainer {
-  width: 95%;
-  height: 95%;
+  --width: calc(100% - 10px);
+  width: var(--width);
+  height: var(--width);
 }
