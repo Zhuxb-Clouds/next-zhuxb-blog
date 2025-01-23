@@ -39,3 +39,4 @@ yarn.lock
 
 
 /public/feed.xml
+/public/feedCount.json

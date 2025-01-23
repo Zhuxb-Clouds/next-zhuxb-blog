@@ -8,9 +8,9 @@ const posts: NextPage<postsData> = ({ postsData }) => {
   return (
     <div>
       <Head>
-        <title>Post - Zhuxb&apos; Blog</title>
+        <title>All Posts - Zhuxb&apos; Blog</title>
       </Head>
-      <p>所有文章</p>
+      <p>All Posts</p>
       <PostList postsData={postsData} />
     </div>
   );
