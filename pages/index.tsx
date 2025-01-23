@@ -36,7 +36,7 @@ const homePage: NextPage<postsData> = ({ postsData }) => {
           </div>
         </div>
         <div className={style.posts}>
-          <p>History Post</p>
+          <p className={style.sectionTitle}>History Post</p>
           <PostList postsData={postsData} />
         </div>
       </div>
