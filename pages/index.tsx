@@ -28,7 +28,13 @@ const homePage: NextPage<postsData> = ({ postsData }) => {
           <p>Share Everything I know.</p>
           <div style={{ marginBlock: "10px", display: "flex", gap: "10px" }}>
             <a target="view_window" href="https://github.com/Zhuxb-Clouds">
-              <Image src={GithubSvg} id="svg" alt="" width={20} height={20}></Image>
+              <Image
+                src={GithubSvg}
+                id="svg"
+                alt=""
+                width={20}
+                height={20}
+              ></Image>
             </a>
             <a
               target="view_window"
@@ -37,7 +43,31 @@ const homePage: NextPage<postsData> = ({ postsData }) => {
               title="RSS"
               href="/feed.xml"
             >
-              <Image src={RssSvg} id="svg" alt="" width={20} height={20}></Image>
+              <Image
+                src={RssSvg}
+                id="svg"
+                alt=""
+                width={20}
+                height={20}
+              ></Image>
+            </a>
+          </div>
+        </div>
+        <div className={style.posts}>
+          <p className={style.sectionTitle}>Project</p>
+          <div className={style.projectContainer}>
+            <a href="https://hrsrive.cn/game/the-roc" target="__blank">
+              <div className={style.projectCard}>
+                <div className={style.imageContainer}>
+                  <img src="https://oss.hrsrive.cn/hrsrive/CG06.png" alt="" />
+                </div>
+                <div className={style.projectInfo}>
+                  <div className={style.projectCardTitle}>大鹏 - The Roc</div>
+                  <div className={style.projectCardDescription}>
+                    A story about novel,freedom and her.
+                  </div>
+                </div>
+              </div>
             </a>
           </div>
         </div>
