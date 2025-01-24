@@ -85,7 +85,7 @@
   transition: all 0.25s;
 }
 .projectCard:hover {
-  background-color: white;
+  /* background-color: white; */
   width: 425px;
 }
 .projectCard:hover img {
