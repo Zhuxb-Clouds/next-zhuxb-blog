@@ -69,12 +69,9 @@
   transition: all 0.25s;
   border: 1px solid transparent;
   box-sizing: border-box;
-  box-shadow: 1.5px 1.1px 0.5px rgba(0, 0, 0, 0.011),
-    3.1px 2.2px 2.1px rgba(0, 0, 0, 0.013),
-    4.9px 3.6px 5.2px rgba(0, 0, 0, 0.015),
-    7.2px 5.3px 10.2px rgba(0, 0, 0, 0.016),
-    10.1px 7.4px 18px rgba(0, 0, 0, 0.018),
-    14.1px 10.4px 30.4px rgba(0, 0, 0, 0.021);
+  box-shadow: 1.5px 1.1px 0.5px rgba(0, 0, 0, 0.011), 3.1px 2.2px 2.1px rgba(0, 0, 0, 0.013),
+    4.9px 3.6px 5.2px rgba(0, 0, 0, 0.015), 7.2px 5.3px 10.2px rgba(0, 0, 0, 0.016),
+    10.1px 7.4px 18px rgba(0, 0, 0, 0.018), 14.1px 10.4px 30.4px rgba(0, 0, 0, 0.021);
 }
 .projectCard img {
   width: 100%;
@@ -122,4 +119,56 @@
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 10px;
+}
+.projectHideTitle {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  mask-image: url("https://zhuxb-oss.oss-cn-hangzhou.aliyuncs.com/hrsrive/mask.png");
+  /* mask-composite: exclude; */
+  mask-position: 87% 27%;
+  mask-size: 116%;
+  /* visibility: hidden; */
+  display: none;
+  
+}
+.projectHideTitle > span {
+  font-size: 200px;
+  font-family: "Noto Serif SC";
+  font-weight: 900;
+  /* 字间距 */
+  letter-spacing: 0.25em;
+  color: white;
+  animation: slideInFade 0.25s ease-in forwards; /* 1秒的淡入动画，缓出效果 */
+  opacity: 0;
+}
+.projectHideTitle > span:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.projectHideTitle > span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+
+.projectCard:hover .projectHideTitle {
+  /* visibility: visible; */
+  display: flex;
+
+}
+
+@keyframes slideInFade {
+  from {
+    transform: translateY(-10%); /* 从左边开始 */
+    opacity: 0; /* 完全透明 */
+  }
+  to {
+    transform: translateX(0); /* 到最终位置 */
+    opacity: 1; /* 完全显示 */
+  }
 }

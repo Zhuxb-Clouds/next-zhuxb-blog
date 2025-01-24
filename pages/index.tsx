@@ -28,13 +28,7 @@ const homePage: NextPage<postsData> = ({ postsData }) => {
           <p>Share Everything I know.</p>
           <div style={{ marginBlock: "10px", display: "flex", gap: "10px" }}>
             <a target="view_window" href="https://github.com/Zhuxb-Clouds">
-              <Image
-                src={GithubSvg}
-                id="svg"
-                alt=""
-                width={20}
-                height={20}
-              ></Image>
+              <Image src={GithubSvg} id="svg" alt="" width={20} height={20}></Image>
             </a>
             <a
               target="view_window"
@@ -43,13 +37,7 @@ const homePage: NextPage<postsData> = ({ postsData }) => {
               title="RSS"
               href="/feed.xml"
             >
-              <Image
-                src={RssSvg}
-                id="svg"
-                alt=""
-                width={20}
-                height={20}
-              ></Image>
+              <Image src={RssSvg} id="svg" alt="" width={20} height={20}></Image>
             </a>
           </div>
         </div>
@@ -73,11 +61,14 @@ const homePage: NextPage<postsData> = ({ postsData }) => {
               </div>
               <div className={style.projectInfo}>
                 <div className={style.projectCardTitle}>大鹏 - The Roc</div>
+
                 <div className={style.projectCardDescription}>
-                  <p style={{ margin: 0 }}>
-                    A story about novel,freedom and her.
-                  </p>
+                  <p style={{ margin: 0 }}>A story about novel,freedom and her.</p>
                 </div>
+              </div>
+              <div className={style.projectHideTitle}>
+                <span>大</span>
+                <span>鹏</span>
               </div>
             </a>
           </div>
