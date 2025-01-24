@@ -56,16 +56,27 @@ const homePage: NextPage<postsData> = ({ postsData }) => {
         <div className={style.posts}>
           <p className={style.sectionTitle}>Project</p>
           <div className={style.projectContainer}>
-            <a href="https://hrsrive.cn/game/the-roc" target="__blank">
-              <div className={style.projectCard}>
-                <div className={style.imageContainer}>
-                  <img src="https://oss.hrsrive.cn/hrsrive/CG06.png" alt="" />
-                </div>
-                <div className={style.projectInfo}>
-                  <div className={style.projectCardTitle}>大鹏 - The Roc</div>
-                  <div className={style.projectCardDescription}>
+            <a
+              href="https://hrsrive.cn/game/the-roc"
+              className={style.projectCard}
+              target="__blank"
+            >
+              <div className={style.imageContainer}>
+                <img
+                  src="https://oss.hrsrive.cn/hrsrive/cg06_0302.png"
+                  style={{
+                    transformOrigin: "53% 27%",
+                    transform: "scale(3)",
+                  }}
+                  alt=""
+                />
+              </div>
+              <div className={style.projectInfo}>
+                <div className={style.projectCardTitle}>大鹏 - The Roc</div>
+                <div className={style.projectCardDescription}>
+                  <p style={{ margin: 0 }}>
                     A story about novel,freedom and her.
-                  </div>
+                  </p>
                 </div>
               </div>
             </a>
