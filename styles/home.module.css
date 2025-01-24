@@ -79,7 +79,8 @@
   height: 100%;
 
   object-fit: cover;
-  transform: scale(2) translate(-10%, 20%);
+  transform: scale(2);
+  transform-origin: 65% 20%;
   filter: brightness(0.5) blur(1px);
   transition: all 0.25s;
 }
@@ -88,7 +89,6 @@
   width: 425px;
 }
 .projectCard:hover img {
-  transform: scale(2) translate(-10%, 20%);
   filter: brightness(1);
 }
 
@@ -124,10 +124,4 @@
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 10px;
-}
-
-.projectCard:hover .imageContainer {
-  --width: calc(100% - 10px);
-  width: var(--width);
-  height: var(--width);
 }
