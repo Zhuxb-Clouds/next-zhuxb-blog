@@ -26,7 +26,7 @@ const posts = ({ postsData }: postsData) => {
               position: "relative",
             }}
           >
-            <Link href={`/posts/${path}`} passHref legacyBehavior>
+            <Link href={`/posts/${path}`}>
               <div className={style.post}>
                 <span className={style.title}>{title}</span>
 
