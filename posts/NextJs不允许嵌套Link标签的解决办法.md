@@ -23,5 +23,5 @@ export default function Home() {
 
 这样，此`Link`标签就不会再渲染为`a`标签，自然也不会报错了。
 
-> An <a> element is no longer required as a child of <Link>. Add the legacyBehavior prop to use the legacy behavior or remove the <a> to upgrade. A codemod is available to automatically upgrade your code.
+> An `<a>` element is no longer required as a child of `<Link>`. Add the legacyBehavior prop to use the legacy behavior or remove the `<a>` to upgrade. A codemod is available to automatically upgrade your code.
 
