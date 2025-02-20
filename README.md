@@ -1,6 +1,6 @@
 # Blog
 
-Version: 1.2
+Version: 1.3
 
 实践、总结、分享
 
