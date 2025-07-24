@@ -1,5 +1,4 @@
 ---
-
 date: 2025-07-24
 tags: [Mongo]
 ---
@@ -28,13 +27,15 @@ tags: [Mongo]
    结合unique: true选项，稀疏索引可确保仅对包含该字段的文档强制唯一性。例如，多个文档可能没有“邮箱”字段，但拥有该字段的文档必须保证邮箱地址唯一。（这就类似于MySql会将null看作唯一值）
 
 3. 避免全集合扫描
-   若查询条件明确针对稀疏字段（如{ "premiumUser": true }），且该字段仅存在于少数文档中，稀疏索引能快速定位目标文档，避免全表扫描。
+   若查询条件明确针对稀疏字段（如`{ "premiumUser": true }`），且该字段仅存在于少数文档中，稀疏索引能快速定位目标文档，避免全表扫描。
 
 创建稀疏索引
 
 在MongoDB中，通过createIndex()方法并指定sparse: true选项创建稀疏索引。例如：
 // 为"email"字段创建稀疏且唯一的索引
+```js
 db.users.createIndex({ email: 1 }, { sparse: true, unique: true });
+```
 
 
 ## 注意事项
