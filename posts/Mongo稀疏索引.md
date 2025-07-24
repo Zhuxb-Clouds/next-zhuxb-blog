@@ -32,8 +32,8 @@ tags: [Mongo]
 创建稀疏索引
 
 在MongoDB中，通过createIndex()方法并指定sparse: true选项创建稀疏索引。例如：
-// 为"email"字段创建稀疏且唯一的索引
 ```js
+// 为"email"字段创建稀疏且唯一的索引
 db.users.createIndex({ email: 1 }, { sparse: true, unique: true });
 ```
 
