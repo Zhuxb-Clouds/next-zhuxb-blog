@@ -18,6 +18,34 @@ interface Props {
   };
 }
 
+
+import React, { useState, useEffect } from "react";
+import Giscus from '@giscus/react';
+
+function GiscusComponent() {
+  const [mode, setMode] = useState("dark");
+  useEffect(() => {
+    setMode(
+      document.documentElement.getAttribute("data-theme") || localStorage.getItem("mode") || "dark"
+    );
+  }, []);
+  return (
+    <Giscus
+      id="comments"
+      repo="Zhuxb-Clouds/next-zhuxb-blog"
+      repoId="575624867"
+      mapping="specific"
+      term="Test"
+      reactionsEnabled="1"
+      emitMetadata="0"
+      inputPosition="top"
+      theme={mode}
+      lang="en"
+      loading="lazy"
+    />
+  );
+}
+
 export default function Post({ postData }: Props) {
   return (
     <div className="post">
@@ -42,6 +70,9 @@ export default function Post({ postData }: Props) {
       <article className={style.content}>
         <MDXRemote {...postData.content}></MDXRemote>
       </article>
+      <div className={style.giscus}>
+        <GiscusComponent />
+      </div>
     </div>
   );
 }
