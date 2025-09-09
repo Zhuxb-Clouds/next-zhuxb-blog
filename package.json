@@ -44,7 +44,7 @@
     "net": "empty",
     "tls": "empty"
   },
-  "volta": {
-    "node": "18.16.0"
+  "engines": {
+    "node": "22.x"
   }
 }
