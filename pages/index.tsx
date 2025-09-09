@@ -52,7 +52,7 @@ const homePage: NextPage<postsData> = ({ postsData }) => {
             Hi,I&apos;m Zhuxb. <DarkModeSwitch />
           </span>
 
-          <p>Full Stack developer / Writer / Galgame producer.</p>
+          <p>Full Stack developer / Writer / Game producer.</p>
           <p>Share Everything I know.</p>
           <div style={{ marginBlock: "10px", display: "flex", gap: "10px" }}>
             <a target="view_window" href="https://github.com/Zhuxb-Clouds">
