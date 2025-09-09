@@ -49,7 +49,7 @@ const homePage: NextPage<postsData> = ({ postsData }) => {
       <div className={style.home}>
         <div className={style.intro}>
           <span>
-            Hi,I&apos;m Zhuxb. <DarkModeSwitch />
+            Hi, I&apos;m Zhuxb. <DarkModeSwitch />
           </span>
 
           <p>Full Stack developer / Writer / Indie Game producer.</p>
