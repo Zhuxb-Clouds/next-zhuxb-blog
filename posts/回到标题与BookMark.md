@@ -142,4 +142,4 @@ loadBookMark会读取标记点的内容。
 
 目前仅研究到这一步，能窥见标签系统与书签系统所联动模式的一角，也算有点收获。
 
-![KAG：回到标题与BookMark](https://jsd.cdn.zzko.cn/gh/Zhuxb-Clouds/PicDepot/img/202203040911291.png)
+![KAG：回到标题与BookMark](https://cdn.jsdelivr.net/gh/Zhuxb-Clouds/PicDepot/img/202203040911291.png)

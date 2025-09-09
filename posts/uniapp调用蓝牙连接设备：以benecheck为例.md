@@ -38,7 +38,7 @@ tags: [UniApp,蓝牙]
 
 - isPrimary:该服务是否为主服务
 
-例：![image-20230518151825036](https://jsd.cdn.zzko.cn/gh/Zhuxb-Clouds/PicDepot/img/202305181518098.png)
+例：![image-20230518151825036](https://cdn.jsdelivr.net/gh/Zhuxb-Clouds/PicDepot/img/202305181518098.png)
 
 ### `uni.getBLEDeviceCharacteristics`获取蓝牙设备某个服务中所有特征值
 
@@ -53,11 +53,11 @@ tags: [UniApp,蓝牙]
 
 一个设备可以有多个服务，每一个服务可以包含多个特征值。为了方便操作，每个特征值都有他的属性，例如长度（size）,权限（permission），值（value）,描述（descriptor），如下图。
 
-![img](https://jsd.cdn.zzko.cn/gh/Zhuxb-Clouds/PicDepot/img/202305181516361.png)
+![img](https://cdn.jsdelivr.net/gh/Zhuxb-Clouds/PicDepot/img/202305181516361.png)
 
 例：
 
-![image-20230518151850501](https://jsd.cdn.zzko.cn/gh/Zhuxb-Clouds/PicDepot/img/202305181518548.png)
+![image-20230518151850501](https://cdn.jsdelivr.net/gh/Zhuxb-Clouds/PicDepot/img/202305181518548.png)
 
 特征值的uuid会存储在前端，当获取到设备特征值的时候会与前端存储的特征值进行比对，确认相同则进入下一步
 
