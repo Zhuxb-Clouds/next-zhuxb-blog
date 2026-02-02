@@ -8,6 +8,8 @@ import PostList, { postsData } from "../components/postList";
 import { getSortedPostsData } from "../utils/posts";
 import GithubSvg from "../public/github.svg";
 import RssSvg from "../public/rss.svg";
+import XhsSvg from "../public/xhs.svg";
+
 import DarkModeSwitch from "../components/Header/DarkModeSwitch";
 // instrumentation.ts
 import { generateFeedXML } from "../utils/feed";
@@ -46,8 +48,8 @@ const homePage: NextPage<postsData> = ({ postsData }) => {
       </Head>
       <div className={style.home}>
         <div className={style.intro}>
-          <span>
-            Hi, I&apos;m Zhuxb. <DarkModeSwitch />
+          <span style={{ fontSize: "36px" }}>
+            朱仙变 <DarkModeSwitch />
           </span>
 
           <p>Full-Stack Developer, Indie Game Creator & Writer.</p>
@@ -55,6 +57,12 @@ const homePage: NextPage<postsData> = ({ postsData }) => {
           <div style={{ marginBlock: "10px", display: "flex", gap: "10px" }}>
             <a target="view_window" href="https://github.com/Zhuxb-Clouds">
               <Image src={GithubSvg} id="svg" alt="" width={20} height={20}></Image>
+            </a>
+            <a
+              target="view_window"
+              href="https://www.xiaohongshu.com/user/profile/61a1f8310000000010005eff"
+            >
+              <Image src={XhsSvg} id="svg" alt="" width={20} height={20}></Image>
             </a>
             <a
               target="view_window"
