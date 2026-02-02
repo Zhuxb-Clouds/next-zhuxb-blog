@@ -76,7 +76,7 @@ const homePage: NextPage<postsData> = ({ postsData }) => {
           </div>
         </div>
         <div className={style.posts}>
-          <p className={style.sectionTitle}>Project</p>
+          <p className={style.sectionTitle}>Works</p>
           <div className={style.projectContainer}>{TheRoc()}</div>
         </div>
         <div className={style.posts}>
