@@ -1,46 +1,45 @@
 .post {
   font-family: "Noto Sans SC";
-  font-size: 20px;
+  font-size: 16px;
 
-  &>h1 {
+  & > h1 {
     font-family: "Smiley Sans";
-    font-size: 2.5rem;
+    font-size: 1.875rem;
     font-weight: 600;
     margin: 0;
     text-align: center;
-    padding-block: 2rem;
+    padding-block: 1.25rem;
     text-wrap: pretty;
   }
-
 }
 
 h1 {
-  font-size: 2.25em;
-  margin-block: 1em;
+  font-size: 1.75em;
+  margin-block: 0.6em;
 }
 
 h2 {
-  font-size: 1.75em;
-  margin-block: 0.5em;
+  font-size: 1.5em;
+  margin-block: 0.4em;
 }
 
 h3 {
-  font-size: 1.5em;
-  margin-block: 0.5em;
+  font-size: 1.25em;
+  margin-block: 0.35em;
 }
 
 h4 {
-  font-size: 1.25em;
-  margin-block: 0.5em;
+  font-size: 1.125em;
+  margin-block: 0.3em;
 }
 
 h5 {
-  font-size: 1.1em;
-  margin-block: 0.25em;
+  font-size: 1em;
+  margin-block: 0.2em;
 }
 
 h6 {
-  font-size: 1em;
+  font-size: 0.9em;
   margin-block: 0;
 }
 
@@ -71,22 +70,22 @@ code {
 }
 
 /* 代码块 */
-pre>code {
+pre > code {
   text-decoration: none;
 }
 
-pre>code::selection,
+pre > code::selection,
 span.token::selection {
   background-color: #d3d3d3;
   color: #000;
 }
 
 p {
-  font-size: 16px;
-  margin: 1.5em 0;
+  font-size: 15px;
+  margin: 0.75em 0;
   text-wrap: pretty;
-  line-height: 1.5;
-  &>img {
+  line-height: 1.6;
+  & > img {
     width: 100%;
     border: 1px solid var(--border-color);
     border-radius: 14px;
@@ -99,18 +98,18 @@ p:has(img) {
 }
 
 /* 有序/无序 列表 */
-article>ol>li,
-article>ul>li {
-  margin: 1em 0;
+article > ol > li,
+article > ul > li {
+  margin: 0.4em 0;
 }
 
-li>p {
-  margin: 0.25em;
+li > p {
+  margin: 0.15em;
 }
 
 ol {
   padding-inline-start: 1em;
-  font-size: 1.05em;
+  font-size: 1em;
 }
 
 /* 引用 */
@@ -120,14 +119,15 @@ blockquote {
   background-color: var(--blockquote-background-color);
   border-radius: 8px;
   padding: 2px 10px;
+  margin: 0.75em 0;
 
   p {
     text-indent: 0;
     text-wrap: balance;
-    font-size: revert;
+    font-size: 0.9em;
   }
 
-  &>p:has(strong) {
+  & > p:has(strong) {
     opacity: 0.8;
     text-align: center;
   }
@@ -135,11 +135,11 @@ blockquote {
   &::before {
     content: "";
     position: absolute;
-    width: 5px;
+    width: 4px;
     background: var(--blockquote-bar-color);
     height: 100%;
     top: 0;
-    left: -16px;
+    left: -12px;
     border-radius: calc(infinity * 1px);
   }
 }
@@ -148,15 +148,15 @@ blockquote {
 table {
   width: 100%;
   border-collapse: collapse;
-  margin: 20px 0;
-  font-size: 1.2em;
+  margin: 1em 0;
+  font-size: 0.9em;
   text-align: left;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
 }
 
 th,
 td {
-  padding: 12px 15px;
+  padding: 8px 12px;
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -182,7 +182,6 @@ td {
 
 /* Responsive styling for smaller screens */
 @media screen and (max-width: 600px) {
-
   table,
   thead,
   tbody,
@@ -218,7 +217,7 @@ td {
   }
 }
 
-:not(pre)>code[class*="language-"],
+:not(pre) > code[class*="language-"],
 pre[class*="language-"] {
   background: #232323;
 }
@@ -262,7 +261,6 @@ pre[class*="language-"] {
     color: #12ffeb;
   }
 }
-
 
 h1,
 h2,
