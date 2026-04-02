@@ -1,7 +1,6 @@
 ---
-
-date: 2023-02-17
-tags: [前端工程化]
+date: 2026-04-02
+tags: [工程化,Renpy]
 ---
 
 # CI/CD 的定义
@@ -56,4 +55,118 @@ jobs:
           connect_timeout: 10s
           local: "./_book/*" # 源路径（工作流）
           remote: /var/www/ZFS-mds # 目标路径（服务器）
+```
+
+# Renpy打包CI/CD
+
+Renpy也提供了linux平台的引擎版本和命令行打包的能力，自然也可以使用以上的方式去打包。
+
+可以直接使用Renpy官网提供的Renpy版本构建产物，然后直接传入Github Release页面。
+
+这里提供一个用来参考的yaml文件
+
+```yaml
+name: Build Ren'Py Game
+
+on:
+  push:
+    tags:
+      - "v*" # 推送 tag（如 v0.0.1）时触发构建
+  workflow_dispatch: # 支持手动触发
+
+env:
+  RENPY_VERSION: "8.4.1" # Ren'Py SDK 版本，按需更新
+  PROJECT_NAME: "" # 项目名称
+  PROJECT_DIR: "." # 项目根目录
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # 用于创建 Release
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true # 如使用 Git LFS 管理大文件
+
+      - name: Get version from tag
+        id: version
+        run: |
+          if [[ "${{ github.ref_type }}" == "tag" ]]; then
+            VERSION="${{ github.ref_name }}"
+            VERSION="${VERSION#v}"
+          else
+            VERSION="dev-$(git rev-parse --short HEAD)"
+          fi
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "📦 Build version: $VERSION"
+
+      - name: Cache Ren'Py SDK
+        id: cache-renpy
+        uses: actions/cache@v4
+        with:
+          path: ../renpy-sdk
+          key: renpy-sdk-${{ env.RENPY_VERSION }}
+
+      - name: Download Ren'Py SDK
+        if: steps.cache-renpy.outputs.cache-hit != 'true'
+        run: |
+          SDK_URL="https://www.renpy.org/dl/${{ env.RENPY_VERSION }}/renpy-${{ env.RENPY_VERSION }}-sdk.tar.bz2"
+          echo "⬇️  Downloading Ren'Py SDK from: $SDK_URL"
+          curl -fSL "$SDK_URL" -o renpy-sdk.tar.bz2
+          mkdir -p ../renpy-sdk
+          tar xjf renpy-sdk.tar.bz2 --strip-components=1 -C ../renpy-sdk
+          rm renpy-sdk.tar.bz2
+
+      - name: Build market package (all platforms)
+        run: |
+          # 设置环境
+          export SDL_AUDIODRIVER=dummy
+          export SDL_VIDEODRIVER=dummy
+
+          RENPY="../renpy-sdk/renpy.sh"
+          LAUNCHER="../renpy-sdk/launcher"
+          PROJECT_PATH="$(pwd)"
+
+          echo "🔨 Building market package (Linux + Windows + macOS)..."
+          echo "   Project: $PROJECT_PATH"
+          echo "   SDK: $(pwd)/renpy-sdk"
+
+          # 通过 launcher 调用 distribute，market 包含所有平台
+          "$RENPY" "$LAUNCHER" \
+            distribute "$PROJECT_PATH" \
+            --destination "$(pwd)/dist" \
+            --package "market" \
+            --no-update
+
+          echo "✅ Build complete"
+          ls -lh dist/
+
+      # ── 推送 tag 时，直接上传到 GitHub Release（不经过 Artifacts）──
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "Release ${{ github.ref_name }}"
+          body: |
+            ## 🎮 ${{ github.ref_name }}
+
+            自动构建的游戏分发包（market 包，含全平台）。
+          files: dist/*
+          draft: false
+          prerelease: ${{ contains(github.ref_name, '-') }} # 如 0.1.0-beta
+          generate_release_notes: true
+
+      # ── 手动触发时，上传为 Artifact 以便下载 ──
+      - name: Upload build artifacts
+        if: ${{ !startsWith(github.ref, 'refs/tags/') }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.PROJECT_NAME }}-${{ steps.version.outputs.version }}
+          path: dist/*
+          retention-days: 7
+          if-no-files-found: error
+
 ```
