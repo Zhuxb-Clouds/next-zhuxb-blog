@@ -8,11 +8,9 @@ import Layout from "../components/layout";
 
 import "../styles/globals.css";
 import "../styles/post.css";
-
-
+import "prismjs/themes/prism-okaidia.min.css";
 
 export default function App({ Component, pageProps }: AppProps) {
-
   return (
     <Layout>
       <Component {...pageProps} />

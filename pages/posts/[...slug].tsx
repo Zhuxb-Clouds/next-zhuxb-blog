@@ -5,9 +5,7 @@ import { getAllPostParams, getPostData } from "../../utils/posts";
 
 import Tag from "../../components/tag";
 import Date from "../../components/date";
-// 引入代码高亮css
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote";
-import "prismjs/themes/prism-okaidia.min.css";
 import style from "./post.module.css";
 interface Props {
   postData: {

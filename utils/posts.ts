@@ -135,7 +135,7 @@ export async function getPostData(slug: string[]) {
   return {
     content: await serialize(matterResult.content, {
       mdxOptions: {
-        remarkPlugins: [[remarkMath, {}], gfm, prism, externalLinks],
+        remarkPlugins: [[remarkMath, {}], gfm, prism, externalLinks] as never,
         rehypePlugins: [[rehypeKatex, { output: "mathml", colorIsTextColor: true }], rehypeSlug, [rehypeAutolinkHeadings, {
           behavior: 'wrap'
         }]],
