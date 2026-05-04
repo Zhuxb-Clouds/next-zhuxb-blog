@@ -4,34 +4,69 @@ const MyDocument = () => {
   return (
     <Html>
       <Head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200..900&display=swap"
-          rel="stylesheet"
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                var stylesheets = [
+                  { href: "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200..900&display=swap" },
+                  { href: "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=ZCOOL+XiaoWei&display=swap" },
+                  { href: "https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap" },
+                  { href: "https://cdnjs.cloudflare.com/ajax/libs/misans-webfont/4.3.1/misans-style.css" },
+                  { href: "https://fonts.googleapis.com/css?family=Lato&display=swap" },
+                  { href: "https://fonts.googleapis.com/css?family=Lora&display=swap" },
+                  {
+                    href: "https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css",
+                    integrity: "sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC",
+                    crossOrigin: "anonymous",
+                  },
+                  { href: "https://cdn.jsdelivr.net/npm/@wc1font/fontquan-xin-yi-ji-xiang-song/font.css" },
+                ];
+
+                stylesheets.forEach(function(attrs) {
+                  var link = document.createElement("link");
+                  link.rel = "stylesheet";
+                  Object.keys(attrs).forEach(function(key) {
+                    link.setAttribute(key, attrs[key]);
+                  });
+                  document.head.appendChild(link);
+                });
+              })();
+            `,
+          }}
         />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=ZCOOL+XiaoWei&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://cdnjs.cloudflare.com/ajax/libs/misans-webfont/4.3.1/misans-style.css"
-          rel="stylesheet"
-        />
-        <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Lora&display=swap" rel="stylesheet" />
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"
-          integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/@wc1font/fontquan-xin-yi-ji-xiang-song/font.css"
-        />
+        <noscript>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200..900&display=swap"
+            rel="stylesheet"
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=ZCOOL+XiaoWei&display=swap"
+            rel="stylesheet"
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap"
+            rel="stylesheet"
+          />
+          <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/misans-webfont/4.3.1/misans-style.css"
+            rel="stylesheet"
+          />
+          <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css?family=Lora&display=swap" rel="stylesheet" />
+          <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"
+            integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC"
+            crossOrigin="anonymous"
+          />
+          <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@wc1font/fontquan-xin-yi-ji-xiang-song/font.css"
+          />
+        </noscript>
         <link
           rel="icon"
           href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>🎨</text></svg>"
