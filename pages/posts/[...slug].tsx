@@ -21,24 +21,30 @@ import React, { useState, useEffect } from "react";
 import Giscus from '@giscus/react';
 
 function GiscusComponent() {
-  const [mode, setMode] = useState("dark");
+  const [mode, setMode] = useState("preferred_color_scheme");
+
   useEffect(() => {
     setMode(
-      document.documentElement.getAttribute("data-theme") || localStorage.getItem("mode") || "dark"
+      document.documentElement.getAttribute("data-theme") ||
+        localStorage.getItem("mode") ||
+        "preferred_color_scheme"
     );
   }, []);
+
   return (
     <Giscus
       id="comments"
       repo="Zhuxb-Clouds/next-zhuxb-blog"
-      repoId="575624867"
-      mapping="specific"
-      term="Test"
+      repoId="R_kgDOIk9Wow"
+      category="Ideas"
+      categoryId="DIC_kwDOIk9Wo84CuCQr"
+      mapping="title"
+      strict="0"
       reactionsEnabled="1"
       emitMetadata="0"
-      inputPosition="top"
+      inputPosition="bottom"
       theme={mode}
-      lang="en"
+      lang="zh-CN"
       loading="lazy"
     />
   );

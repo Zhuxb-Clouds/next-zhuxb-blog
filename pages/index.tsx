@@ -47,32 +47,42 @@ const homePage: NextPage<postsData> = ({ postsData }) => {
         <title>Zhuxb</title>
       </Head>
       <div className={style.home}>
-        <div className={style.intro}>
-          <span style={{ fontSize: "36px" }}>
-            朱仙变 <DarkModeSwitch />
-          </span>
+        <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
+          <div className={style.avatarContainer}>
+            <Image
+              src="https://oss.hrsrive.cn/avatar.png"
+              alt=""
+              width={120}
+              height={120}
+              objectFit="cover"
+            ></Image>
+          </div>
+          <div className={style.intro}>
+            <span style={{ fontSize: "36px" }}>
+              朱仙变 <DarkModeSwitch />
+            </span>
 
-          <p>Full-Stack Developer, Indie Game Creator & Writer.</p>
-          <p>Share Everything I know.</p>
-          <div style={{ marginBlock: "10px", display: "flex", gap: "10px" }}>
-            <a target="view_window" href="https://github.com/Zhuxb-Clouds">
-              <Image src={GithubSvg} id="svg" alt="" width={20} height={20}></Image>
-            </a>
-            <a
-              target="view_window"
-              href="https://www.xiaohongshu.com/user/profile/61a1f8310000000010005eff"
-            >
-              <Image src={XhsSvg} id="svg" alt="" width={20} height={20}></Image>
-            </a>
-            <a
-              target="view_window"
-              rel="alternate"
-              type="application/rss+xml"
-              title="RSS"
-              href="/feed.xml"
-            >
-              <Image src={RssSvg} id="svg" alt="" width={20} height={20}></Image>
-            </a>
+            <p>独立游戏制作人，专注于叙事游戏创作与开发。</p>
+            <div style={{ marginBlock: "10px", display: "flex", gap: "10px" }}>
+              <a target="view_window" href="https://github.com/Zhuxb-Clouds">
+                <Image src={GithubSvg} id="svg" alt="" width={20} height={20}></Image>
+              </a>
+              <a
+                target="view_window"
+                href="https://www.xiaohongshu.com/user/profile/61a1f8310000000010005eff"
+              >
+                <Image src={XhsSvg} id="svg" alt="" width={20} height={20}></Image>
+              </a>
+              <a
+                target="view_window"
+                rel="alternate"
+                type="application/rss+xml"
+                title="RSS"
+                href="/feed.xml"
+              >
+                <Image src={RssSvg} id="svg" alt="" width={20} height={20}></Image>
+              </a>
+            </div>
           </div>
         </div>
         <div className={style.posts}>

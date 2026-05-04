@@ -16,6 +16,10 @@ const MyDocument = () => {
           href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap"
           rel="stylesheet"
         />
+        <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/misans-webfont/4.3.1/misans-style.css"
+          rel="stylesheet"
+        />
         <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Lora&display=swap" rel="stylesheet" />
         <link

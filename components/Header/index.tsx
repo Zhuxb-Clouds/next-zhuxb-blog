@@ -11,11 +11,6 @@ function Header() {
           <DarkModeSwitch />
         </span>
       </div>
-      <div className={styles.nav}>
-        <span>
-          <Link href="/about">About</Link>
-        </span>
-      </div>
     </header>
   );
 }
