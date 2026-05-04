@@ -1,6 +1,5 @@
 import styles from "./Header.module.css";
 import Link from "next/link";
-import React, { useState } from "react";
 import DarkModeSwitch from "./DarkModeSwitch";
 
 function Header() {
@@ -10,6 +9,11 @@ function Header() {
         <span>
           <Link href="/">Zhuxb&apos;s Blog</Link>
           <DarkModeSwitch />
+        </span>
+      </div>
+      <div className={styles.nav}>
+        <span>
+          <Link href="/about">About</Link>
         </span>
       </div>
     </header>

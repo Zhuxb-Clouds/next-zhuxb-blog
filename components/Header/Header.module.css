@@ -27,14 +27,19 @@
   align-items: flex-end;
 }
 
-.header>div:nth-child(2)>span {
+.nav {
+  display: flex;
+  align-items: flex-end;
+}
+
+.nav > span {
   font-size: 24px;
   margin-left: 20px;
   cursor: pointer;
   transition: all 0.5s;
 }
 
-.header>div:nth-child(2)>span:hover {
+.nav > span:hover {
   text-decoration: underline;
 }
 
