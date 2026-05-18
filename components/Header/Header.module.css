@@ -22,7 +22,7 @@
   font-weight: 900;
 }
 
-.header>div {
+.header > div {
   display: flex;
   align-items: flex-end;
 }
@@ -49,11 +49,11 @@
   margin-top: 100px;
 }
 
-.title>span:nth-child(1) {
+.title > span:nth-child(1) {
   font-size: 40px;
 }
 
-.title>span:nth-child(2),
+.title > span:nth-child(2),
 .desc {
   font-size: 30px;
   font-family: "Noto Serif SC";
@@ -70,12 +70,26 @@
   padding: 10px;
   position: relative;
   margin: 0 10px;
-  bottom: -10px;
-  transform: scale(0.75) translate(-10%, 5%);
+  transform: scale(0.75);
   cursor: pointer;
 }
+.langSwitch {
+  background: none;
+  border: none;
+  color: var(--color);
+  font-size: 14px;
+  padding: 0;
+  cursor: pointer;
+  font-family: "Lato", sans-serif;
+  transition: all 0.2s;
+}
+
+.langSwitch:hover {
+  opacity: 0.7;
+}
+
 @media screen and (max-width: 800px) {
-  .header{
+  .header {
     padding-inline: 10%;
   }
 }

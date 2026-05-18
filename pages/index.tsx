@@ -11,6 +11,8 @@ import RssSvg from "../public/rss.svg";
 import XhsSvg from "../public/xhs.svg";
 
 import DarkModeSwitch from "../components/Header/DarkModeSwitch";
+import LanguageSwitch from "../components/Header/LanguageSwitch";
+import { useTranslation } from "../lib/i18n";
 // instrumentation.ts
 import { generateFeedXML } from "../utils/feed";
 
@@ -41,6 +43,7 @@ const TheRoc = () => (
 );
 
 const homePage: NextPage<postsData> = ({ postsData }) => {
+  const { t } = useTranslation();
   return (
     <div>
       <Head>
@@ -58,11 +61,11 @@ const homePage: NextPage<postsData> = ({ postsData }) => {
             ></Image>
           </div>
           <div className={style.intro}>
-            <span style={{ fontSize: "36px" }}>
-              朱仙变 <DarkModeSwitch />
+            <span style={{ fontSize: "36px", display: "flex", alignItems: "center" }}>
+              朱仙变 <DarkModeSwitch /> <LanguageSwitch />
             </span>
 
-            <p>独立游戏制作人，专注于叙事游戏创作与开发。</p>
+            <p>{t("home.subtitle")}</p>
             <div style={{ marginBlock: "10px", display: "flex", gap: "10px" }}>
               <a target="view_window" href="https://github.com/Zhuxb-Clouds">
                 <Image src={GithubSvg} id="svg" alt="" width={20} height={20}></Image>
@@ -86,12 +89,12 @@ const homePage: NextPage<postsData> = ({ postsData }) => {
           </div>
         </div>
         <div className={style.posts}>
-          <p className={style.sectionTitle}>Works</p>
+          <p className={style.sectionTitle}>{t("home.works")}</p>
           <div className={style.projectContainer}>{TheRoc()}</div>
         </div>
         <div className={style.posts}>
           <p className={style.sectionTitle}>
-            <Link href="/posts">History Post</Link>
+            <Link href="/posts">{t("home.historyPost")}</Link>
           </p>
           <PostList postsData={postsData} />
         </div>

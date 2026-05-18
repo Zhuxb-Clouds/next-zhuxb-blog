@@ -4,6 +4,7 @@ import Head from "next/head";
 import style from "./tag.module.css";
 import PostList from "../../../components/postList";
 import Tag from "../../../components/tag";
+import { useTranslation } from "../../../lib/i18n";
 
 import tags from "../../../components/tag/tagColorList.json";
 interface Props {
@@ -18,6 +19,7 @@ interface Props {
 }
 
 export default function Post({ postsData, tag }: Props) {
+  const { t } = useTranslation();
   return (
     <div>
       {" "}
@@ -25,7 +27,7 @@ export default function Post({ postsData, tag }: Props) {
         <title>{tag}</title>
       </Head>
       <div className={style.title}>
-        All Posts about
+        {t("posts.allPostsAbout")}
         <Tag tagName={tag} />
       </div>
       <PostList postsData={postsData} />

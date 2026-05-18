@@ -41,9 +41,12 @@ const MyDocument = () => {
         dangerouslySetInnerHTML={{
           __html: `
                 (function() {
-                  var savedMode = localStorage.getItem("mode") || 
+                  var savedMode = localStorage.getItem("mode") ||
                     (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
                   document.documentElement.setAttribute('data-theme', savedMode);
+                  var locale = localStorage.getItem("locale") ||
+                    ((navigator.language || "").startsWith("zh") ? "zh" : "en");
+                  document.documentElement.setAttribute('data-locale', locale);
                 })();
               `,
         }}
