@@ -9,7 +9,7 @@ function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.title}>
-        <span>
+        <span style={{ fontSize: "36px", display: "flex", alignItems: "center" }}>
           <Link href="/">{t("header.title")}</Link>
           <DarkModeSwitch />
           <LanguageSwitch />

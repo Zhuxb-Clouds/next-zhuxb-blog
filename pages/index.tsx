@@ -36,8 +36,10 @@ const TheRoc = () => (
       </div>
     </div>
     <div className={style.projectHideTitle}>
-      <span>大</span>
-      <span>鹏</span>
+      <div className={style.projectHideTitleInner}>
+        <span>大</span>
+        <span>鹏</span>
+      </div>
     </div>
   </a>
 );
