@@ -5,6 +5,7 @@
  */
 import type { AppProps } from "next/app";
 import Layout from "../components/layout";
+import { I18nProvider } from "../lib/i18n";
 
 import "../styles/globals.css";
 import "../styles/post.css";
@@ -12,8 +13,10 @@ import "prismjs/themes/prism-okaidia.min.css";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <I18nProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </I18nProvider>
   );
 }

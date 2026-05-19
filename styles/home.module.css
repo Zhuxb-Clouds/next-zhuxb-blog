@@ -138,40 +138,46 @@
 .projectHideTitle {
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: absolute;
   left: 0;
   top: 0;
+  transform: scale(3);
+  transform-origin: 53% 27%;
+  overflow: hidden;
 
   mask-image: url("https://zhuxb-oss.oss-cn-hangzhou.aliyuncs.com/hrsrive/mask.png");
-  /* mask-composite: exclude; */
-  mask-position: 87% 27%;
-  mask-size: 116%;
-  /* visibility: hidden; */
+  mask-size: contain;
+  mask-position: center;
+  mask-repeat: no-repeat;
   display: none;
 }
-.projectHideTitle > span {
+.projectHideTitleInner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(0.3333);
+  transform-origin: 53% 27%;
+}
+.projectHideTitleInner > span {
   font-size: 200px;
   font-family: "Noto Serif SC";
   font-weight: 900;
-  /* 字间距 */
   letter-spacing: 0.25em;
   color: white;
-  animation: slideInFade 0.25s ease-in forwards; /* 1秒的淡入动画，缓出效果 */
+  animation: slideInFade 0.25s ease-in forwards;
   opacity: 0;
 }
-.projectHideTitle > span:nth-child(1) {
+.projectHideTitleInner > span:nth-child(1) {
   animation-delay: 0.1s;
 }
-.projectHideTitle > span:nth-child(2) {
+.projectHideTitleInner > span:nth-child(2) {
   animation-delay: 0.15s;
 }
 
 .projectCard:hover .projectHideTitle {
-  /* visibility: visible; */
-  display: flex;
+  display: block;
 }
 
 @keyframes slideInFade {

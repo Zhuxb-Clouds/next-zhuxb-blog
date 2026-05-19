@@ -1,4 +1,7 @@
+import { useTranslation } from "../../lib/i18n";
+
 export default function Footer() {
+  const { t } = useTranslation();
   return (
     <footer>
       <div
@@ -10,7 +13,7 @@ export default function Footer() {
       >
         <p style={{
           fontSize: "12px",
-        }}>© 2024 Zhuxb&apos;s blog</p>
+        }}>{t("footer.copyright")}</p>
         <p style={{
           fontSize: "12px",
         }}>
