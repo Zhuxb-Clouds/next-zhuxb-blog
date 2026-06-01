@@ -69,11 +69,12 @@ const homePage: NextPage<postsData> = ({ postsData }) => {
 
             <p>{t("home.subtitle")}</p>
             <div style={{ marginBlock: "10px", display: "flex", gap: "10px" }}>
-              <a target="view_window" href="https://github.com/Zhuxb-Clouds">
+              <a title="GitHub" target="view_window" href="https://github.com/Zhuxb-Clouds">
                 <Image src={GithubSvg} id="svg" alt="" width={20} height={20}></Image>
               </a>
               <a
                 target="view_window"
+                title="小红书"
                 href="https://www.xiaohongshu.com/user/profile/61a1f8310000000010005eff"
               >
                 <Image src={XhsSvg} id="svg" alt="" width={20} height={20}></Image>
@@ -87,6 +88,13 @@ const homePage: NextPage<postsData> = ({ postsData }) => {
               >
                 <Image src={RssSvg} id="svg" alt="" width={20} height={20}></Image>
               </a>
+              <Link
+                href="/donate"
+                title="Buy Me A Coffee"
+                style={{ fontSize: "18px", lineHeight: "20px" }}
+              >
+                ☕
+              </Link>
             </div>
           </div>
         </div>

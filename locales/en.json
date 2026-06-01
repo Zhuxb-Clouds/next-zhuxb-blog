@@ -11,5 +11,8 @@
   "about.title": "About",
   "about.projects": "Projects",
   "about.notes": "Notes",
-  "about.current": "Current"
+  "about.current": "Current",
+  "donate.title": "Buy Me A Coffee",
+  "donate.description": "If my content helps you, feel free to buy me a coffee ☕",
+  "donate.scan": "A code, a kindness — any amount, any fate."
 }

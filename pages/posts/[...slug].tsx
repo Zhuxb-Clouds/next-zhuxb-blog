@@ -1,5 +1,6 @@
 import type { GetStaticProps, GetStaticPaths } from "next";
 import Head from "next/head";
+import Link from "next/link";
 
 import { getAllPostParams, getPostData } from "../../utils/posts";
 
@@ -7,6 +8,7 @@ import Tag from "../../components/tag";
 import Date from "../../components/date";
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote";
 import style from "./post.module.css";
+import { useTranslation } from "../../lib/i18n";
 interface Props {
   postData: {
     title: string;
@@ -51,6 +53,7 @@ function GiscusComponent() {
 }
 
 export default function Post({ postData }: Props) {
+  const { t } = useTranslation();
   return (
     <div className="post">
       <Head>
@@ -74,6 +77,11 @@ export default function Post({ postData }: Props) {
       <article className={style.content}>
         <MDXRemote {...postData.content}></MDXRemote>
       </article>
+      <p style={{ textAlign: "center", margin: "2rem 0 1rem" }}>
+        <Link href="/donate" style={{ fontSize: "14px", color: "var(--secondary-text-color, #999)" }}>
+          ☕ {t("donate.title")}
+        </Link>
+      </p>
       <div className={style.giscus}>
         <GiscusComponent />
       </div>
