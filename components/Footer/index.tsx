@@ -13,7 +13,7 @@ export default function Footer() {
       >
         <p style={{
           fontSize: "12px",
-        }}>{t("footer.copyright")}</p>
+        }}>© {new Date().getFullYear()} {t("footer.copyright")}</p>
         <p style={{
           fontSize: "12px",
         }}>
