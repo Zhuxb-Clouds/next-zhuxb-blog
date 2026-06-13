@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx next *)",
+      "Bash(npx tsc *)",
+      "PowerShell(cd \"f:\\\\Work\\\\Project\\\\next-zhuxb-blog\"; [System.IO.File]::ReadAllBytes\\(\"locales\\\\en.json\"\\)[0..2] -join ',')",
+      "PowerShell(cd \"f:\\\\Work\\\\Project\\\\next-zhuxb-blog\"; $bytes = [System.IO.File]::ReadAllBytes\\(\"locales\\\\en.json\"\\); $lineStart = 0; $lineNum = 0; for\\($i=0; $i -lt $bytes.Length; $i++\\) { if\\($bytes[$i] -eq 10\\) { $lineNum++; if\\($lineNum -eq 16\\) { $lineStart = $i + 1; break } } }; \"Line 17 starts at byte offset: $lineStart\"; $lineEnd = $lineStart; for\\($i=$lineStart; $i -lt $bytes.Length; $i++\\) { if\\($bytes[$i] -eq 10\\) { $lineEnd = $i; break } }; \"Line 17 ends at byte offset: $lineEnd\"; $line17bytes = $bytes[$lineStart..\\($lineEnd-1\\)]; \"Raw bytes:\"; \\($line17bytes | ForEach-Object { '{0:X2}' -f $_ }\\) -join ' ')"
+    ]
+  }
+}

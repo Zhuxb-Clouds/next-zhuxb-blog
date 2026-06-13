@@ -36,3 +36,57 @@
   font-family: Misans;
   color: var(--secondary-text-color, #999);
 }
+
+.rankSection {
+  width: 100%;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color, #eee);
+}
+
+.rankTitle {
+  font-size: 20px;
+  font-family: "Afacad Flux";
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.rankList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.rankItem {
+  display: flex;
+  align-items: center;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  background: var(--card-bg, #f9f9f9);
+  transition: background 0.2s;
+}
+
+.rankItem:hover {
+  background: var(--card-hover-bg, #f0f0f0);
+}
+
+.rankIndex {
+  width: 2.5rem;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--secondary-text-color, #999);
+}
+
+.rankUser {
+  flex: 1;
+  font-size: 15px;
+  font-family: Misans;
+}
+
+.rankAmount {
+  font-size: 14px;
+  font-family: "Afacad Flux";
+  font-weight: 600;
+  color: var(--accent-color, #e67e22);
+}

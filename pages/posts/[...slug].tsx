@@ -7,6 +7,7 @@ import { getAllPostParams, getPostData } from "../../utils/posts";
 import Tag from "../../components/tag";
 import Date from "../../components/date";
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote";
+import { ImageGeneration } from "img-fx";
 import style from "./post.module.css";
 import { useTranslation } from "../../lib/i18n";
 interface Props {
@@ -19,8 +20,21 @@ interface Props {
 }
 
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, ImgHTMLAttributes } from "react";
 import Giscus from '@giscus/react';
+
+const mdxComponents = {
+  img: (props: ImgHTMLAttributes<HTMLImageElement>) => (
+    <ImageGeneration
+      images={props.src ? [props.src] : []}
+      autoReveal
+      revealDelayRange={[2, 4]}
+      revealHoldMs={3000}
+    >
+      <img {...props} />
+    </ImageGeneration>
+  ),
+};
 
 function GiscusComponent() {
   const [mode, setMode] = useState("preferred_color_scheme");
@@ -75,7 +89,7 @@ export default function Post({ postData }: Props) {
         <Date date={postData.date} className={style.time} />
       </span>
       <article className={style.content}>
-        <MDXRemote {...postData.content}></MDXRemote>
+        <MDXRemote {...postData.content} components={mdxComponents} />
       </article>
       <p style={{ textAlign: "center", margin: "2rem 0 1rem" }}>
         <Link href="/donate" style={{ fontSize: "14px", color: "var(--secondary-text-color, #999)" }}>

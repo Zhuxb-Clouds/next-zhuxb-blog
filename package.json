@@ -21,6 +21,7 @@
     "eslint": "10.0.3",
     "eslint-config-next": "16.1.6",
     "gray-matter": "^4.0.3",
+    "img-fx": "^0.3.1",
     "next": "16.1.6",
     "next-mdx-remote": "^6.0.0",
     "next-redux-wrapper": "^8.0.0",

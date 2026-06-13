@@ -42,5 +42,11 @@
       "name": "杂项，如依赖修改",
       "description": "不可见"
     }
-  ]
+  ],
+  "files.exclude": {
+    "**/*.rpyc": true,
+    "**/*.rpa": true,
+    "**/*.rpymc": true,
+    "**/cache/": true
+  }
 }
