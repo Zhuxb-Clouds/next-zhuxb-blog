@@ -9,6 +9,8 @@
   --blockquote-background-color: #f1f1f1;
   --border-color: #d3d3d3;
   --post-bg-color: #f9fafb;
+  --card-bg: #f9f9f9;
+  --card-hover-bg: #f0f0f0;
 }
 
 /* 深色模式 */
@@ -23,6 +25,8 @@
   --blockquote-background-color: #313131;
   --border-color: #2d2d2d;
   --post-bg-color: #2b2b2b;
+  --card-bg: #2b2b2b;
+  --card-hover-bg: #3a3a3a;
 }
 
 html,
