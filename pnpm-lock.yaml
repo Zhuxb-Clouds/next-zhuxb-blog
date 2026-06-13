@@ -41,9 +41,6 @@ importers:
       gray-matter:
         specifier: ^4.0.3
         version: 4.0.3
-      img-fx:
-        specifier: ^0.3.1
-        version: 0.3.1(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(three@0.184.0)
       next:
         specifier: 16.1.6
         version: 16.1.6(@babel/core@7.29.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
@@ -1680,13 +1677,6 @@ packages:
     resolution: {integrity: sha512-Hs59xBNfUIunMFgWAbGX5cq6893IbWg4KnrjbYwX3tx0ztorVgTDA6B2sxf8ejHJ4wz8BqGUMYlnzNBer5NvGg==}
     engines: {node: '>= 4'}
 
-  img-fx@0.3.1:
-    resolution: {integrity: sha512-7reYL4uVZMFbV2vx26++3A12zIdum9SN4Srjg1+vDb4JqKzCPoFOqHxnqaLmsWwZ/dgxZW1XxNaJ6W7POthvzQ==}
-    peerDependencies:
-      react: '>=18.0.0'
-      react-dom: '>=18.0.0'
-      three: '>=0.149.0'
-
   immer@9.0.21:
     resolution: {integrity: sha512-bc4NBHqOqSfRW7POMkHd51LvClaeMXpm8dx0e8oE2GORbq5aRK7Bxl4FyzVLdGtLmvLKL7BTDBG5ACQm4HWjTA==}
 
@@ -2820,9 +2810,6 @@ packages:
 
   text-hex@1.0.0:
     resolution: {integrity: sha512-uuVGNWzgJ4yhRaNSiubPY7OjISw4sw4E5Uv0wbjp+OzcbmVU/rsT8ujgcXJhn9ypzsgr5vlzpPqP+MBBKcGvbg==}
-
-  three@0.184.0:
-    resolution: {integrity: sha512-wtTRjG92pM5eUg/KuUnHsqSAlPM296brTOcLgMRqEeylYTh/CdtvKUvCyyCQTzFuStieWxvZb8mVTMvdPyUpxg==}
 
   timespan@2.3.0:
     resolution: {integrity: sha512-0Jq9+58T2wbOyLth0EU+AUb6JMGCLaTWIykJFa7hyAybjVH9gpVMTfUAwo5fWAvtFt2Tjh/Elg8JtgNpnMnM8g==}
@@ -4981,12 +4968,6 @@ snapshots:
 
   ignore@7.0.5: {}
 
-  img-fx@0.3.1(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(three@0.184.0):
-    dependencies:
-      react: 19.2.4
-      react-dom: 19.2.4(react@19.2.4)
-      three: 0.184.0
-
   immer@9.0.21: {}
 
   imurmurhash@0.1.4: {}
@@ -6695,8 +6676,6 @@ snapshots:
       source-map-support: 0.5.21
 
   text-hex@1.0.0: {}
-
-  three@0.184.0: {}
 
   timespan@2.3.0: {}
 

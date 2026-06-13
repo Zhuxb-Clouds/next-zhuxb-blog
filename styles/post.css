@@ -86,16 +86,6 @@ p {
   margin: 0.75em 0;
   text-wrap: pretty;
   line-height: 1.6;
-  & > img {
-    width: 100%;
-    border: 1px solid var(--border-color);
-    border-radius: 14px;
-  }
-}
-
-p:has(img) {
-  text-indent: 0;
-  text-align: center;
 }
 
 /* 有序/无序 列表 */
