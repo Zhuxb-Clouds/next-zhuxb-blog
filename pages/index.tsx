@@ -9,7 +9,7 @@ import { getSortedPostsData } from "../utils/posts";
 import GithubSvg from "../public/github.svg";
 import RssSvg from "../public/rss.svg";
 import XhsSvg from "../public/xhs.svg";
-import MailPng from "../public/mail.png";
+import MailPng from "../public/email.png";
 
 import DarkModeSwitch from "../components/Header/DarkModeSwitch";
 import LanguageSwitch from "../components/Header/LanguageSwitch";
@@ -89,7 +89,9 @@ const homePage: NextPage<postsData> = ({ postsData }) => {
               >
                 <Image src={RssSvg} id="svg" alt="" width={20} height={20}></Image>
               </a>
-              <a href="mailto:ZhuxbClouds@gmail.com" title="Email"><Image src={MailPng} id="svg" alt="email" width={20} height={20}></Image></a>
+              <a href="mailto:ZhuxbClouds@gmail.com" title="Email">
+                <Image src={MailPng} id="svg" alt="email" width={20} height={20}></Image>
+              </a>
               <Link
                 href="/donate"
                 title="Buy Me A Coffee"
