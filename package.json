@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 3001",
-    "build": "next build",
-    "export": "next build && next export",
+    "check:tags": "node scripts/check-tag-colors.mjs",
+    "build": "npm run check:tags && next build",
+    "export": "npm run check:tags && next build && next export",
     "start": "next start -p 3001",
     "lint": "next lint"
   },
