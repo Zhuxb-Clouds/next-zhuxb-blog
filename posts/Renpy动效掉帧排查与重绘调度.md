@@ -22,31 +22,29 @@ gl2 渲染器初始化时会根据 `preferences.gl_framerate` 算交换间隔（
 
 窗框组件用 `canvas()` 画四条边，看起来人畜无害：
 
-````python
+```python
 rv = renpy.Render(self.width, self.height)
 canvas = rv.canvas()
 canvas.rect(col, (0, 0, w, int(cur["top"])))
-````
+```
 
-但翻引擎源码会发现，`canvas()` 每次调用都**新建一张整个 Render 尺寸的软件 surface**。窗框是 3860×2160，RGBA 一张就是 33MB。动画期间每个 vsync 帧都在重复这套流程：分配并清空 33MB 内存 → CPU 上画 4 个矩形 → 整张 33MB 作为**新**纹理上传 GPU（每帧都是新对象，纹理缓存必然 miss）→ 释放旧纹理。60fps 下这是每秒 2GB 的上传带宽，单帧十几毫秒就这么没了。
+但翻引擎源码会发现，`canvas()` 每次调用都**新建一张整个 Render 尺寸的软件 surface**。窗框是 3860×2160，RGBA 一张就是 33MB。动画期间每个 vsync 帧都在重复这套流程：分配并清空 33MB 内存 → CPU 上画 4 个矩形 → 整张 33MB 作为**新**纹理上传 GPU（每帧都是新对象，纹理缓存必然 miss）→ 释放旧纹理。
 
-修法倒是简单：纯色矩形根本不需要画进像素图。gl2 里 `Solid` 走的是 `renpy.solid` shader 纯 GPU 填充，零纹理上传：
+应该改成：
 
-````python
+```python
 rv.blit(renpy.render(self.solid, w, int(cur["top"]), st, at), (0, 0))
-````
+```
 
 四条边各渲染一个 Solid blit 进 Render 就完事。动画状态、重绘节奏全都不用动，只换绘制后端，掉帧直接消失。
 
 ## 静态组件的无条件重绘
 
-顺着排查扫项目，发现了更隐蔽的一类。之前写的CDD：Dot、Cross、Bubble都是静态图形，`render()` 末尾写了一句：
+之前写的CDD：Dot、Cross、Bubble都是静态图形，`render()` 末尾：
 
 ````python
 renpy.redraw(self, 0)
 ````
-
-这导致只要它们在屏幕上，Ren'Py 就永远处于有东西要画的状态。
 
 修法就是把这句删掉，让渲染结果进缓存。
 
@@ -54,9 +52,9 @@ renpy.redraw(self, 0)
 
 ## 动画播完不终止问题
 
-- **PositionWrapper / BubbleWrapper**：位移、淡入播完（progress 到 1）后每帧继续重绘一模一样的内容，隐藏后甚至每帧重绘一个空 Render；
-- **Slider**（设置页音量条）：`event()` 末尾无条件重绘，全屏任何鼠标移动都会重渲染它——而它的视觉只随 `setPercent` 变化，那里本来就有调度；
-- **PreviewSlowText**（文字速度预览的打字机）：打完了还在转，白白维持整个设置页的全速合成。
+- **PositionWrapper / BubbleWrapper**：位移、淡入播完（progress 到 1）后每帧继续重绘一模一样的内容
+- **Slider**（设置页音量条）：`event()` 末尾无条件重绘，全屏任何鼠标移动都会重渲染它
+- **PreviewSlowText**（文字速度预览的打字机）
 
 还有一个最隐蔽的：**Stress**（hover 展开的按钮框）。它的 hover/点击状态切换完全依赖"每帧重绘"才能被引擎发现，代码里任何地方都不主动调度。这种情况直接改成条件重绘会让动效直接失灵——得先在 `set_transform_event` 和点击事件处补上 `renpy.redraw()`，render 里才敢只在实际播动画时续期。
 
