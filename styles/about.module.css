@@ -57,6 +57,13 @@
   text-align: center;
 }
 
+.collaborationDescription {
+  font-size: 16px;
+  font-family: Misans;
+  line-height: 1.7;
+  text-align: center;
+}
+
 .contactList {
   display: flex;
   flex-direction: column;

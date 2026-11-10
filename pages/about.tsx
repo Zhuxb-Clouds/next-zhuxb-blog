@@ -29,6 +29,11 @@ export default function About() {
           {t("about.group1")} / {t("about.group2")}
         </p>
 
+        <section className={style.contactSection}>
+          <h2 className={style.contactTitle}>{t("about.collaboration")}</h2>
+          <p className={style.collaborationDescription}>{t("about.collaborationDescription")}</p>
+        </section>
+
         <div className={style.contactSection}>
           <h2 className={style.contactTitle}>{t("about.contact")}</h2>
           <div className={style.contactList}>
