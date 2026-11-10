@@ -1,0 +1,91 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.avatarContainer {
+  width: 120px;
+  height: 120px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid var(--post-bg-color);
+  box-shadow:
+    1.5px 1.1px 0.5px rgba(0, 0, 0, 0.011),
+    3.1px 2.2px 2.1px rgba(0, 0, 0, 0.013),
+    4.9px 3.6px 5.2px rgba(0, 0, 0, 0.015),
+    7.2px 5.3px 10.2px rgba(0, 0, 0, 0.016),
+    10.1px 7.4px 18px rgba(0, 0, 0, 0.018),
+    14.1px 10.4px 30.4px rgba(0, 0, 0, 0.021);
+}
+
+.name {
+  font-size: 28px;
+  font-family: "Afacad Flux";
+  font-weight: 900;
+  margin: 1.5rem 0 0.5rem;
+}
+
+.roles {
+  font-size: 16px;
+  font-family: Misans;
+  color: var(--secondary-text-color, #666);
+}
+
+.groups {
+  font-size: 14px;
+  font-family: Misans;
+  color: var(--secondary-text-color, #999);
+  margin: 0.5rem 0 0;
+}
+
+.contactSection {
+  width: 100%;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color, #eee);
+}
+
+.contactTitle {
+  font-size: 20px;
+  font-family: "Afacad Flux";
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  background: var(--card-bg, #f9f9f9);
+  transition: background 0.2s;
+}
+
+.contactItem:hover {
+  background: var(--card-hover-bg, #f0f0f0);
+}
+
+.contactLabel {
+  width: 10rem;
+  font-size: 14px;
+  font-family: Misans;
+  color: var(--secondary-text-color, #999);
+}
+
+.contactValue {
+  flex: 1;
+  font-size: 15px;
+  font-family: "Afacad Flux";
+  font-weight: 600;
+}

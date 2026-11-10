@@ -15,6 +15,11 @@ function Header() {
           <LanguageSwitch />
         </span>
       </div>
+      <nav className={styles.nav}>
+        <span>
+          <Link href="/about">{t("header.about")}</Link>
+        </span>
+      </nav>
     </header>
   );
 }

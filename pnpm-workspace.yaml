@@ -1,0 +1,5 @@
+# pnpm 11 起，依赖构建脚本白名单从 package.json 的 pnpm 字段迁移到本文件
+# https://pnpm.io/settings
+allowBuilds:
+  sharp: true
+  unrs-resolver: true

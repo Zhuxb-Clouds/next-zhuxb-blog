@@ -93,6 +93,13 @@ const homePage: NextPage<postsData> = ({ postsData }) => {
                 <Image src={MailPng} id="svg" alt="email" width={20} height={20}></Image>
               </a>
               <Link
+                href="/about"
+                title={t("header.about")}
+                style={{ fontSize: "18px", lineHeight: "20px" }}
+              >
+                👤
+              </Link>
+              <Link
                 href="/donate"
                 title="Buy Me A Coffee"
                 style={{ fontSize: "18px", lineHeight: "20px" }}
