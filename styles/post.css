@@ -263,6 +263,17 @@ h6 {
   /* 将80px替换为你的header高度 */
 }
 
+@media screen and (max-width: 800px) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    scroll-margin-top: 64px;
+  }
+}
+
 .icon-link {
   content: "link";
 }

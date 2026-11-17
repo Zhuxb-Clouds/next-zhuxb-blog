@@ -1,8 +1,10 @@
 .header {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   position: fixed;
   width: 100%;
+  height: 90px;
   padding: 20px 15%;
   top: 0;
   left: 0;
@@ -13,33 +15,52 @@
   transition: all 0.2s;
   font-family: "Lora";
   z-index: 2;
-  max-height: 90px;
 }
 
 .title {
+  flex: 1 1 auto;
+  min-width: 0;
   cursor: pointer;
   font-family: "Afacad Flux";
   font-weight: 900;
 }
 
-.header > div {
+.titleContent {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  min-width: 0;
+}
+
+.titleLink {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 36px;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
 }
 
 .nav {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  flex: 0 0 auto;
+  margin-left: 20px;
 }
 
-.nav > span {
+.nav > a {
+  display: block;
   font-size: 24px;
-  margin-left: 20px;
   cursor: pointer;
   transition: all 0.5s;
 }
 
-.nav > span:hover {
+.nav > a:hover {
   text-decoration: underline;
 }
 
@@ -65,20 +86,43 @@
   text-align: center;
 }
 
+.themeSwitch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 50px;
+  height: 50px;
+  margin: 0 10px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
 .svg {
+  width: 50px;
+  height: 50px;
   -webkit-user-drag: none;
   padding: 10px;
   position: relative;
-  margin: 0 10px;
   transform: scale(0.75);
-  cursor: pointer;
 }
+
 .langSwitch {
-  background: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  min-width: 32px;
+  min-height: 32px;
+  margin: 0;
+  padding: 4px;
   border: none;
+  background: none;
   color: var(--color);
   font-size: 14px;
-  padding: 0;
   cursor: pointer;
   font-family: "Lato", sans-serif;
   transition: all 0.2s;
@@ -90,6 +134,39 @@
 
 @media screen and (max-width: 800px) {
   .header {
-    padding-inline: 10%;
+    height: 64px;
+    padding: 8px 7.5vw;
+  }
+
+  .titleLink {
+    font-size: clamp(20px, 6vw, 28px);
+  }
+
+  .themeSwitch {
+    width: 36px;
+    height: 36px;
+    margin-inline: 2px;
+  }
+
+  .svg {
+    width: 36px;
+    height: 36px;
+    padding: 6px;
+    transform: none;
+  }
+
+  .langSwitch {
+    min-width: 32px;
+    min-height: 32px;
+    padding: 2px;
+    font-size: 12px;
+  }
+
+  .nav {
+    margin-left: clamp(6px, 2vw, 16px);
+  }
+
+  .nav > a {
+    font-size: clamp(16px, 4.5vw, 20px);
   }
 }

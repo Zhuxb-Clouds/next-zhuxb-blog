@@ -20,15 +20,21 @@ function DarkModeSwitch() {
   };
 
   return (
-    <Image
-      src={mode == "dark" ? SunIcon : MoonIcon}
-      alt=""
-      width={50}
-      height={50}
-      className={styles.svg}
+    <button
+      type="button"
+      className={styles.themeSwitch}
       onClick={switchMode}
-      style={{ fill: mode == "dark" ? "white" : "black" }}
-    ></Image>
+      aria-label="Toggle color theme"
+    >
+      <Image
+        src={mode == "dark" ? SunIcon : MoonIcon}
+        alt=""
+        width={50}
+        height={50}
+        className={styles.svg}
+        style={{ fill: mode == "dark" ? "white" : "black" }}
+      />
+    </button>
   );
 }
 

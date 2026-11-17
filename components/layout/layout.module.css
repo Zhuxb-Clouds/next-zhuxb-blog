@@ -16,7 +16,7 @@
 
 @media screen and (max-width: 800px) {
   .container {
-    top: 40px;
+    top: 64px;
   }
   .body{
     width: 85%;

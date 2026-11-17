@@ -9,16 +9,18 @@ function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.title}>
-        <span style={{ fontSize: "36px", display: "flex", alignItems: "center" }}>
-          <Link href="/">{t("header.title")}</Link>
-          <DarkModeSwitch />
-          <LanguageSwitch />
-        </span>
+        <div className={styles.titleContent}>
+          <Link className={styles.titleLink} href="/">
+            {t("header.title")}
+          </Link>
+          <div className={styles.controls}>
+            <DarkModeSwitch />
+            <LanguageSwitch />
+          </div>
+        </div>
       </div>
       <nav className={styles.nav}>
-        <span>
-          <Link href="/about">{t("header.about")}</Link>
-        </span>
+        <Link href="/about">{t("header.about")}</Link>
       </nav>
     </header>
   );
